@@ -18,8 +18,8 @@
   - Updated navbar box-shadows
 
 1.0.2:
-- Fixed typo in README.md and about.HTML
-- Removed left in code from testing Expression functionality in JS
+- Fixed typo in README.md and about.html
+- Removed code fragment left from Expression testing
 
 1.0.3:
 - Fixed Settings.setPhraseListsEnabledArrTo() reference to wrong map
@@ -60,3 +60,24 @@
 
 1.1.1:
 - Now using minified versions of the new phrase list files
+
+2.0:
+- Completely refactored all JS code - made optimizations, improved cleanliness, consistency, naming, structure, readability and maintainability
+- Completely redid tooltips, they are now clickable icons that expand a modal
+- Changed expression mode setting from buttons to dropdown box
+- Minor styling and layout changes to settings menu
+- Changed mistake analysis, details for each character can now be viewed by clicking on the character instead of hovering.
+  Details are now a section of their own, no longer a tooltip.
+  No longer a limit for how many incorrect characters are shown (thanks to the new character analysis area).
+- Changed expression cursor style
+- Updated README.md and the "About" page
+- Added null span to expression to improve cursor functionality
+- Minor styling changes for expression spans
+- Improved mobile navbar dropdown button
+- Changed keyboard visual styles
+- Changed footer order
+
+2.0.1:
+- Removed unused instant-death-buzzer.mp3
+- Removed unused internet-explorer.js
+- Updated your-statistics.html scripts

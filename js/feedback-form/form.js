@@ -4,7 +4,7 @@ message_textarea.addEventListener("input", () => {
   } characters left`;
 });
 
-// const feedbackFormSubmitEventCallback = () => {
+// const feedbackFormSubmitEventHandler = () => {
 //   alert("Thank you for feedback submission!");
 //   window.location = "index.html";
 // }

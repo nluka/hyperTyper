@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="css/common/internet-explorer-overlay.css" />
     <link rel="stylesheet" href="css/common/navbar.css" />
     <link rel="stylesheet" href="css/common/scrollbar.css" />
-    <link rel="stylesheet" href="css/common/container.css" />
+    <link rel="stylesheet" href="css/common/section.css" />
+    <link rel="stylesheet" href="css/common/panel.css" />
     <link rel="stylesheet" href="css/common/footer.css" />
 
     <!-- Specific stylesheets -->
@@ -26,11 +27,11 @@
     <script src="js/feedback-form/page-elements.js" defer></script>
 
     <!-- Common scripts -->
-    <script src="js/common/internet-explorer.js" defer></script>
-    <script src="js/common/navbar.js" defer></script>
+    <script src="js/common/Navbar.js" defer></script>
 
     <!-- Specific scripts -->
     <script src="js/feedback-form/form.js" defer></script>
+    <script src="js/feedback-form/main.js" defer></script>
 
   </head>
 
@@ -39,41 +40,35 @@
     <nav class="navbar">
       <div class="navbar-elements-container">
         <div class="site-name">hyperTyper</div>
-        <ul class="navbar-items-list collapsed" id="navbarItemsList">
-          <li class="navbar-item play">
-            <a href="index.html" class="navbar-link">Play</a>
+        <ul class="navbar-items-list" id="navbarItemsList" data-expanded="false">
+          <li class="navbar-item practice">
+            <a href="index.html" class="navbar-link">Practice</a>
           </li>
           <li class="navbar-item your-statistics">
-            <a href="your-statistics.html" class="navbar-link">
-              Your Statistics
-            </a>
+            <a href="your-statistics.html" class="navbar-link">Your Statistics</a>
           </li>
           <li class="navbar-item about">
             <a href="about.html" class="navbar-link about">About</a>
           </li>
         </ul>
-        <div class="expand-navbar-items-button" id="expandNavbarItemsButton">
-          <span class="expand-navbar-items-button-strip"></span>
-          <span class="expand-navbar-items-button-strip"></span>
-          <span class="expand-navbar-items-button-strip"></span>
+        <div id="expandNavbarItemsListButton">
+          <span class="expand-navbar-items-button-line"></span>
+          <span class="expand-navbar-items-button-line"></span>
         </div>
       </div>
     </nav>
 
     <main>
 
-      <section class="feedback-form-section first" id="formSection">
+      <section class="feedback-form-section" id="formSection">
 
-        <div class="container form-container">
+        <div class="panel form-panel">
 
-          <h2 class="container-heading feedback-form-heading">
-            Report Feedback
-          </h2>
-
+          <h2 class="panel-heading feedback-form-heading">Report Feedback</h2>
           <form
             enctype="text/plain"
             method="POST"
-            onsubmit="feedbackFormSubmitEventCallback"
+            onsubmit="feedbackFormSubmitEventHandler"
           >
             <label for="feedbackTypeSelect">Feedback Type (required)</label>
             <select
@@ -122,9 +117,9 @@
 
       </section>
 
-      <section class="feedback-form-disclaimer last">
+      <section class="feedback-form-disclaimer">
 
-        <div class="container feedback-form-disclaimer-container">
+        <div class="panel feedback-form-disclaimer-panel">
           <p>
             <strong>Note:</strong>
             This form is not functional yet, pressing 'submit feedback' will
@@ -140,33 +135,15 @@
     <footer class="footer">
       <div class="footer-elements-container">
         <div class="site-author">
-          <a
-            href="https://www.linkedin.com/in/nicholas-lukasevich/"
-            target="blank"
-            class="footer-link portfolio-link"
-          >
-            Nicholas Lukasevich
-          </a>
+          <a href="https://www.linkedin.com/in/nicholas-lukasevich/" target="blank" class="footer-link portfolio-link">Nicholas Lukasevich</a>
           <span class="site-year">— 2021</span>
         </div>
         <ul class="footer-link-list">
           <li class="footer-link-list-item">
-            <a
-              href="https://github.com/nluka/hyperTyper"
-              target="blank"
-              class="footer-link view-source-link"
-            >
-              View Source
-            </a>
+            <a href="feedback-form.html" target="blank" class="footer-link feedback-form-link current-page">Report Bug/Submit Feedback</a>
           </li>
           <li class="footer-link-list-item">
-            <a
-              href="feedback-form.html"
-              target="blank"
-              class="footer-link feedback-form-link current-page"
-            >
-              Report Bug/Submit Feedback
-            </a>
+            <a href="https://github.com/nluka/hyperTyper" target="blank" class="footer-link view-source-link">View Source</a>
           </li>
         </ul>
       </div>

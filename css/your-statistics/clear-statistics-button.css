@@ -11,11 +11,11 @@
   justify-content: center;
   max-width: 90%;
   padding: calc(var(--base-spacing) * 1) 0;
-  transition: background-color 0.2s;
-  -webkit-transition: background-color 0.2s;
-  -moz-transition: background-color 0.2s;
-  -ms-transition: background-color 0.2s;
-  -o-transition: background-color 0.2s;
+  transition: background-color 0.1s;
+  -webkit-transition: background-color 0.1s;
+  -moz-transition: background-color 0.1s;
+  -ms-transition: background-color 0.1s;
+  -o-transition: background-color 0.1s;
   user-select: none;
   width: 800px;
 }

@@ -18,43 +18,29 @@
 .switch-slider {
   background-color: var(--bg-color-quaternary);
   border: 1px solid var(--border-color-primary);
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
+  border-radius: 5px;
   bottom: 0;
   cursor: pointer;
   left: 0;
   position: absolute;
   right: 0;
   top: 0;
-  transition: 0.4s;
-  -webkit-transition: 0.4s;
-  -moz-transition: 0.4s;
-  -ms-transition: 0.4s;
-  -o-transition: 0.4s;
 }
 
 .switch-slider:before {
   background-color: white;
   border: none;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
+  border-radius: 25%;
   bottom: 1px;
   content: "";
   height: 14px;
   left: 1.25px;
   position: absolute;
-  transition: 0.4s;
-  -webkit-transition: 0.4s;
-  -moz-transition: 0.4s;
-  -ms-transition: 0.4s;
-  -o-transition: 0.4s;
   width: 14px;
+}
+
+.switch-slider, .switch-slider:before {
+  transition: 0.1s;
 }
 
 input:checked + .switch-slider {

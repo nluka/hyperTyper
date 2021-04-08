@@ -15,69 +15,81 @@
     <link rel="stylesheet" href="css/common/loading-overlay.css" />
     <link rel="stylesheet" href="css/common/navbar.css" />
     <link rel="stylesheet" href="css/common/scrollbar.css" />
-    <link rel="stylesheet" href="css/common/container.css" />
+    <link rel="stylesheet" href="css/common/section.css" />
+    <link rel="stylesheet" href="css/common/panel.css" />
     <link rel="stylesheet" href="css/common/table.css" />
     <link rel="stylesheet" href="css/common/tooltip.css" />
     <link rel="stylesheet" href="css/common/checkbox-input.css" />
+    <link rel="stylesheet" href="css/common/select.css" />
     <link rel="stylesheet" href="css/common/range-input.css" />
     <link rel="stylesheet" href="css/common/number-input.css" />
     <link rel="stylesheet" href="css/common/footer.css" />
 
     <!-- Specific stylesheets -->
-    <link rel="stylesheet" href="css/play/game.css" />
-    <link rel="stylesheet" href="css/play/visual-keyboard.css" />
-    <link rel="stylesheet" href="css/play/settings.css" />
-    <link rel="stylesheet" href="css/play/mistake-analysis.css" />
+    <link rel="stylesheet" href="css/practice/game-area.css" />
+    <link rel="stylesheet" href="css/practice/keyboard-visual.css" />
+    <link rel="stylesheet" href="css/practice/settings-menu.css" />
+    <link rel="stylesheet" href="css/practice/mistake-analyzer.css" />
 
     <!-- Page elements -->
     <script src="js/common/page-elements.js" defer></script>
-    <script src="js/play/page-elements.js" defer></script>
+    <script src="js/practice/page-elements.js" defer></script>
 
     <!-- Common scripts -->
-    <script src="js/common/internet-explorer.js" defer></script>
-    <script src="js/common/navbar.js" defer></script>
-    <script src="js/common/Loader.js" defer></script>
+    <script src="js/common/Navbar.js" defer></script>
+    <script src="js/common/PageLoader.js" defer></script>
     <script src="js/common/constants.js" defer></script>
     <script src="js/common/functions.js" defer></script>
-    <script src="js/common/UserStorage.js" defer></script>
+    <script src="js/common/ElementVisibility.js" defer></script>
+    <script src="js/common/ElementVisibilityStateStorage.js" defer></script>
+    <script src="js/common/StatisticsStorage.js" defer></script>
+    <script src="js/common/Tooltip.js" defer></script>
 
     <!-- Expression resources -->
-    <script src="js/play/expression-resources/quotes.min.js" defer></script>
-    <script src="js/play/expression-resources/english/common-english-words-list.min.js" defer></script>
-    <script src="js/play/expression-resources/english/random-english-words-list.min.js" defer></script>
-    <script src="js/play/expression-resources/numbers-symbols/numbers-list.js" defer></script>
-    <script src="js/play/expression-resources/numbers-symbols/symbols-list.min.js" defer></script>
-    <script src="js/play/expression-resources/general-programming/common-programming-keywords-list.min.js" defer></script>
-    <script src="js/play/expression-resources/general-programming/common-programming-operators-list.min.js" defer></script>
-    <script src="js/play/expression-resources/c/c-keywords-list.min.js" defer></script>
-    <script src="js/play/expression-resources/c/c-operators-list.min.js" defer></script>
-    <script src="js/play/expression-resources/cpp/cpp-keywords-list.min.js" defer></script>
-    <script src="js/play/expression-resources/cpp/cpp-operators-list.min.js" defer></script>
-    <script src="js/play/expression-resources/csharp/csharp-keywords-list.min.js" defer></script>
-    <script src="js/play/expression-resources/csharp/csharp-operators-list.min.js" defer></script>
-    <script src="js/play/expression-resources/html-css/css3-properties-list.min.js" defer></script>
-    <script src="js/play/expression-resources/html-css/html5-tags-list.min.js" defer></script>
-    <script src="js/play/expression-resources/java/java-keywords-list.min.js" defer></script>
-    <script src="js/play/expression-resources/java/java-operators-list.min.js" defer></script>
-    <script src="js/play/expression-resources/javascript/javascript-keywords-list.min.js" defer></script>
-    <script src="js/play/expression-resources/javascript/javascript-operators-list.min.js" defer></script>
-    <script src="js/play/expression-resources/python/python-keywords-list.min.js" defer></script>
-    <script src="js/play/expression-resources/python/python-operators-list.min.js" defer></script>
+    <script src="js/practice/expression-resources/local-quotes.min.js" defer></script>
+    <script src="js/practice/expression-resources/english/english-words-common.js" defer></script>
+    <script src="js/practice/expression-resources/english/english-words-random.js" defer></script>
+    <script src="js/practice/expression-resources/numbers-symbols/numbers.js" defer></script>
+    <script src="js/practice/expression-resources/numbers-symbols/symbols.min.js" defer></script>
+    <script src="js/practice/expression-resources/general-programming/programming-common-keywords.min.js" defer></script>
+    <script src="js/practice/expression-resources/general-programming/programming-common-operators.min.js" defer></script>
+    <script src="js/practice/expression-resources/c/c-keywords.min.js" defer></script>
+    <script src="js/practice/expression-resources/c/c-operators.min.js" defer></script>
+    <script src="js/practice/expression-resources/cpp/cpp-keywords.min.js" defer></script>
+    <script src="js/practice/expression-resources/cpp/cpp-operators.min.js" defer></script>
+    <script src="js/practice/expression-resources/csharp/csharp-keywords.min.js" defer></script>
+    <script src="js/practice/expression-resources/csharp/csharp-operators.min.js" defer></script>
+    <script src="js/practice/expression-resources/css-html/css3-properties.min.js" defer></script>
+    <script src="js/practice/expression-resources/css-html/html5-tags.min.js" defer></script>
+    <script src="js/practice/expression-resources/java/java-keywords.min.js" defer></script>
+    <script src="js/practice/expression-resources/java/java-operators.min.js" defer></script>
+    <script src="js/practice/expression-resources/javascript/javascript-keywords.min.js" defer></script>
+    <script src="js/practice/expression-resources/javascript/javascript-operators.min.js" defer></script>
+    <script src="js/practice/expression-resources/python/python-keywords.min.js" defer></script>
+    <script src="js/practice/expression-resources/python/python-operators.min.js" defer></script>
 
     <!-- Specific scripts -->
-    <script src="js/play/Settings.js" defer></script>
-    <script src="js/play/Sound.js" defer></script>
-    <script src="js/play/Expression.js" defer></script>
-    <script src="js/play/GameTimer.js" defer></script>
-    <script src="js/play/GameWpmTracker.js" defer></script>
-    <script src="js/play/GameActionButton.js" defer></script>
-    <script src="js/play/Game.js" defer></script>
-    <script src="js/play/VisualKeyboard.js" defer></script>
-    <script src="js/play/GameStatisticsTable.js" defer></script>
-    <script src="js/play/Mistakes.js" defer></script>
-    <script src="js/play/main.js" defer></script>
-    <script src="js/play/settings-listeners.js" defer></script>
-    <script src="js/play/container-content-visibility-button-listeners.js" defer></script>
+    <script src="js/practice/SettingsStorage.js" defer></script>
+    <script src="js/practice/Settings.js" defer></script>
+    <script src="js/practice/Sound.js" defer></script>
+    <script src="js/practice/GameTimer.js" defer></script>
+    <script src="js/practice/GameWpmTracker.js" defer></script>
+    <script src="js/practice/GameActionButton.js" defer></script>
+    <script src="js/practice/StringEditor.js" defer></script>
+    <script src="js/practice/Quote.js" defer></script>
+    <script src="js/practice/QuotableApi.js" defer></script>
+    <script src="js/practice/LocalQuote.js" defer></script>
+    <script src="js/practice/Phrase.js" defer></script>
+    <script src="js/practice/Expression.js" defer></script>
+    <script src="js/practice/GameInput.js" defer></script>
+    <script src="js/practice/KeyboardVisual.js" defer></script>
+    <script src="js/practice/SettingsMenu.js" defer></script>
+    <script src="js/practice/GameStatisticsTable.js" defer></script>
+    <script src="js/practice/MistakeAnalyzer.js" defer></script>
+    <script src="js/practice/GameArithmetic.js" defer></script>
+    <script src="js/practice/GameDirector.js" defer></script>
+    <script src="js/practice/tooltip-text.js" defer></script>
+    <script src="js/practice/main.js" defer></script>
 
   </head>
 
@@ -85,8 +97,8 @@
 
     <div class="loading-overlay" id="loaderOverlayDiv">
       <img
-        src="/gifs/gradient-loader-dark-bg.gif"
-        alt="Loading" id="loaderImg"
+        src="gifs/gradient-loader-dark-bg.gif"
+        alt="Loading..." id="loaderImg"
         width="100px"
         height="100px"
       />
@@ -95,60 +107,44 @@
     <nav class="navbar">
       <div class="navbar-elements-container">
         <div class="site-name" id="siteNameDiv">hyperTyper</div>
-        <ul class="navbar-items-list collapsed" id="navbarItemsList">
-          <li class="navbar-item play">
-            <a href="index.html" class="navbar-link current-page">Play</a>
+        <ul class="navbar-items-list" id="navbarItemsList" data-expanded="false">
+          <li class="navbar-item practice">
+            <a href="index.html" class="navbar-link current-page">Practice</a>
           </li>
           <li class="navbar-item your-statistics">
-            <a href="your-statistics.html" class="navbar-link">
-              Your Statistics
-            </a>
+            <a href="your-statistics.html" class="navbar-link">Your Statistics</a>
           </li>
           <li class="navbar-item about">
             <a href="about.html" class="navbar-link about">About</a>
           </li>
         </ul>
-        <div class="expand-navbar-items-button" id="expandNavbarItemsButton">
-          <span class="expand-navbar-items-button-strip"></span>
-          <span class="expand-navbar-items-button-strip"></span>
-          <span class="expand-navbar-items-button-strip"></span>
-        </div>
+        <button id="expandNavbarItemsListButton">
+          <span class="expand-navbar-items-button-line"></span>
+          <span class="expand-navbar-items-button-line"></span>
+        </button>
       </div>
     </nav>
 
     <main>
 
-      <section class="game-area first" id="gameSection">
+      <section class="game-area" id="gameSection">
 
-        <div class="container game-header-container">
+        <div class="panel game-header-panel">
           <div class="game-info-container">
-            <div class="tooltip-container">
-              <div class="game-timer" id="gameTimer">--:--</div>
-              <span class="tooltip-text">Game Timer</span>
-            </div>
-            <div class="tooltip-container">
-              <div class="dynamic-wpm-display" id="dynamicWpmDisplay">
-                — WPM
-              </div>
-              <span class="tooltip-text">
-                Gross WPM: ( Total Chars Typed ÷ 5 ) ÷ Minutes
-              </span>
+            <div id="gameTimerDiv">--:--</div>
+            <div class="item-and-tooltip-icon-container">
+              <div class="game-wpm-tracker" id="gameWpmTrackerDiv">— WPM</div>
+              <div class="tooltip-icon" id="gameWpmTrackerTooltipIconDiv">i</div>
             </div>
           </div>
-          <button class="game-action-button" id="gameActionButton">
-            Start
-          </button>
+          <button id="gameActionButton">Start</button>
         </div>
 
-        <div class="container game-container">
-          <div
-            class="expression"
-            id="expressionDiv"
-            >Click the Start button or select the box below and hit Enter to play.</div>
+        <div class="panel game-panel">
+          <div id="expressionDiv">Click the 'Start' button or click the input box below and press 'Enter' to start.</div>
           <input
             type="text"
-            class="player-text-input"
-            id="playerTextInput"
+            id="gameInput"
             autocomplete="off"
             autocorrect="off"
             autocapitalize="off"
@@ -156,8 +152,8 @@
           />
         </div>
 
-        <div class="visual-keyboard-container">
-          <div class="container visual-keyboard hidden" id="visualKeyboardDiv">
+        <div class="panel keyboard-visual-panel">
+          <div class="panel" id="keyboardVisualDiv" data-visible="false">
             <div class="general-keys-container">
               <div class="row">
                 <div
@@ -447,101 +443,20 @@
 
       <section class="settings">
 
-        <div class="container settings-container">
+        <div class="panel settings-panel">
 
-          <h2 class="container-heading settings-container-heading">
+          <h2 class="panel-heading settings-panel-heading">
             Settings
-            <button
-              class="container-content-visibility-button"
-              id="toggleViewSettingsButton"
-            >
-              Show
-            </button>
+            <button class="panel-content-visibility-button" id="toggleVisibilitySettingsMenuButton">Show</button>
           </h2>
 
-          <div class="settings-menu hidden" id="settingsMenuDiv">
-            <div class="general-settings-column">
+          <div class="settings-menu" id="settingsMenuDiv">
+            <div class="column-1">
 
               <div class="setting-category-heading">Gameplay</div>
               <div class="gameplay-settings">
 
-                <div class="setting-label-input-pair-container">
-                  <div class="tooltip-container">
-                    <label for="punctuationCheckbox"> Punctuation </label>
-                    <span class="tooltip-text">
-                      <strong>When on:</strong> expressions will be generated
-                      with sentences containing common punctuation characters
-                      and corresponding capitilization.
-                      <strong>When off:</strong> expressions will not contain
-                      any punctuation characters or capitilization, however
-                      punctuation from enabled phrase lists will still be
-                      added. Recommended to be disabled for phrases containing
-                      programming lists.
-                    </span>
-                  </div>
-                  <label class="switch">
-                    <input type="checkbox" id="punctuationCheckbox" checked />
-                    <span class="switch-slider"></span>
-                  </label>
-                </div>
-
-                <div class="setting-label-input-pair-container">
-                  <div class="tooltip-container">
-                    <label for="visualKeyboardCheckbox">
-                      Show Visual Keyboard
-                    </label>
-                    <span class="tooltip-text">
-                      <strong>When on:</strong> adds a visual keyboard
-                      underneath the input area that shows which keys are
-                      currently pressed. Not recommended on mobile or low spec
-                      devices.
-                    </span>
-                  </div>
-                  <label class="switch">
-                    <input type="checkbox" id="visualKeyboardCheckbox" />
-                    <span class="switch-slider"></span>
-                  </label>
-                </div>
-
-                <div class="setting-label-input-pair-container">
-                  <div class="tooltip-container">
-                    <label for="suddenDeathCheckbox">
-                      Sudden Death Mode
-                      <span class="tooltip-text">
-                        <strong>When on:</strong> making a mistake will
-                        disqualify and terminate the current game. Disqualified
-                        games don't count towards your statistics. Great for
-                        practicing typing accuracy.
-                      </span>
-                    </label>
-                  </div>
-                  <label class="switch">
-                    <input type="checkbox" id="suddenDeathCheckbox" />
-                    <span class="switch-slider"></span>
-                  </label>
-                </div>
-
-                <div class="setting-label-input-pair-container">
-                  <div class="tooltip-container">
-                    <label for="trackStatisticsCheckbox">
-                      Track Statistics
-                    </label>
-                    <span class="tooltip-text">
-                      <strong>When off:</strong> will prevent any WPM,
-                      accuracy, and participation statistics from being saved.
-                    </span>
-                  </div>
-                  <label class="switch">
-                    <input
-                      type="checkbox"
-                      id="trackStatisticsCheckbox"
-                      checked
-                    />
-                    <span class="switch-slider"></span>
-                  </label>
-                </div>
-
-                <div class="setting-label-input-pair-container">
+                <div class="setting-label-and-input-container">
                   <label for="countdownCheckbox">Countdown</label>
                   <label class="switch">
                     <input type="checkbox" id="countdownCheckbox" checked />
@@ -549,75 +464,322 @@
                   </label>
                 </div>
 
-              </div>
-
-              <div class="audio-settings-container">
-
-                <div class="setting-category-heading">Audio</div>
-                <div class="audio-settings">
-
-                  <div class="setting-label-input-pair-container">
-                    <label for="soundEnableSwitch">Play Sound Effects</label>
-                    <label class="switch">
-                      <input type="checkbox" id="soundEnableSwitch" checked />
-                      <span class="switch-slider"></span>
+                <div class="setting-label-and-input-container">
+                  <div class="item-and-tooltip-icon-container">
+                    <label for="expressionModeSelect">
+                      Expression Mode
                     </label>
+                    <div class="tooltip-icon" id="expressionModeTooltipIconDiv">i</div>
                   </div>
+                  <select name="expressionMode" id="expressionModeSelect">
+                    <option value="quote" selected>Quote</option>
+                    <option value="phrase">Phrase</option>
+                  </select>
+                </div>
 
-                  <div class="setting-label-input-pair-container">
-                    <label for="soundVolumeSwitch" class="for-range-input">
-                      Volume
-                    </label>
-                    <div class="range-input-container">
-                      <input
-                        type="range"
-                        class="range-input"
-                        id="soundVolumeRange"
-                        min="1"
-                        max="100"
-                        value="50"
-                      />
-                    </div>
+                <div class="setting-label-and-input-container">
+                  <div class="item-and-tooltip-icon-container">
+                    <label for="instantDeathCheckbox">Instant Death</label>
+                    <div class="tooltip-icon" id="instantDeathTooltipIconDiv">i</div>
                   </div>
+                  <label class="switch">
+                    <input type="checkbox" id="instantDeathCheckbox" />
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
 
+                <div class="setting-label-and-input-container">
+                  <div class="item-and-tooltip-icon-container">
+                    <label for="keyboardVisualCheckbox">Keyboard Visual</label>
+                    <div class="tooltip-icon" id="keyboardVisualTooltipIconDiv">i</div>
+                  </div>
+                  <label class="switch">
+                    <input type="checkbox" id="keyboardVisualCheckbox" />
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+
+                <div class="setting-label-and-input-container">
+                  <div class="item-and-tooltip-icon-container">
+                    <label for="punctuationCheckbox">Punctuation</label>
+                    <div class="tooltip-icon" id="punctuationTooltipIconDiv">i</div>
+                  </div>
+                  <label class="switch">
+                    <input type="checkbox" id="punctuationCheckbox" checked />
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+
+                <div class="setting-label-and-input-container">
+                  <div class="item-and-tooltip-icon-container">
+                    <label for="trackStatisticsCheckbox">Track Statistics</label>
+                    <div class="tooltip-icon" id="trackStatisticsTooltipIconDiv">i</div>
+                  </div>
+                  <label class="switch">
+                    <input type="checkbox" id="trackStatisticsCheckbox" checked />
+                    <span class="switch-slider"></span>
+                  </label>
                 </div>
 
               </div>
 
-              <!-- <button
-                class="restore-default-settings-button"
-                id="restoreDefaultSettingsButton"
-              >
-                Restore Defaults
-              </button> -->
+              <div class="setting-category-heading">Audio</div>
+              <div class="audio-settings">
+
+                <div class="setting-label-and-input-container">
+                  <label for="soundEffectsCheckbox">Play Sound Effects</label>
+                  <label class="switch">
+                    <input type="checkbox" id="soundEffectsCheckbox" checked />
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+
+                <div class="setting-label-and-input-container">
+                  <label for="soundVolumeRange" class="for-range-input">Volume</label>
+                  <div class="range-input-container">
+                    <input
+                      type="range"
+                      class="range-input"
+                      id="soundVolumeRange"
+                      min="1"
+                      max="100"
+                      value="50"
+                    />
+                  </div>
+                </div>
+
+              </div>
 
             </div>
 
-            <div class="expression-settings-column">
+            <div class="column-2">
 
-              <div class="expression-settings-container">
+              <div id="phraseSettingsContainerDiv">
 
-                <div class="setting-category-heading">Expression Mode</div>
-                <div class="expression-mode-settings">
-                  <button
-                    class="quote-mode-button on"
-                    id="quoteModeEnableButton"
-                  >
-                    Quote
-                  </button>
-                  <button
-                    class="phrase-mode-button"
-                    id="phraseModeEnableButton"
-                  >
-                    Phrase
-                  </button>
+                <div class="setting-category-heading phrase-settings-heading">Phrase</div>
+
+                <div class="setting-label-and-input-container phrase-item-collections">
+                  <div class="item-and-tooltip-icon-container phrase-item-collections">
+                    <div class="phrase-item-collections-container-heading">Item Collections</div>
+                    <div class="tooltip-icon" id="phraseItemCollectionsTooltipIconDiv">i</div>
+                  </div>
+
+                  <div class="phrase-item-collections-container">
+
+                    <div class="phrase-item-collection-subset-container english">
+                      <button
+                        class="phrase-item-collection-button"
+                        id="englishWordsCommonCollectionButton"
+                        disabled="true"
+                        data-active="false"
+                      >
+                        Common English Words
+                      </button>
+                      <button
+                        class="phrase-item-collection-button"
+                        id="englishWordsRandomCollectionButton"
+                        disabled="true"
+                        data-active="false"
+                      >
+                        Random English Words
+                      </button>
+                    </div>
+
+                    <hr class="phrase-item-collection-subset-separator" />
+
+                    <div class="phrase-item-collection-subset-container numbers-symbols">
+                      <button
+                        class="phrase-item-collection-button"
+                        id="numbersCollectionButton"
+                        disabled="true"
+                        data-active="false"
+                      >
+                        Numbers
+                      </button>
+                      <button
+                        class="phrase-item-collection-button"
+                        id="symbolsCollectionButton"
+                        disabled="true"
+                        data-active="false"
+                      >
+                        Symbols
+                      </button>
+                    </div>
+
+                    <hr class="phrase-item-collection-subset-separator" />
+
+                    <div class="phrase-item-collection-subset-container general-programming">
+                      <button
+                        class="phrase-item-collection-button"
+                        id="commonKeywordsCollectionButton"
+                        disabled="true"
+                        data-active="false"
+                      >
+                        Common Programming Keywords
+                      </button>
+                      <button
+                        class="phrase-item-collection-button"
+                        id="commonOperatorsCollectionButton"
+                        disabled="true"
+                        data-active="false"
+                      >
+                        Common Programming Operators
+                      </button>
+                    </div>
+
+                    <hr class="phrase-item-collection-subset-separator" />
+
+                    <!-- <div class="phrase-item-collection-subset-heading language-specific">Language Specific Lists:</div> -->
+                    <div class="phrase-item-collection-subset-container">
+                      <button
+                        class="phrase-item-collection-button"
+                        id="cKeywordsCollectionButton"
+                        disabled="true"
+                        data-active="false"
+                      >
+                        C Keywords
+                      </button>
+                      <button
+                        class="phrase-item-collection-button"
+                        id="cOperatorsCollectionButton"
+                        disabled="true"
+                        data-active="false"
+                      >
+                        C Operators
+                      </button>
+                    </div>
+
+                    <hr class="phrase-item-collection-subset-separator" />
+
+                    <div class="phrase-item-collection-subset-container">
+                      <button
+                        class="phrase-item-collection-button"
+                        id="cppKeywordsCollectionButton"
+                        disabled="true"
+                        data-active="false"
+                      >
+                        C++ Keywords
+                      </button>
+                      <button
+                        class="phrase-item-collection-button"
+                        id="cppOperatorsCollectionButton"
+                        disabled="true"
+                        data-active="false"
+                      >
+                        C++ Operators
+                      </button>
+                    </div>
+
+                    <hr class="phrase-item-collection-subset-separator" />
+
+                    <div class="phrase-item-collection-subset-container">
+                      <button
+                        class="phrase-item-collection-button"
+                        id="csharpKeywordsCollectionButton"
+                        disabled="true"
+                        data-active="false"
+                      >
+                        C# Keywords
+                      </button>
+                      <button
+                        class="phrase-item-collection-button"
+                        id="csharpOperatorsCollectionButton"
+                        disabled="true"
+                        data-active="false"
+                      >
+                        C# Operators
+                      </button>
+                    </div>
+
+                    <hr class="phrase-item-collection-subset-separator" />
+
+                    <div class="phrase-item-collection-subset-container">
+                      <button
+                        class="phrase-item-collection-button"
+                        id="css3PropertiesCollectionButton"
+                        disabled="true"
+                        data-active="false"
+                      >
+                        CSS3 Props
+                      </button>
+                      <button
+                        class="phrase-item-collection-button"
+                        id="html5TagsCollectionButton"
+                        disabled="true"
+                        data-active="false"
+                      >
+                        HTML5 Tags
+                      </button>
+                    </div>
+
+                    <hr class="phrase-item-collection-subset-separator" />
+
+                    <div class="phrase-item-collection-subset-container">
+                      <button
+                        class="phrase-item-collection-button"
+                        id="javaKeywordsCollectionButton"
+                        disabled="true"
+                        data-active="false"
+                      >
+                        Java Keywords
+                      </button>
+                      <button
+                        class="phrase-item-collection-button"
+                        id="javaOperatorsCollectionButton"
+                        disabled="true"
+                        data-active="false"
+                      >
+                        Java Operators
+                      </button>
+                    </div>
+
+                    <hr class="phrase-item-collection-subset-separator" />
+
+                    <div class="phrase-item-collection-subset-container">
+                      <button
+                        class="phrase-item-collection-button"
+                        id="javascriptKeywordsCollectionButton"
+                        disabled="true"
+                        data-active="false"
+                      >
+                        JS Keywords
+                      </button>
+                      <button
+                        class="phrase-item-collection-button"
+                        id="javascriptOperatorsCollectionButton"
+                        disabled="true"
+                        data-active="false"
+                      >
+                        JS Operators
+                      </button>
+                    </div>
+
+                    <hr class="phrase-item-collection-subset-separator" />
+
+                    <div class="phrase-item-collection-subset-container">
+                      <button
+                        class="phrase-item-collection-button"
+                        id="pythonKeywordsCollectionButton"
+                        disabled="true"
+                        data-active="false"
+                      >
+                        Python Keywords
+                      </button>
+                      <button
+                        class="phrase-item-collection-button"
+                        id="pythonOperatorsCollectionButton"
+                        disabled="true"
+                        data-active="false"
+                      >
+                        Python Operators
+                      </button>
+                    </div>
+                  </div>
                 </div>
 
-                <div class="setting-category-heading phrase-settings-heading">
-                  Phrase
-                </div>
-                <div class="setting-label-input-pair-container">
-                  <label for="phraseItemsNumberInput">Items</label>
+
+                <div class="setting-label-and-input-container">
+                  <label for="phraseItemsNumberInput">Item Count</label>
                   <input
                     type="number"
                     id="phraseItemsNumberInput"
@@ -625,205 +787,8 @@
                     max="100"
                     step="1"
                     value="25"
-                    disabled
+                    disabled="true"
                   />
-                </div>
-
-                <div class="phrase-lists-container">
-
-                  <div class="phrase-lists-subset-heading">English Lists:</div>
-                  <div class="phrase-lists-subset-container english">
-                    <button
-                      class="phrase-list-toggle-button on"
-                      id="commonEnglishWordsListToggleButton"
-                      disabled
-                    >
-                      Common Words
-                    </button>
-                    <button
-                      class="phrase-list-toggle-button on"
-                      id="randomEnglishWordsListToggleButton"
-                      disabled
-                    >
-                      Random Words
-                    </button>
-                  </div>
-
-                  <div class="phrase-lists-subset-heading">
-                    Numbers/Symbols Lists:
-                  </div>
-                  <div class="phrase-lists-subset-container numbers-symbols">
-                    <button
-                      class="phrase-list-toggle-button on"
-                      id="numbersListToggleButton"
-                      disabled
-                    >
-                      Numbers
-                    </button>
-                    <button
-                      class="phrase-list-toggle-button on"
-                      id="symbolsListToggleButton"
-                      disabled
-                    >
-                      Symbols
-                    </button>
-                  </div>
-
-                  <div class="phrase-lists-subset-heading">
-                    General Programming Lists:
-                  </div>
-                  <div class="phrase-lists-subset-container general-programming">
-                    <button
-                      class="phrase-list-toggle-button"
-                      id="commonProgrammingKeywordsListToggleButton"
-                      disabled
-                    >
-                      Keywords
-                    </button>
-                    <button
-                      class="phrase-list-toggle-button"
-                      id="commonProgrammingOperatorsListToggleButton"
-                      disabled
-                    >
-                      Operators
-                    </button>
-                  </div>
-
-                  <div class="phrase-lists-subset-heading language-specific">
-                    Language Specific Lists:
-                  </div>
-
-                  <div class="phrase-lists-subset-container">
-                    <button
-                      class="phrase-list-toggle-button"
-                      id="cProgrammingKeywordsListToggleButton"
-                      disabled
-                    >
-                      C Keywords
-                    </button>
-                    <button
-                      class="phrase-list-toggle-button"
-                      id="cProgrammingOperatorsListToggleButton"
-                      disabled
-                    >
-                      C Operators
-                    </button>
-                  </div>
-
-                  <hr class="programming-language-separator" />
-
-                  <div class="phrase-lists-subset-container">
-                    <button
-                      class="phrase-list-toggle-button"
-                      id="cppProgrammingKeywordsListToggleButton"
-                      disabled
-                    >
-                      C++ Keywords
-                    </button>
-                    <button
-                      class="phrase-list-toggle-button"
-                      id="cppProgrammingOperatorsListToggleButton"
-                      disabled
-                    >
-                      C++ Operators
-                    </button>
-                  </div>
-
-                  <hr class="programming-language-separator" />
-
-                  <div class="phrase-lists-subset-container">
-                    <button
-                      class="phrase-list-toggle-button"
-                      id="csharpProgrammingKeywordsListToggleButton"
-                      disabled
-                    >
-                      C# Keywords
-                    </button>
-                    <button
-                      class="phrase-list-toggle-button"
-                      id="csharpProgrammingOperatorsListToggleButton"
-                      disabled
-                    >
-                      C# Operators
-                    </button>
-                  </div>
-
-                  <hr class="programming-language-separator" />
-
-                  <div class="phrase-lists-subset-container">
-                    <button
-                      class="phrase-list-toggle-button"
-                      id="css3PropertiesListToggleButton"
-                      disabled
-                    >
-                      CSS3 Properties
-                    </button>
-                    <button
-                      class="phrase-list-toggle-button"
-                      id="html5TagsListToggleButton"
-                      disabled
-                    >
-                      HTML5 Tags
-                    </button>
-                  </div>
-
-                  <hr class="programming-language-separator" />
-
-                  <div class="phrase-lists-subset-container">
-                    <button
-                      class="phrase-list-toggle-button"
-                      id="javaProgrammingKeywordsListToggleButton"
-                      disabled
-                    >
-                      Java Keywords
-                    </button>
-                    <button
-                      class="phrase-list-toggle-button"
-                      id="javaProgrammingOperatorsListToggleButton"
-                      disabled
-                    >
-                      Java Operators
-                    </button>
-                  </div>
-
-                  <hr class="programming-language-separator" />
-
-                  <div class="phrase-lists-subset-container">
-                    <button
-                      class="phrase-list-toggle-button"
-                      id="javascriptProgrammingKeywordsListToggleButton"
-                      disabled
-                    >
-                      JS Keywords
-                    </button>
-                    <button
-                      class="phrase-list-toggle-button"
-                      id="javascriptProgrammingOperatorsListToggleButton"
-                      disabled
-                    >
-                      JS Operators
-                    </button>
-                  </div>
-
-                  <hr class="programming-language-separator" />
-
-                  <div class="phrase-lists-subset-container">
-                    <button
-                      class="phrase-list-toggle-button"
-                      id="pythonProgrammingKeywordsListToggleButton"
-                      disabled
-                    >
-                      Python Keywords
-                    </button>
-                    <button
-                      class="phrase-list-toggle-button"
-                      id="pythonProgrammingOperatorsListToggleButton"
-                      disabled
-                    >
-                      Python Operators
-                    </button>
-                  </div>
-
                 </div>
 
               </div>
@@ -838,71 +803,69 @@
 
       <section class="game-statistics">
 
-        <div class="container game-statistics-container">
+        <div class="panel game-statistics-panel">
 
-          <h2 class="container-heading">
+          <h2 class="panel-heading">
             Game Stats
             <button
-              class="container-content-visibility-button"
-              id="toggleViewGameStatisticsButton"
+              class="panel-content-visibility-button"
+              id="toggleVisibilityGameStatisticsTableButton"
             >
               Hide
             </button>
           </h2>
 
-          <table class="game-statistics-table" id="gameStatisticsTable">
-            <tr class="wpm-table-row first-row">
-              <th>
-                <div class="tooltip-container">
-                  Words Per Minute
-                  <span class="tooltip-text">
-                    Net WPM, calculated as: ( Text Length ÷ 5 ) ÷ Minutes
-                  </span>
-                </div>
-              </th>
-              <td id="wpmTableData">---</td>
-            </tr>
-            <tr class="accuracy-table-row">
-              <th>
-                <div class="tooltip-container">
-                  Accuracy
-                  <span class="tooltip-text">
-                    Calculated as: ( Text Length ÷ [ Text Length + Mistakes Made ] ) × 100%
-                  </span>
-                </div>
-              </th>
-              <td id="accuracyTableData">---</td>
-            </tr>
-            <tr class="text-length-table-row">
-              <th>Text Length (chars)</th>
-              <td id="textLengthCharsTableData">---</td>
-            </tr>
-            <tr class="time-elapsed-table-row">
-              <th>Time (seconds)</th>
-              <td id="timeElapsedTableData">---</td>
-            </tr>
+          <table id="gameStatisticsTable">
+            <tbody>
+              <tr>
+                <th>
+                  <div class="item-and-tooltip-icon-container">
+                    <div>Net Words Per Minute</div>
+                    <div class="tooltip-icon" id="wpmTooltipIconDiv">i</div>
+                  </div>
+                </th>
+                <td id="wpmTableData">···</td>
+              </tr>
+              <tr>
+                <th>
+                  <div class="item-and-tooltip-icon-container">
+                    <div>Accuracy</div>
+                    <div class="tooltip-icon" id="accuracyTooltipIconDiv">i</div>
+                  </div>
+                </th>
+                <td id="accuracyTableData">···</td>
+              </tr>
+              <tr>
+                <th>Text Length (chars)</th>
+                <td id="textLengthCharsTableData">···</td>
+              </tr>
+              <tr>
+                <th>Time (seconds)</th>
+                <td id="timeElapsedTableData">···</td>
+              </tr>
+            </tbody>
           </table>
 
         </div>
 
       </section>
 
-      <section class="mistake-analysis last">
+      <section class="mistake-analysis">
 
-        <div class="container mistake-analysis-container">
-          <h2 class="container-heading">
+        <div class="panel mistake-analysis-panel">
+          <h2 class="panel-heading">
             Mistakes
             <button
-              class="container-content-visibility-button"
-              id="toggleViewMistakeAnalysisButton"
+              class="panel-content-visibility-button"
+              id="toggleVisibilityMistakeAnalyzerButton"
             >
               Hide
             </button>
           </h2>
-          <div
-            class="analyzed-expression"
-            id="analyzedExpressionDiv"
-          >Complete a game to analyze mistakes.</div>
+          <div id="mistakeAnalyzerDiv">
+            <div id="analyzedExpressionDiv">Complete a game to analyze mistakes.</div>
+            <div id="characterAnalysisDiv" data-visible="false">You can do detailed mistake analysis here.</div>
+          </div>
         </div>
 
       </section>
@@ -912,33 +875,15 @@
     <footer class="footer">
       <div class="footer-elements-container">
         <div class="site-author">
-          <a
-            href="https://www.linkedin.com/in/nicholas-lukasevich/"
-            target="blank"
-            class="footer-link portfolio-link"
-          >
-            Nicholas Lukasevich
-          </a>
+          <a href="https://www.linkedin.com/in/nicholas-lukasevich/" target="blank" class="footer-link portfolio-link">Nicholas Lukasevich</a>
           <span class="site-year">— 2021</span>
         </div>
         <ul class="footer-link-list">
           <li class="footer-link-list-item">
-            <a
-              href="https://github.com/nluka/hyperTyper"
-              target="blank"
-              class="footer-link view-source-link"
-            >
-              View Source
-            </a>
+            <a href="feedback-form.html" target="blank" class="footer-link feedback-form-link">Report Bug/Submit Feedback</a>
           </li>
           <li class="footer-link-list-item">
-            <a
-              href="feedback-form.html"
-              target="blank"
-              class="footer-link feedback-form-link"
-            >
-              Report Bug/Submit Feedback
-            </a>
+            <a href="https://github.com/nluka/hyperTyper" target="blank" class="footer-link view-source-link">View Source</a>
           </li>
         </ul>
       </div>

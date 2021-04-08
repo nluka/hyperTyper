@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="css/common/internet-explorer-overlay.css" />
     <link rel="stylesheet" href="css/common/navbar.css" />
     <link rel="stylesheet" href="css/common/scrollbar.css" />
-    <link rel="stylesheet" href="css/common/container.css" />
+    <link rel="stylesheet" href="css/common/section.css" />
+    <link rel="stylesheet" href="css/common/panel.css" />
     <link rel="stylesheet" href="css/common/footer.css" />
 
     <!-- Specific stylesheets -->
@@ -22,11 +23,13 @@
 
     <!-- Page elements -->
     <script src="js/common/page-elements.js" defer></script>
-    <script src="js/about/page-elements.js" defer></script>
 
     <!-- Common scripts -->
-    <script src="js/common/internet-explorer.js" defer></script>
-    <script src="js/common/navbar.js" defer></script>
+    <script src="js/common/functions.js" defer></script>
+    <script src="js/common/Navbar.js" defer></script>
+
+    <!-- Specific scripts -->
+    <script src="js/about/main.js" defer></script>
 
   </head>
 
@@ -35,158 +38,88 @@
     <nav class="navbar">
       <div class="navbar-elements-container">
         <div class="site-name">hyperTyper</div>
-        <ul class="navbar-items-list collapsed" id="navbarItemsList">
-          <li class="navbar-item play">
-            <a href="index.html" class="navbar-link">Play</a>
+        <ul class="navbar-items-list" id="navbarItemsList" data-expanded="false">
+          <li class="navbar-item practice">
+            <a href="index.html" class="navbar-link">Practice</a>
           </li>
           <li class="navbar-item your-statistics">
-            <a href="your-statistics.html" class="navbar-link">
-              Your Statistics
-            </a>
+            <a href="your-statistics.html" class="navbar-link">Your Statistics</a>
           </li>
           <li class="navbar-item about">
-            <a href="about.html" class="navbar-link about current-page">
-              About
-            </a>
+            <a href="about.html" class="navbar-link about current-page">About</a>
           </li>
         </ul>
-        <div class="expand-navbar-items-button" id="expandNavbarItemsButton">
-          <span class="expand-navbar-items-button-strip"></span>
-          <span class="expand-navbar-items-button-strip"></span>
-          <span class="expand-navbar-items-button-strip"></span>
+        <div id="expandNavbarItemsListButton">
+          <span class="expand-navbar-items-button-line"></span>
+          <span class="expand-navbar-items-button-line"></span>
         </div>
       </div>
     </nav>
 
     <main>
 
-      <section
-        class="project-information first last"
-        id="projectInformationSection"
-      >
+      <section class="project-information" id="projectInformationSection">
 
-        <div class="container page-content">
+        <div class="panel page-content">
 
           <h1>Information about this project</h1>
           <hr />
 
+          <h2>Introduction</h2>
+          <p>
+            hyperTyper is a highly-customizable web application designed for practicing typing skills in a very comprehensive way. It is meant to improve upon popular platforms such as
+            <a href="https://play.typeracer.com/" target="blank">typeracer.com</a>,
+            <a href="https://www.keybr.com/" target="blank">keybr.com</a>,
+            <a href="https://10fastfingers.com/" target="blank">10fastfingers.com</a>, etc.
+            It takes inspiration from these platforms, makes changes and adds useful tools and features.
+            I designed this application to be the most effective way to practice typing skills for everyone, including programmers.
+            In my opinion, hyperTyper is a vast improvement to the aforementioned platforms and is thus my platform of choice for working on my typing skills.
+          </p>
+
           <h2>Purpose</h2>
           <p>
-            The purpose of this project was to learn <strong>HTML5</strong>,
-            <strong>CSS3</strong>, and <strong>JavaScript</strong>, as well as
-            gain some experience building a large project on my own - getting
-            out of "tutorial hell" as it's referred to. This project is entirely
-            my creation, and isn't based on tutorial projects.<br /><br />
-            This game/application is meant to be an alternative to popular
-            online platforms for practicing typing skills, such as
-            <a href="https://play.typeracer.com/" target="blank"
-              >typeracer.com</a
-            >, <a href="https://www.keybr.com/" target="blank">keybr.com</a>,
-            etc. his is not intended to be commercial software, but rather as a
-            resume project to demonstrate my knowledge and skills in the 3
-            aforementioned languages and my ability to plan, develop, and
-            maintain a large, real world application. I consider this project
-            unique because it addresses some gripes I had with popular platforms
-            that I used when deciding to learn 10 finger touch typing. I took
-            the features I liked from these platforms and made improvements in
-            areas that I felt were lacking. This is the app I use to continually
-            practice my typing speed, accuracy, and consistency.
+            The main purpose of this project was to learn web development with HTML5/CSS3/JavaScript and gain practical programming/development experience by building a large, real world project on my own - to get out of "tutorial hell".
+            This project is entirely my creation, and isn't based on tutorial projects.
           </p>
 
           <h2>What I Learned</h2>
           <ul>
-            <li>
-              Fundamentals of web development with <strong>HTML5</strong>,
-              <strong>CSS3</strong>, <strong>JavaScript (ES6)</strong>
-            </li>
-            <li>Interacting with and consuming an <strong>API</strong></li>
-            <li>
-              <strong>Finding, reading, understanding documentation</strong>
-              related to web development
-            </li>
-            <li>
-              Improved my <strong>troubleshooting and debugging skills</strong>
-            </li>
-            <li>
-              <strong>DOM traversal and manipulation</strong> (used extensively
-              throughout the project)
-            </li>
-            <li>
-              Basics of <strong>Regex</strong> (Regular Expression), and using
-              it in JS
-            </li>
-            <li><strong>JSON</strong></li>
+            <li>Fundamentals of web development with HTML5, CSS3, Javascript</li>
+            <li>Web design principles and how to apply them in an unconventional project</li>
+            <li>Refactoring, and the importance of writing clean code</li>
+            <li>API consumption with fetch</li>
+            <li>Using GitHub as a repository and a host platform</li>
+            <li>Finding, reading, understanding documentation related to web development</li>
+            <li>Asynchronous programming in JavaScript</li>
+            <li>DOM traversal and manipulation (used extensively throughout the project)</li>
+            <li>Debugging in the browser</li>
+            <li>Regular Expressions</li>
+            <li>JSON</li>
           </ul>
 
           <h2>Code and Style Conventions</h2>
           <p>
-            This project follows certain conventions, which are laid out in the
-            text files within the <strong>docs</strong> folder. This includes
-            the <strong>general-conventions.txt</strong>,
-            <strong>html-conventions.txt</strong>,
-            <strong>css-conventions.txt</strong>, and
-            <strong>js-conventions.txt</strong> files.
-          </p>
-
-          <h2>Terminology</h2>
-          <p>
-            This section will explain certain terminology in this project to
-            make it easier to understand the code.
-            <br /><br />
-            The term <i>phrase</i> refers to a randomly generated string that
-            can consists of random words, letters, numbers, and symbols with
-            spaces between them. These are called <i>items</i>. The user selects
-            what lists they want to include, and the phrase is generated with
-            random items from those selected lists. <br /><br />
-            The term <i>quote</i> refers to a literal quote with an author. This
-            project consumes the
-            <a href="https://github.com/lukePeavey/quotable">api.quotable.io</a>
-            API, and falls back to the quotes in
-            <strong>/js/play/expression-resources/quotes.js</strong> if the API
-            cannot be consumed. Quotes in <strong>quotes.js</strong> are stored
-            as objects with a <strong>"text"</strong> key that holds the quote
-            itself as a string, and an <strong>"author"</strong> key which holds
-            the author's name as a string.<br /><br />
-            The term <i>expression</i> refers to the string of text that appears
-            on the page for the user to type. This expression can be either a
-            randomly generated phrase or a quote, which were discussed above. It
-            cannot be a mix of both, they are separate modes of play.
+            This project follows certain conventions, which are outlined out in the text files within /docs.
+            There is also a project lexicon there.
           </p>
 
           <h2>Compatibility</h2>
           <p>
-            This project was developed with the following browsers in mind (in
-            descending priority):
-            <br /><br />
-            <strong>Google Chrome</strong>, <strong>Safari</strong>,
-            <strong>Mozilla Firefox</strong>, <strong>Microsoft Edge</strong>,
-            <strong>Opera</strong>. <br /><br />
-            Functionality and compatibility will be optimized for Chrome, because
-            that is by far the most popular browser at the time of writing and
-            development, and it is the browser I use to develop in. However,
-            this project tries to ensure compatibility for the other
-            aforementioned browsers when possible, but this is not a guarantee.
-            For the best experience, Chrome should be used. Internet Explorer is
-            not supported because it lacks many CSS and JS features that this
-            project utilizes.
+            This project was developed with several modern browsers in mind, such as Google Chrome, Safari, Mozilla Firefox, Microsoft Edge, Opera.
+            I have tried to maximize compatibility across those browser, but this project was developed with Google Chrome (because of it's many useful features) and thus makes it the best browser in this regard.
+            Browsers running old versions of JavaScript (ES5 or older) are not supported.
           </p>
 
           <h2>Future</h2>
           <p>
-            As of now, this project is being actively updated and I am adding
-            new features, making improvements, and fixing bugs. To see my
-            future plans for this project, check
-            <strong>/docs/future-plans.txt</strong>.
+            This project is still being expanded and worked upon.
+            There are many plans for new features, as well as changes/improvements to existing ones.
+            To see what's in store, check out the <a href="https://trello.com/b/S7YE0keL" target="blank">Trello Board</a>.
           </p>
 
           <h2>Credit</h2>
           <span>favicon:</span>
-          <a
-            href="https://icons8.com/icon/HYW07SD04icQ/enter-key"
-            target="blank"
-          >
-            Enter Key icon by Icons8
-          </a>
+          <a href="https://icons8.com/icon/HYW07SD04icQ/enter-key" target="blank">Enter Key icon by Icons8</a>
 
         </div>
 
@@ -197,33 +130,15 @@
     <footer class="footer">
       <div class="footer-elements-container">
         <div class="site-author">
-          <a
-            href="https://www.linkedin.com/in/nicholas-lukasevich/"
-            target="blank"
-            class="footer-link portfolio-link"
-          >
-            Nicholas Lukasevich
-          </a>
+          <a href="https://www.linkedin.com/in/nicholas-lukasevich/" target="blank" class="footer-link portfolio-link">Nicholas Lukasevich</a>
           <span class="site-year">— 2021</span>
         </div>
         <ul class="footer-link-list">
           <li class="footer-link-list-item">
-            <a
-              href="https://github.com/nluka/hyperTyper"
-              target="blank"
-              class="footer-link view-source-link"
-            >
-              View Source
-            </a>
+            <a href="feedback-form.html" target="blank" class="footer-link feedback-form-link">Report Bug/Submit Feedback</a>
           </li>
           <li class="footer-link-list-item">
-            <a
-              href="feedback-form.html"
-              target="blank"
-              class="footer-link feedback-form-link"
-            >
-              Report Bug/Submit Feedback
-            </a>
+            <a href="https://github.com/nluka/hyperTyper" target="blank" class="footer-link view-source-link">View Source</a>
           </li>
         </ul>
       </div>

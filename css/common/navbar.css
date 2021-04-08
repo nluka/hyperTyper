@@ -5,7 +5,8 @@
 .navbar {
   align-items: center;
   background-color: var(--bg-color-secondary);
-  box-shadow: 0 0 1px 1px rgb(5, 5, 5);
+  border-bottom: 1px solid var(--border-color-secondary);
+  /* box-shadow: 0 0 1px 1px rgb(5, 5, 5); */
   display: flex;
   justify-content: center;
   left: 0;
@@ -13,7 +14,7 @@
   position: fixed;
   top: 0;
   width: 100vw;
-  z-index: 1001;
+  z-index: 100;
 }
 
 .navbar-elements-container {
@@ -42,66 +43,23 @@
   list-style: none;
 }
 
-.navbar-item.play,
+.navbar-item.practice,
 .navbar-item.your-statistics {
   margin-right: 25px;
 }
 
 .navbar-link {
   font-size: calc(var(--base-font-size) * 1);
+  user-select: none;
 }
 
-.expand-navbar-items-button {
+#expandNavbarItemsListButton {
+  background-color: transparent;
   display: none;
+  height: 30px;
+  padding: 0;
   position: relative;
-}
-
-.expand-navbar-items-button-strip {
-  background-color: rgb(155, 155, 155);
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  height: 14%;
-  margin: auto 0;
-  transition: transform 0.3s ease-out;
-  -webkit-transition: transform 0.3s ease-out;
-  -moz-transition: transform 0.3s ease-out;
-  -ms-transition: transform 0.3s ease-out;
-  -o-transition: transform 0.3s ease-out;
-  width: 100%;
-}
-
-.expand-navbar-items-button-strip:first-child.rotated,
-.expand-navbar-items-button-strip:last-child.rotated {
-  left: 0;
-  position: absolute;
-  top: 12px;
-  transform-origin: 50% 50%;
-  -webkit-transform-origin: 50% 50%;
-  -moz-transform-origin: 50% 50%;
-  -o-transform-origin: 50% 50%;
-}
-
-.expand-navbar-items-button-strip:first-child.rotated {
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-}
-
-.expand-navbar-items-button-strip:last-child.rotated {
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-}
-
-.expand-navbar-items-button-strip.rotated {
-  position: absolute;
+  width: 30px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -109,9 +67,49 @@
     --navbar-expandable-responsive-menu-height: calc(var(--base-spacing) * 14);
   }
 
+  .expand-navbar-items-button-line {
+    background-color: rgb(155, 155, 155);
+    border-radius: 5px;
+    height: 14%;
+    position: absolute;
+    transform-origin: center center;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    width: 100%;
+  }
+
+  .expand-navbar-items-button-line:first-child {
+    top: calc(50% - 7%);
+    /* transform: translate(0, -50%); */
+  }
+
+  .expand-navbar-items-button-line:last-child {
+    top: calc(50% - 7%);
+    transform: rotate(90deg);
+  }
+
+  .expand-navbar-items-button-line:first-child.rotated {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+  }
+
+  .expand-navbar-items-button-line:last-child.rotated {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+  }
+
   .navbar-items-list {
     background-color: var(--bg-color-tertiary);
-    box-shadow: 0 0 1px 1px rgb(5, 5, 5);
+    border: 1px solid var(--border-color-secondary);
     flex-direction: column;
     height: var(--navbar-expandable-responsive-menu-height);
     justify-content: space-evenly;
@@ -121,10 +119,10 @@
     position: absolute;
     top: var(--navbar-height);
     width: 100%;
-    z-index: 100000;
+    z-index: 100;
   }
 
-  .navbar-items-list.collapsed {
+  .navbar-items-list[data-expanded="false"] {
     display: none;
   }
 
@@ -139,7 +137,7 @@
     width: 100%;
   }
 
-  .navbar-item.play,
+  .navbar-item.practice,
   .navbar-item.your-statistics {
     margin-left: 0;
     margin-right: 0;
@@ -149,12 +147,15 @@
     font-size: 20px;
   }
 
-  .expand-navbar-items-button {
+  .navbar-link.current-page {
+    background-color: var(--bg-color-quaternary);
+    border-color: var(--border-color-primary);
+  }
+
+  #expandNavbarItemsListButton {
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    height: 40%;
-    width: 30px;
   }
 }
 

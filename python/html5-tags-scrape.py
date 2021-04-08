@@ -14,8 +14,8 @@ for index, td in enumerate(cells):
     if index % 2 == 0:
         openingTags.append(td.text)
 
-with open("../js/play/expression-resources/html-css/html5-tags-list.js", "w") as outfile:
-    outfile.write("const html5TagsList = [\n")
+with open("../js/practice/expression-resources/html-css/html5-tags-list.js", "w") as outfile:
+    outfile.write("const html5TagsCollection = [\n")
     for openingTag in openingTags:
         closingTag = "</" + openingTag.split("<")[1]
         outfile.write(f'  "{openingTag}","{closingTag}",\n')

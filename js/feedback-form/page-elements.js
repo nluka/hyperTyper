@@ -1,5 +1,4 @@
 // <form-section>
-const form_section = document.getElementById("formSection");
 const form = document.getElementsByTagName("form")[0];
 const feedbackType_select = document.getElementById("feedbackTypeSelect");
 const name_input = document.getElementById("nameinput");

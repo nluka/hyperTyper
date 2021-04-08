@@ -17,6 +17,7 @@ html {
 
   --border-color-primary: rgb(85, 85, 85);
   --border-color-secondary: rgb(45, 45, 45);
+  --border-color-tertiary: rgb(35, 35, 35);
 
   --font-color-primary: white;
   --font-color-secondary: rgb(230, 230, 230);
@@ -29,7 +30,7 @@ html {
   --green-dark: rgb(50, 100, 0);
 
   --font-family-primary: "Roboto", sans-serif;
-  --font-family-game: "Inconsolata", monospace, sans-serif;
+  --font-family-monospace: "Inconsolata", monospace, sans-serif;
 
   --page-max-width: 800px;
   --base-font-size: 1em;
@@ -108,12 +109,6 @@ body {
   width: 100vw;
 }
 
-/* @media only screen and (max-width: 750px) {
-  body {
-    min-height: calc(100vh + var(--footer-height-stacked));
-  }
-} */
-
 main,
 section {
   display: block;
@@ -131,11 +126,11 @@ a {
   padding: calc(var(--base-font-size) * 0.4);
   text-align: center;
   text-decoration: none;
-  transition: border-color 0.2s;
-  -webkit-transition: border-color 0.2s;
-  -moz-transition: border-color 0.2s;
-  -ms-transition: border-color 0.2s;
-  -o-transition: border-color 0.2s;
+  transition: border-color 0.1s;
+  -webkit-transition: border-color 0.1s;
+  -moz-transition: border-color 0.1s;
+  -ms-transition: border-color 0.1s;
+  -o-transition: border-color 0.1s;
 }
 
 a.current-page {
@@ -147,33 +142,31 @@ button {
   cursor: pointer;
   font-size: calc(var(--base-font-size) * 1);
   padding: calc(var(--base-spacing) * 0.5);
-  transition: background-color 0.2s;
-  -webkit-transition: background-color 0.2s;
-  -moz-transition: background-color 0.2s;
-  -ms-transition: background-color 0.2s;
-  -o-transition: background-color 0.2s;
+  transition: background-color 0.1s;
+  -webkit-transition: background-color 0.1s;
+  -moz-transition: background-color 0.1s;
+  -ms-transition: background-color 0.1s;
+  -o-transition: background-color 0.1s;
   user-select: none;
 }
 
 button,
 input {
   border: 1px solid transparent;
-  transition: opacity 0.2s linear;
-  -webkit-transition: opacity 0.2s linear;
-  -moz-transition: opacity 0.2s linear;
-  -ms-transition: opacity 0.2s linear;
-  -o-transition: opacity 0.2s linear;
+  transition: opacity 0.1s linear;
+  -webkit-transition: opacity 0.1s linear;
+  -moz-transition: opacity 0.1s linear;
+  -ms-transition: opacity 0.1s linear;
+  -o-transition: opacity 0.1s linear;
 }
 
-button:disabled,
-input[type="number"]:disabled {
-  background-color: transparent;
+button[disabled="true"],
+input[type="number"][disabled="true"] {
   cursor: not-allowed;
-  opacity: 0.25;
 }
 
-.hidden {
-  display: none !important;
+:is(div, table)[data-visible="false"] {
+  display: none;
 }
 
 .unselectable {

@@ -1,7 +1,7 @@
 The following are the style conventions for all HTML5 code in this project.
 ///////////////////////////////////////////////////////////////////////////////
 
-1. Use only lowercase letters for code. Uppercase is acceptable for content.
+1. Use only lowercase letters for markup. Uppercase is acceptable for content.
 
 2. Always add quotes around attribute values.
 
@@ -9,7 +9,7 @@ The following are the style conventions for all HTML5 code in this project.
 
 4. Avoid using spaces around equal signs.
 
-5. For readability, add blank lines to separate large or logical code blocks.
+5. For readability, add blank lines to separate large or logical markup blocks.
 
 6. To improve compatibility with browsers, do not omit elements just because
 they are implied or the default value for one browser works.
@@ -31,11 +31,13 @@ instead of being placed at the bottom of the <body> tag.
   for example:
 
   id="toggleButton"
-  id="playerText_input"
+  id="playerTextInput"
+  id="expressionDiv"
 
 12. Empty elements should be closed.
 
   for example:
 
-  instead of <meta charset="utf-8">
-  do <meta charset="utf-8" />
+  <meta charset="utf-8">
+    should instead be
+  <meta charset="utf-8" />

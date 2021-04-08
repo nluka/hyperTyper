@@ -15,7 +15,7 @@
   padding: 0 5%;
   position: absolute;
   width: 100%;
-  z-index: 1001;
+  z-index: 100;
 }
 
 .footer-elements-container {
@@ -34,6 +34,7 @@
 
 .site-year {
   font-size: calc(var(--base-font-size) * 1);
+  user-select: none;
 }
 
 .footer-link-list {
@@ -55,21 +56,22 @@
   display: flex;
   font-size: calc(var(--base-font-size) * 1);
   justify-content: center;
+  user-select: none;
 }
 
 a.portfolio-link {
   padding: calc(var(--base-spacing) * 0.3);
 }
 
+a.feedback-form-link {
+  margin-right: calc(var(--base-spacing) * 1);
+}
+
 a.portfolio-link:hover {
   background-color: transparent;
 }
 
-.view-source-link {
-  margin: 0 calc(var(--base-spacing) * 1) 0 0;
-}
-
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 650px) {
   .footer {
     height: var(--footer-height-stacked); /* For firefox */
     height: fit-content;
@@ -79,14 +81,16 @@ a.portfolio-link:hover {
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
-    padding: 10px;
+    padding: 10px 0;
   }
 
   .footer-link-list {
+    align-items: center;
     flex-direction: column;
+    margin: 0;
   }
 
-  .footer-link {
+  a.footer-link {
     margin: 0;
   }
 }

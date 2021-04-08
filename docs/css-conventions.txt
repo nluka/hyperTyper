@@ -6,8 +6,6 @@ order. Vendor prefixes should follow the standard properties they relate to.
 
   for example:
 
-  // THE CORRECT WAY WOULD BE:
-
   .some-element {
     align-items: center;
     appearance: none;

@@ -10,11 +10,11 @@ input[type="range"] {
   -webkit-appearance: none;
   background-color: var(--green-dark);
   border: 1px solid transparent;
-  border-radius: 2.5px;
-  -webkit-border-radius: 2.5px;
-  -moz-border-radius: 2.5px;
-  -ms-border-radius: 2.5px;
-  -o-border-radius: 2.5px;
+  border-radius: 1.25px;
+  -webkit-border-radius: 1.25px;
+  -moz-border-radius: 1.25px;
+  -ms-border-radius: 1.25px;
+  -o-border-radius: 1.25px;
   cursor: pointer;
   height: 5px;
   position: relative;
@@ -42,11 +42,11 @@ input[type="range"]::-webkit-slider-thumb {
   appearance: none;
   -webkit-appearance: none;
   background-color: white;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
+  border-radius: 25%;
+  -webkit-border-radius: 25%;
   height: 14px;
   margin: 5px 0;
-  width: 14px;
+  width: 7px;
   z-index: 1000;
 }
 
@@ -55,8 +55,8 @@ input[type="range"]::-moz-range-thumb {
   -moz-appearance: none;
   background-color: white;
   border: none;
-  border-radius: 50%;
-  -moz-border-radius: 50%;
+  border-radius: 25%;
+  -moz-border-radius: 25%;
   height: 14px;
-  width: 14px;
+  width: 7px;
 }
