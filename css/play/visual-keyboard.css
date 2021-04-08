@@ -3,7 +3,7 @@
   border: none;
   height: 273px;
   max-height: 273px;
-  max-width: 89%;
+  max-width: 800px;
   overflow: auto;
   padding-bottom: 5px;
   resize: both;
@@ -50,6 +50,7 @@
   font-weight: 500;
   justify-content: space-between;
   padding: 4px;
+  user-select: none;
 }
 
 .square-key.blank, .rect-key.blank {
@@ -142,4 +143,10 @@
 
 [data-function-key] .second-label, .backspace-key {
   font-size: calc(var(--base-font-size) * 1.3);
+}
+
+@media only screen and (max-width: 800px) {
+  .visual-keyboard {
+    max-width: 89%;
+  }
 }

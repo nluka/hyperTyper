@@ -1,6 +1,6 @@
 class Loader {
   constructor() {
-    this._element = document.getElementById("loadingScreenDiv");
+    this._element = document.getElementById("loadingOverlayDiv");
     this.intervalId = null;
     this.loaderStep = 0;
     //console.log("Loader object instantiated");

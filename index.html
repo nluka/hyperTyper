@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="css/common/general-styles.css" />
     <link rel="stylesheet" href="css/common/internet-explorer-overlay.css" />
-    <link rel="stylesheet" href="css/common/loading-screen.css" />
+    <link rel="stylesheet" href="css/common/loading-overlay.css" />
     <link rel="stylesheet" href="css/common/navbar.css" />
     <link rel="stylesheet" href="css/common/scrollbar.css" />
     <link rel="stylesheet" href="css/common/container.css" />
@@ -33,23 +33,23 @@
     <script src="js/common/functions.js" defer></script>
     <script src="js/common/UserStorage.js" defer></script>
 
-    <script src="js/play/expression-resources/quotes.js" defer></script>
+    <script src="js/play/expression-resources/quotes.min.js" defer></script>
     <script
-      src="js/play/expression-resources/common-english-words-list.js"
+      src="js/play/expression-resources/common-english-words-list.min.js"
       defer
     ></script>
     <script
-      src="js/play/expression-resources/random-english-words-list.js"
+      src="js/play/expression-resources/random-english-words-list.min.js"
       defer
     ></script>
     <script src="js/play/expression-resources/numbers-list.js" defer></script>
-    <script src="js/play/expression-resources/symbols-list.js" defer></script>
+    <script src="js/play/expression-resources/symbols-list.min.js" defer></script>
     <script
-      src="js/play/expression-resources/common-programming-keywords-list.js"
+      src="js/play/expression-resources/common-programming-keywords-list.min.js"
       defer
     ></script>
     <script
-      src="js/play/expression-resources/common-programming-operators-list.js"
+      src="js/play/expression-resources/common-programming-operators-list.min.js"
       defer
     ></script>
 
@@ -80,7 +80,7 @@
   </head>
 
   <body>
-    <div class="loading-screen" id="loadingScreenDiv">Loading</div>
+    <div class="loading-overlay" id="loadingOverlayDiv">Loading</div>
 
     <nav class="navbar">
       <div class="navbar-elements-container">
@@ -445,7 +445,8 @@
                     <label for="punctuationCheckbox"> Punctuation </label>
                     <span class="tooltip-text">
                       Sentences with punctuation and their accompanying
-                      capitalizations
+                      capitalizations. Not recommended for phrases with
+                      programming lists.
                     </span>
                   </div>
                   <label class="switch">

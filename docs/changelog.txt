@@ -23,3 +23,9 @@
 
 1.0.3:
 - Fixed Settings.setPhraseListsEnabledArrTo() reference to wrong map
+
+1.0.4:
+- Changed some identifiers
+- Predefined expression resources are now minified
+- Visual keyboard width now resizes correctly
+- Added IE incompatibility overlay for all pages

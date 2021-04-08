@@ -1,5 +1,4 @@
 const DEFAULT_EXPRESSION_TEXT_CONTENT = expression_div.innerText;
-
 const pageLoader = new Loader();
 const userStorage = new UserStorage();
 const settings = new Settings();
@@ -60,8 +59,8 @@ const runGame = async () => {
   } else if (settings.expressionMode === "phrase") {
     if (settings.phraseListsEnabledArr.length <= 0) {
       //console.log(
-        //"Settings.phraseListsEnabledArr.length =",
-        //settings.phraseListsEnabledArr.length
+      //"Settings.phraseListsEnabledArr.length =",
+      //settings.phraseListsEnabledArr.length
       //);
       alert(
         "'Expression mode' is set to 'Phrase' but no phrase lists are enabled.\nPlease select at least 1 phrase list from 'Settings > Phrase'"
@@ -75,7 +74,7 @@ const runGame = async () => {
     //console.log(
     //  "> settings.expression mode not valid, returning from runGame()"
     //);
-    preventGameStart();
+    revertGameStart();
     return;
   }
 
@@ -110,7 +109,7 @@ const runGame = async () => {
   gameActionButton.enableAbortState();
 };
 
-const preventGameStart = () => {
+const revertGameStart = () => {
   _body.addEventListener("keydown", keydownEventCallback);
   gameActionButton.enableStartState();
   expression.clearLoadingState();
