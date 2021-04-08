@@ -105,6 +105,8 @@ class Game {
     let hasTheFirstNullCharBeenMarked = false;
     let numOfMistakesInBuffer = 0;
 
+    /* loop through every span tag whose state could have changed from the last
+     * time this method was called */
     for (
       let i = this.input.completedChars.length;
       i <=
@@ -118,6 +120,7 @@ class Game {
         inputElementChars[i - this.input.completedChars.length];
 
       if (correspondingInputChar == null) {
+
         expression.removeAllSpanStyles(char_span);
         if (char_span.classList.contains("mistake")) {
           expression.removeMistakeLabelFromSpan(char_span);
@@ -126,16 +129,24 @@ class Game {
           expression.styleSpanAsCurrentChar(char_span);
           hasTheFirstNullCharBeenMarked = true;
         }
+
       } else if (correspondingInputChar !== char_span.innerText) {
+
         numOfMistakesInBuffer++;
         expression.unstyleSpanAsCurrentChar(char_span);
         expression.styleSpanAsIncorrectChar(char_span);
         if (!char_span.classList.contains("mistake")) {
           expression.labelSpanAsMistake(char_span);
           this.input.numOfMistakesMade++;
+          const prevCharsTypedArray = mistakeAnalysis.userErrorsMap.get(i).charsTyped;
+          let newCharsTypedArray = prevCharsTypedArray;
+          newCharsTypedArray.push(correspondingInputChar);
           mistakeAnalysis.userErrorsMap.set(
             i,
-            mistakeAnalysis.userErrorsMap.get(i) + 1
+            {
+              errorCount: mistakeAnalysis.userErrorsMap.get(i).errorCount + 1,
+              charsTyped: newCharsTypedArray
+            }
           );
         }
         if (settings.isSuddenDeathEnabled) {
@@ -144,8 +155,11 @@ class Game {
           endGame("killed");
           return;
         }
+
       } else if (correspondingInputChar === char_span.innerText) {
+
         expression.styleSpanAsCorrectChar(char_span);
+
       }
     }
 
@@ -171,26 +185,10 @@ class Game {
           this.input.completedChars.push(char);
         });
         this.input_element.value = "";
-        console.log(this.input.completedChars);
+        // console.log(this.input.completedChars);
         if (!hasTheFirstNullCharBeenMarked) endGame("completed");
       }
     }
-
-    // if (
-    //   inputElementChars[inputElementChars.length - 1] === " " &&
-    //   numOfMistakesInBuffer === 0
-    // ) {
-    //   inputElementChars.forEach(char => {
-    //   this.input.completedChars.push(char);
-    // });
-    //   this.input_element.value = "";
-    // } else if (numOfMistakesInBuffer === 0 && !hasTheFirstNullCharBeenMarked) {
-    //   for (let i = 0; i < inputElementChars.length; i++) {
-    //     this.input.completedChars.push(inputElementChars[i]);
-    //   }
-    //   this.input_element.value = "";
-    //   endGame("completed");
-    // }
   }
 
   markInputElementAsIncorrect() {

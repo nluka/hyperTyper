@@ -46,7 +46,7 @@ label:not(.for-range-input) {
 .phrase-list-category-heading {
   color: var(--font-color-secondary);
   font-size: calc(var(--base-font-size) * 1.2);
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 .expression-mode-settings button {

@@ -1,0 +1,7 @@
+- Improve loading overlay aesthetics
+- Alert the user the first time they have punctuation and any programming list enabled simultaneously
+- Add more programming lists for phrases (also make the expression settings column scrollable to avoid them making the settings menu too tall)
+- Expand your statistics page to group results based on expression mode and specific lists
+- Improve tooltip UX on mobile
+- Add error page for incompatible browsers (will require some code changes as well)
+- Implement feedback form

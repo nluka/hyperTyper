@@ -29,3 +29,10 @@
 - Predefined expression resources are now minified
 - Visual keyboard width now resizes correctly
 - Added IE incompatibility overlay for all pages
+
+1.0.5:
+- Changed some styling
+- Feedback form file upload now allows multiple files
+- Added some attributes to game input element to improve UX
+- Removed console logging of completed characters
+- Mistake analysis now shows what character was typed for the first 3 errors
