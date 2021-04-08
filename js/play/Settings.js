@@ -41,11 +41,11 @@ class Settings {
   setPhraseListsEnabledArrTo(parentArray) {
     let newArray = [];
     parentArray.forEach((childArray) => {
-      const indexOfArray = Object.values(this.wordListNameToArrayMap).indexOf(
+      const indexOfArray = Object.values(wordListNameToArrayMap).indexOf(
         childArray
       );
       if (indexOfArray > -1) {
-        newArray.push(Object.keys(this.wordListNameToArrayMap)[indexOfArray]);
+        newArray.push(Object.keys(wordListNameToArrayMap)[indexOfArray]);
       }
     });
     localStorage.setItem("phraseListsEnabledArr", JSON.stringify(newArray));

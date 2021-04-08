@@ -14,10 +14,10 @@ const addEventListenerForPhraseListButton = (element_button, wordList) => {
     }
     settings.setPhraseListsEnabledArrTo(settings.phraseListsEnabledArr);
     element_button.classList.toggle("on");
-    //console.log(
+    // console.log(
     //  "Settings.phraseListsEnabledArr =",
     //  settings.phraseListsEnabledArr
-    //);
+    // );
   });
 };
 

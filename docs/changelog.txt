@@ -20,3 +20,6 @@
 1.0.2:
 - Fixed typo in README.md and about.HTML
 - Removed left in code from testing Expression functionality in JS
+
+1.0.3:
+- Fixed Settings.setPhraseListsEnabledArrTo() reference to wrong map
