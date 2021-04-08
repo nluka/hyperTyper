@@ -1,11 +1,5 @@
-const pageLoader = new Loader();
+const pageLoader = new Loader(loaderOverlay_div, loader_img);
 const userStorage = new UserStorage();
-
-const loadingAnimationIntervalCallback = () => {
-  pageLoader.animateInnerText();
-};
-
-pageLoader.intervalId = setInterval(loadingAnimationIntervalCallback, 400);
 
 const playerTextInputDuringIdleCallback = () => {
   playerText_input.value = "";
@@ -19,8 +13,7 @@ const main = () => {
     const userChoice = confirm(
       "Are you sure you want to clear your statistics?\nThis cannot be undone."
     );
-    if (userChoice === true) {
-      // true means user pressed "OK"
+    if (userChoice === true) { // true means user pressed "OK"
       userStorage.removeStatisticialItemsFromStorage();
       userStorage.retrieveAllStatisticalValues();
       userStorage.renderAllStatisticalValues();

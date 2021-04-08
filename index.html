@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
   <head>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="icon" href="icons/enter-key.png" />
     <title>hyperTyper - Play</title>
 
+    <!-- Common stylesheets -->
     <link rel="stylesheet" href="css/common/general-styles.css" />
     <link rel="stylesheet" href="css/common/internet-explorer-overlay.css" />
     <link rel="stylesheet" href="css/common/loading-overlay.css" />
@@ -20,39 +23,48 @@
     <link rel="stylesheet" href="css/common/number-input.css" />
     <link rel="stylesheet" href="css/common/footer.css" />
 
+    <!-- Specific stylesheets -->
     <link rel="stylesheet" href="css/play/game.css" />
     <link rel="stylesheet" href="css/play/visual-keyboard.css" />
     <link rel="stylesheet" href="css/play/settings.css" />
     <link rel="stylesheet" href="css/play/mistake-analysis.css" />
 
+    <!-- Page elements -->
+    <script src="js/common/page-elements.js" defer></script>
     <script src="js/play/page-elements.js" defer></script>
+
+    <!-- Common scripts -->
     <script src="js/common/internet-explorer.js" defer></script>
-    <script src="js/play/navbar.js" defer></script>
+    <script src="js/common/navbar.js" defer></script>
     <script src="js/common/Loader.js" defer></script>
     <script src="js/common/constants.js" defer></script>
     <script src="js/common/functions.js" defer></script>
     <script src="js/common/UserStorage.js" defer></script>
 
+    <!-- Expression resources -->
     <script src="js/play/expression-resources/quotes.min.js" defer></script>
-    <script
-      src="js/play/expression-resources/common-english-words-list.min.js"
-      defer
-    ></script>
-    <script
-      src="js/play/expression-resources/random-english-words-list.min.js"
-      defer
-    ></script>
-    <script src="js/play/expression-resources/numbers-list.js" defer></script>
-    <script src="js/play/expression-resources/symbols-list.min.js" defer></script>
-    <script
-      src="js/play/expression-resources/common-programming-keywords-list.min.js"
-      defer
-    ></script>
-    <script
-      src="js/play/expression-resources/common-programming-operators-list.min.js"
-      defer
-    ></script>
+    <script src="js/play/expression-resources/english/common-english-words-list.min.js" defer></script>
+    <script src="js/play/expression-resources/english/random-english-words-list.min.js" defer></script>
+    <script src="js/play/expression-resources/numbers-symbols/numbers-list.js" defer></script>
+    <script src="js/play/expression-resources/numbers-symbols/symbols-list.min.js" defer></script>
+    <script src="js/play/expression-resources/general-programming/common-programming-keywords-list.min.js" defer></script>
+    <script src="js/play/expression-resources/general-programming/common-programming-operators-list.min.js" defer></script>
+    <script src="js/play/expression-resources/c/c-keywords-list.min.js" defer></script>
+    <script src="js/play/expression-resources/c/c-operators-list.min.js" defer></script>
+    <script src="js/play/expression-resources/cpp/cpp-keywords-list.min.js" defer></script>
+    <script src="js/play/expression-resources/cpp/cpp-operators-list.min.js" defer></script>
+    <script src="js/play/expression-resources/csharp/csharp-keywords-list.min.js" defer></script>
+    <script src="js/play/expression-resources/csharp/csharp-operators-list.min.js" defer></script>
+    <script src="js/play/expression-resources/html-css/css3-properties-list.min.js" defer></script>
+    <script src="js/play/expression-resources/html-css/html5-tags-list.min.js" defer></script>
+    <script src="js/play/expression-resources/java/java-keywords-list.min.js" defer></script>
+    <script src="js/play/expression-resources/java/java-operators-list.min.js" defer></script>
+    <script src="js/play/expression-resources/javascript/javascript-keywords-list.min.js" defer></script>
+    <script src="js/play/expression-resources/javascript/javascript-operators-list.min.js" defer></script>
+    <script src="js/play/expression-resources/python/python-keywords-list.min.js" defer></script>
+    <script src="js/play/expression-resources/python/python-operators-list.min.js" defer></script>
 
+    <!-- Specific scripts -->
     <script src="js/play/Settings.js" defer></script>
     <script src="js/play/Sound.js" defer></script>
     <script src="js/play/Expression.js" defer></script>
@@ -64,23 +76,21 @@
     <script src="js/play/GameStatisticsTable.js" defer></script>
     <script src="js/play/Mistakes.js" defer></script>
     <script src="js/play/main.js" defer></script>
+    <script src="js/play/settings-listeners.js" defer></script>
+    <script src="js/play/container-content-visibility-button-listeners.js" defer></script>
 
-    <script
-      src="js/play/gameplay-and-audio-settings-input-listeners.js"
-      defer
-    ></script>
-    <script
-      src="js/play/expression-mode-and-phrase-settings-input-listeners.js"
-      defer
-    ></script>
-    <script
-      src="js/play/panel-display-state-button-listeners.js"
-      defer
-    ></script>
   </head>
 
   <body>
-    <div class="loading-overlay" id="loadingOverlayDiv">Loading</div>
+
+    <div class="loading-overlay" id="loaderOverlayDiv">
+      <img
+        src="/gifs/gradient-loader-dark-bg.gif"
+        alt="Loading" id="loaderImg"
+        width="100px"
+        height="100px"
+      />
+    </div>
 
     <nav class="navbar">
       <div class="navbar-elements-container">
@@ -107,7 +117,9 @@
     </nav>
 
     <main>
+
       <section class="game-area first" id="gameSection">
+
         <div class="container game-header-container">
           <div class="game-info-container">
             <div class="tooltip-container">
@@ -129,7 +141,10 @@
         </div>
 
         <div class="container game-container">
-          <div class="expression" id="expressionDiv">Click the Start button or select the box below and hit Enter to play.</div>
+          <div
+            class="expression"
+            id="expressionDiv"
+            >Click the Start button or select the box below and hit Enter to play.</div>
           <input
             type="text"
             class="player-text-input"
@@ -141,313 +156,326 @@
           />
         </div>
 
-        <div class="container visual-keyboard hidden" id="visualKeyboardDiv">
-          <div class="general-keys-container">
-            <div class="row">
-              <div
-                class="square-key backquote-key"
-                id="backquoteKeyDiv"
-                data-symbol-key
-              >
-                <div class="first-label">~</div>
-                <div class="second-label">`</div>
+        <div class="visual-keyboard-container">
+          <div class="container visual-keyboard hidden" id="visualKeyboardDiv">
+            <div class="general-keys-container">
+              <div class="row">
+                <div
+                  class="square-key backquote-key"
+                  id="backquoteKeyDiv"
+                  data-symbol-key
+                >
+                  <div class="first-label">~</div>
+                  <div class="second-label">`</div>
+                </div>
+                <div class="square-key" id="digit1KeyDiv" data-digit-key>
+                  <div class="first-label">!</div>
+                  <div class="second-label">1</div>
+                </div>
+                <div class="square-key" id="digit2KeyDiv" data-digit-key>
+                  <div class="first-label">@</div>
+                  <div class="second-label">2</div>
+                </div>
+                <div class="square-key" id="digit3KeyDiv" data-digit-key>
+                  <div class="first-label">#</div>
+                  <div class="second-label">3</div>
+                </div>
+                <div class="square-key" id="digit4KeyDiv" data-digit-key>
+                  <div class="first-label">$</div>
+                  <div class="second-label">4</div>
+                </div>
+                <div class="square-key" id="digit5KeyDiv" data-digit-key>
+                  <div class="first-label">%</div>
+                  <div class="second-label">5</div>
+                </div>
+                <div class="square-key" id="digit6KeyDiv" data-digit-key>
+                  <div class="first-label">^</div>
+                  <div class="second-label">6</div>
+                </div>
+                <div class="square-key" id="digit7KeyDiv" data-digit-key>
+                  <div class="first-label">&</div>
+                  <div class="second-label">7</div>
+                </div>
+                <div class="square-key" id="digit8KeyDiv" data-digit-key>
+                  <div class="first-label">*</div>
+                  <div class="second-label">8</div>
+                </div>
+                <div class="square-key" id="digit9KeyDiv" data-digit-key>
+                  <div class="first-label">(</div>
+                  <div class="second-label">9</div>
+                </div>
+                <div class="square-key" id="digit0KeyDiv" data-digit-key>
+                  <div class="first-label">)</div>
+                  <div class="second-label">0</div>
+                </div>
+                <div class="square-key" id="minusKeyDiv" data-symbol-key>
+                  <div class="first-label">_</div>
+                  <div class="second-label">-</div>
+                </div>
+                <div class="square-key" id="equalKeyDiv" data-symbol-key>
+                  <div class="first-label">+</div>
+                  <div class="second-label">=</div>
+                </div>
+                <div
+                  class="rect-key backspace-key"
+                  id="backspaceKeyDiv"
+                  data-function-key
+                >
+                  <div class="first-label">⟵</div>
+                </div>
               </div>
-              <div class="square-key" id="digit1KeyDiv" data-digit-key>
-                <div class="first-label">!</div>
-                <div class="second-label">1</div>
+              <div class="row">
+                <div
+                  class="rect-key tab-key blank"
+                  id="tabKeyDiv"
+                  data-function-key
+                >
+                  <div class="first-label">Tab</div>
+                  <div class="second-label">⭾</div>
+                </div>
+                <div class="square-key" id="qKeyDiv">
+                  <div class="first-label">Q</div>
+                </div>
+                <div class="square-key" id="wKeyDiv">
+                  <div class="first-label">W</div>
+                </div>
+                <div class="square-key" id="eKeyDiv">
+                  <div class="first-label">E</div>
+                </div>
+                <div class="square-key" id="rKeyDiv">
+                  <div class="first-label">R</div>
+                </div>
+                <div class="square-key" id="tKeyDiv">
+                  <div class="first-label">T</div>
+                </div>
+                <div class="square-key" id="yKeyDiv">
+                  <div class="first-label">Y</div>
+                </div>
+                <div class="square-key" id="uKeyDiv">
+                  <div class="first-label">U</div>
+                </div>
+                <div class="square-key" id="iKeyDiv">
+                  <div class="first-label">I</div>
+                </div>
+                <div class="square-key" id="oKeyDiv">
+                  <div class="first-label">O</div>
+                </div>
+                <div class="square-key" id="pKeyDiv">
+                  <div class="first-label">P</div>
+                </div>
+                <div
+                  class="square-key"
+                  id="bracketLeftKeyDiv"
+                  data-symbol-key
+                  data-bracket-key
+                >
+                  <div class="first-label">{</div>
+                  <div class="second-label">[</div>
+                </div>
+                <div
+                  class="square-key"
+                  id="bracketRightKeyDiv"
+                  data-symbol-key
+                  data-bracket-key
+                >
+                  <div class="first-label">}</div>
+                  <div class="second-label">]</div>
+                </div>
+                <div
+                  class="rect-key backslash-key"
+                  id="backslashKeyDiv"
+                  data-symbol-key
+                >
+                  <div class="first-label">|</div>
+                  <div class="second-label">\</div>
+                </div>
               </div>
-              <div class="square-key" id="digit2KeyDiv" data-digit-key>
-                <div class="first-label">@</div>
-                <div class="second-label">2</div>
+              <div class="row">
+                <div
+                  class="rect-key caps-lock-key"
+                  id="capsLockKeyDiv"
+                  data-function-key
+                >
+                  <div class="first-label">Caps<br />Lock</div>
+                </div>
+                <div class="square-key" id="aKeyDiv">
+                  <div class="first-label">A</div>
+                </div>
+                <div class="square-key" id="sKeyDiv">
+                  <div class="first-label">S</div>
+                </div>
+                <div class="square-key" id="dKeyDiv">
+                  <div class="first-label">D</div>
+                </div>
+                <div class="square-key" id="fKeyDiv">
+                  <div class="first-label">F</div>
+                </div>
+                <div class="square-key" id="gKeyDiv">
+                  <div class="first-label">G</div>
+                </div>
+                <div class="square-key" id="hKeyDiv">
+                  <div class="first-label">H</div>
+                </div>
+                <div class="square-key" id="jKeyDiv">
+                  <div class="first-label">J</div>
+                </div>
+                <div class="square-key" id="kKeyDiv">
+                  <div class="first-label">K</div>
+                </div>
+                <div class="square-key" id="lKeyDiv">
+                  <div class="first-label">L</div>
+                </div>
+                <div class="square-key" id="semicolonKeyDiv" data-symbol-key>
+                  <div class="first-label">:</div>
+                  <div class="second-label">;</div>
+                </div>
+                <div class="square-key" id="quoteKeyDiv" data-symbol-key>
+                  <div class="first-label">"</div>
+                  <div class="second-label">'</div>
+                </div>
+                <div
+                  class="rect-key enter-key"
+                  id="enterKeyDiv"
+                  data-function-key
+                >
+                  <div class="first-label">Enter</div>
+                  <div class="second-label">↵</div>
+                </div>
               </div>
-              <div class="square-key" id="digit3KeyDiv" data-digit-key>
-                <div class="first-label">#</div>
-                <div class="second-label">3</div>
+              <div class="row">
+                <div
+                  class="rect-key shift-left-key"
+                  id="shiftLeftKeyDiv"
+                  data-function-key
+                >
+                  <div class="first-label">Shift</div>
+                  <div class="second-label">⇧</div>
+                </div>
+                <div class="square-key" id="zKeyDiv">
+                  <div class="first-label">Z</div>
+                </div>
+                <div class="square-key" id="xKeyDiv">
+                  <div class="first-label">X</div>
+                </div>
+                <div class="square-key" id="cKeyDiv">
+                  <div class="first-label">C</div>
+                </div>
+                <div class="square-key" id="vKeyDiv">
+                  <div class="first-label">V</div>
+                </div>
+                <div class="square-key" id="bKeyDiv">
+                  <div class="first-label">B</div>
+                </div>
+                <div class="square-key" id="nKeyDiv">
+                  <div class="first-label">N</div>
+                </div>
+                <div class="square-key" id="mKeyDiv">
+                  <div class="first-label">M</div>
+                </div>
+                <div class="square-key" id="commaKeyDiv" data-symbol-key>
+                  <div class="first-label"><</div>
+                  <div class="second-label">,</div>
+                </div>
+                <div class="square-key" id="periodKeyDiv" data-symbol-key>
+                  <div class="first-label">></div>
+                  <div class="second-label">.</div>
+                </div>
+                <div class="square-key" id="slashKeyDiv" data-symbol-key>
+                  <div class="first-label">?</div>
+                  <div class="second-label">/</div>
+                </div>
+                <div
+                  class="rect-key rightshift-key"
+                  id="shiftRightKeyDiv"
+                  data-function-key
+                >
+                  <div class="first-label">Shift</div>
+                  <div class="second-label">⇧</div>
+                </div>
               </div>
-              <div class="square-key" id="digit4KeyDiv" data-digit-key>
-                <div class="first-label">$</div>
-                <div class="second-label">4</div>
-              </div>
-              <div class="square-key" id="digit5KeyDiv" data-digit-key>
-                <div class="first-label">%</div>
-                <div class="second-label">5</div>
-              </div>
-              <div class="square-key" id="digit6KeyDiv" data-digit-key>
-                <div class="first-label">^</div>
-                <div class="second-label">6</div>
-              </div>
-              <div class="square-key" id="digit7KeyDiv" data-digit-key>
-                <div class="first-label">&</div>
-                <div class="second-label">7</div>
-              </div>
-              <div class="square-key" id="digit8KeyDiv" data-digit-key>
-                <div class="first-label">*</div>
-                <div class="second-label">8</div>
-              </div>
-              <div class="square-key" id="digit9KeyDiv" data-digit-key>
-                <div class="first-label">(</div>
-                <div class="second-label">9</div>
-              </div>
-              <div class="square-key" id="digit0KeyDiv" data-digit-key>
-                <div class="first-label">)</div>
-                <div class="second-label">0</div>
-              </div>
-              <div class="square-key" id="minusKeyDiv" data-symbol-key>
-                <div class="first-label">_</div>
-                <div class="second-label">-</div>
-              </div>
-              <div class="square-key" id="equalKeyDiv" data-symbol-key>
-                <div class="first-label">+</div>
-                <div class="second-label">=</div>
-              </div>
-              <div
-                class="rect-key backspace-key"
-                id="backspaceKeyDiv"
-                data-function-key
-              >
-                <div class="first-label">⟵</div>
-              </div>
-            </div>
-            <div class="row">
-              <div
-                class="rect-key tab-key blank"
-                id="tabKeyDiv"
-                data-function-key
-              >
-                <div class="first-label">Tab</div>
-                <div class="second-label">⭾</div>
-              </div>
-              <div class="square-key" id="qKeyDiv">
-                <div class="first-label">Q</div>
-              </div>
-              <div class="square-key" id="wKeyDiv">
-                <div class="first-label">W</div>
-              </div>
-              <div class="square-key" id="eKeyDiv">
-                <div class="first-label">E</div>
-              </div>
-              <div class="square-key" id="rKeyDiv">
-                <div class="first-label">R</div>
-              </div>
-              <div class="square-key" id="tKeyDiv">
-                <div class="first-label">T</div>
-              </div>
-              <div class="square-key" id="yKeyDiv">
-                <div class="first-label">Y</div>
-              </div>
-              <div class="square-key" id="uKeyDiv">
-                <div class="first-label">U</div>
-              </div>
-              <div class="square-key" id="iKeyDiv">
-                <div class="first-label">I</div>
-              </div>
-              <div class="square-key" id="oKeyDiv">
-                <div class="first-label">O</div>
-              </div>
-              <div class="square-key" id="pKeyDiv">
-                <div class="first-label">P</div>
-              </div>
-              <div
-                class="square-key"
-                id="bracketLeftKeyDiv"
-                data-symbol-key
-                data-bracket-key
-              >
-                <div class="first-label">{</div>
-                <div class="second-label">[</div>
-              </div>
-              <div
-                class="square-key"
-                id="bracketRightKeyDiv"
-                data-symbol-key
-                data-bracket-key
-              >
-                <div class="first-label">}</div>
-                <div class="second-label">]</div>
-              </div>
-              <div
-                class="rect-key backslash-key"
-                id="backslashKeyDiv"
-                data-symbol-key
-              >
-                <div class="first-label">|</div>
-                <div class="second-label">\</div>
-              </div>
-            </div>
-            <div class="row">
-              <div
-                class="rect-key caps-lock-key"
-                id="capsLockKeyDiv"
-                data-function-key
-              >
-                <div class="first-label">Caps<br />Lock</div>
-              </div>
-              <div class="square-key" id="aKeyDiv">
-                <div class="first-label">A</div>
-              </div>
-              <div class="square-key" id="sKeyDiv">
-                <div class="first-label">S</div>
-              </div>
-              <div class="square-key" id="dKeyDiv">
-                <div class="first-label">D</div>
-              </div>
-              <div class="square-key" id="fKeyDiv">
-                <div class="first-label">F</div>
-              </div>
-              <div class="square-key" id="gKeyDiv">
-                <div class="first-label">G</div>
-              </div>
-              <div class="square-key" id="hKeyDiv">
-                <div class="first-label">H</div>
-              </div>
-              <div class="square-key" id="jKeyDiv">
-                <div class="first-label">J</div>
-              </div>
-              <div class="square-key" id="kKeyDiv">
-                <div class="first-label">K</div>
-              </div>
-              <div class="square-key" id="lKeyDiv">
-                <div class="first-label">L</div>
-              </div>
-              <div class="square-key" id="semicolonKeyDiv" data-symbol-key>
-                <div class="first-label">:</div>
-                <div class="second-label">;</div>
-              </div>
-              <div class="square-key" id="quoteKeyDiv" data-symbol-key>
-                <div class="first-label">"</div>
-                <div class="second-label">'</div>
-              </div>
-              <div
-                class="rect-key enter-key"
-                id="enterKeyDiv"
-                data-function-key
-              >
-                <div class="first-label">Enter</div>
-                <div class="second-label">↵</div>
-              </div>
-            </div>
-            <div class="row">
-              <div
-                class="rect-key shift-left-key"
-                id="shiftLeftKeyDiv"
-                data-function-key
-              >
-                <div class="first-label">Shift</div>
-                <div class="second-label">⇧</div>
-              </div>
-              <div class="square-key" id="zKeyDiv">
-                <div class="first-label">Z</div>
-              </div>
-              <div class="square-key" id="xKeyDiv">
-                <div class="first-label">X</div>
-              </div>
-              <div class="square-key" id="cKeyDiv">
-                <div class="first-label">C</div>
-              </div>
-              <div class="square-key" id="vKeyDiv">
-                <div class="first-label">V</div>
-              </div>
-              <div class="square-key" id="bKeyDiv">
-                <div class="first-label">B</div>
-              </div>
-              <div class="square-key" id="nKeyDiv">
-                <div class="first-label">N</div>
-              </div>
-              <div class="square-key" id="mKeyDiv">
-                <div class="first-label">M</div>
-              </div>
-              <div class="square-key" id="commaKeyDiv" data-symbol-key>
-                <div class="first-label"><</div>
-                <div class="second-label">,</div>
-              </div>
-              <div class="square-key" id="periodKeyDiv" data-symbol-key>
-                <div class="first-label">></div>
-                <div class="second-label">.</div>
-              </div>
-              <div class="square-key" id="slashKeyDiv" data-symbol-key>
-                <div class="first-label">?</div>
-                <div class="second-label">/</div>
-              </div>
-              <div
-                class="rect-key rightshift-key"
-                id="shiftRightKeyDiv"
-                data-function-key
-              >
-                <div class="first-label">Shift</div>
-                <div class="second-label">⇧</div>
-              </div>
-            </div>
-            <div class="row">
-              <div
-                class="rect-key control-left-key"
-                id="controlLeftKeyDiv"
-                data-function-key
-              >
-                <div class="first-label">Ctrl</div>
-              </div>
-              <div class="square-key blank">
-                <div class="first-label"></div>
-              </div>
-              <div
-                class="rect-key alt-left-key"
-                id="altLeftKeyDiv"
-                data-function-key
-              >
-                <div class="first-label">Alt</div>
-              </div>
-              <div
-                class="rect-key space-key"
-                id="spaceKeyDiv"
-                data-function-key
-              >
-                <div class="first-label">Space</div>
-              </div>
-              <div
-                class="rect-key alt-right-key"
-                id="altRightKeyDiv"
-                data-function-key
-              >
-                <div class="first-label">Alt</div>
-              </div>
-              <div class="square-key blank">
-                <div class="first-label"></div>
-              </div>
-              <div class="square-key blank">
-                <div class="first-label"></div>
-              </div>
-              <div
-                class="rect-key control-right-key"
-                id="controlRightKeyDiv"
-                data-function-key
-              >
-                <div class="first-label">Ctrl</div>
+              <div class="row">
+                <div
+                  class="rect-key control-left-key"
+                  id="controlLeftKeyDiv"
+                  data-function-key
+                >
+                  <div class="first-label">Ctrl</div>
+                </div>
+                <div class="square-key blank">
+                  <div class="first-label"></div>
+                </div>
+                <div
+                  class="rect-key alt-left-key"
+                  id="altLeftKeyDiv"
+                  data-function-key
+                >
+                  <div class="first-label">Alt</div>
+                </div>
+                <div
+                  class="rect-key space-key"
+                  id="spaceKeyDiv"
+                  data-function-key
+                >
+                  <div class="first-label">Space</div>
+                </div>
+                <div
+                  class="rect-key alt-right-key"
+                  id="altRightKeyDiv"
+                  data-function-key
+                >
+                  <div class="first-label">Alt</div>
+                </div>
+                <div class="square-key blank">
+                  <div class="first-label"></div>
+                </div>
+                <div class="square-key blank">
+                  <div class="first-label"></div>
+                </div>
+                <div
+                  class="rect-key control-right-key"
+                  id="controlRightKeyDiv"
+                  data-function-key
+                >
+                  <div class="first-label">Ctrl</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
       </section>
 
       <section class="settings">
+
         <div class="container settings-container">
+
           <h2 class="container-heading settings-container-heading">
             Settings
             <button
-              class="toggle-visibility-button"
+              class="container-content-visibility-button"
               id="toggleViewSettingsButton"
             >
               Show
             </button>
           </h2>
+
           <div class="settings-menu hidden" id="settingsMenuDiv">
             <div class="general-settings-column">
+
               <div class="setting-category-heading">Gameplay</div>
               <div class="gameplay-settings">
+
                 <div class="setting-label-input-pair-container">
                   <div class="tooltip-container">
                     <label for="punctuationCheckbox"> Punctuation </label>
                     <span class="tooltip-text">
-                      Sentences with punctuation and their accompanying
-                      capitalizations. Not recommended for phrases with
+                      <strong>When on:</strong> expressions will be generated
+                      with sentences containing common punctuation characters
+                      and corresponding capitilization.
+                      <strong>When off:</strong> expressions will not contain
+                      any punctuation characters or capitilization, however
+                      punctuation from enabled phrase lists will still be
+                      added. Recommended to be disabled for phrases containing
                       programming lists.
                     </span>
                   </div>
@@ -456,13 +484,17 @@
                     <span class="switch-slider"></span>
                   </label>
                 </div>
+
                 <div class="setting-label-input-pair-container">
                   <div class="tooltip-container">
                     <label for="visualKeyboardCheckbox">
                       Show Visual Keyboard
                     </label>
                     <span class="tooltip-text">
-                      Not recommended on mobile or low spec devices
+                      <strong>When on:</strong> adds a visual keyboard
+                      underneath the input area that shows which keys are
+                      currently pressed. Not recommended on mobile or low spec
+                      devices.
                     </span>
                   </div>
                   <label class="switch">
@@ -470,12 +502,16 @@
                     <span class="switch-slider"></span>
                   </label>
                 </div>
+
                 <div class="setting-label-input-pair-container">
                   <div class="tooltip-container">
                     <label for="suddenDeathCheckbox">
                       Sudden Death Mode
                       <span class="tooltip-text">
-                        Disqualification upon making a mistake
+                        <strong>When on:</strong> making a mistake will
+                        disqualify and terminate the current game. Disqualified
+                        games don't count towards your statistics. Great for
+                        practicing typing accuracy.
                       </span>
                     </label>
                   </div>
@@ -484,13 +520,15 @@
                     <span class="switch-slider"></span>
                   </label>
                 </div>
+
                 <div class="setting-label-input-pair-container">
                   <div class="tooltip-container">
                     <label for="trackStatisticsCheckbox">
                       Track Statistics
                     </label>
                     <span class="tooltip-text">
-                      WPM, accuracy, participation
+                      <strong>When off:</strong> will prevent any WPM,
+                      accuracy, and participation statistics from being saved.
                     </span>
                   </div>
                   <label class="switch">
@@ -502,28 +540,30 @@
                     <span class="switch-slider"></span>
                   </label>
                 </div>
+
                 <div class="setting-label-input-pair-container">
-                  <label for="countdownCheckbox"> Countdown </label>
+                  <label for="countdownCheckbox">Countdown</label>
                   <label class="switch">
                     <input type="checkbox" id="countdownCheckbox" checked />
                     <span class="switch-slider"></span>
                   </label>
                 </div>
+
               </div>
+
               <div class="audio-settings-container">
-                <div
-                  class="setting-category-heading audio-settings-category-heading"
-                >
-                  Audio
-                </div>
+
+                <div class="setting-category-heading">Audio</div>
                 <div class="audio-settings">
+
                   <div class="setting-label-input-pair-container">
-                    <label for="soundEnableSwitch"> Play Sound Effects </label>
+                    <label for="soundEnableSwitch">Play Sound Effects</label>
                     <label class="switch">
                       <input type="checkbox" id="soundEnableSwitch" checked />
                       <span class="switch-slider"></span>
                     </label>
                   </div>
+
                   <div class="setting-label-input-pair-container">
                     <label for="soundVolumeSwitch" class="for-range-input">
                       Volume
@@ -539,11 +579,24 @@
                       />
                     </div>
                   </div>
+
                 </div>
+
               </div>
+
+              <!-- <button
+                class="restore-default-settings-button"
+                id="restoreDefaultSettingsButton"
+              >
+                Restore Defaults
+              </button> -->
+
             </div>
+
             <div class="expression-settings-column">
+
               <div class="expression-settings-container">
+
                 <div class="setting-category-heading">Expression Mode</div>
                 <div class="expression-mode-settings">
                   <button
@@ -559,11 +612,12 @@
                     Phrase
                   </button>
                 </div>
+
                 <div class="setting-category-heading phrase-settings-heading">
                   Phrase
                 </div>
                 <div class="setting-label-input-pair-container">
-                  <label for="phraseItemsNumberInput"> Items </label>
+                  <label for="phraseItemsNumberInput">Items</label>
                   <input
                     type="number"
                     id="phraseItemsNumberInput"
@@ -574,80 +628,235 @@
                     disabled
                   />
                 </div>
-                <div class="phrase-list-category-heading">English Lists:</div>
-                <div class="english-phrase-lists-settings">
-                  <button
-                    class="phrase-list-toggle-button on"
-                    id="commonEnglishWordsListToggleButton"
-                    disabled
-                  >
-                    Common Words
-                  </button>
-                  <button
-                    class="phrase-list-toggle-button on"
-                    id="randomEnglishWordsListToggleButton"
-                    disabled
-                  >
-                    Random Words
-                  </button>
-                  <button
-                    class="phrase-list-toggle-button on"
-                    id="numbersListToggleButton"
-                    disabled
-                  >
-                    Numbers
-                  </button>
-                  <button
-                    class="phrase-list-toggle-button on"
-                    id="symbolsListToggleButton"
-                    disabled
-                  >
-                    Symbols
-                  </button>
+
+                <div class="phrase-lists-container">
+
+                  <div class="phrase-lists-subset-heading">English Lists:</div>
+                  <div class="phrase-lists-subset-container english">
+                    <button
+                      class="phrase-list-toggle-button on"
+                      id="commonEnglishWordsListToggleButton"
+                      disabled
+                    >
+                      Common Words
+                    </button>
+                    <button
+                      class="phrase-list-toggle-button on"
+                      id="randomEnglishWordsListToggleButton"
+                      disabled
+                    >
+                      Random Words
+                    </button>
+                  </div>
+
+                  <div class="phrase-lists-subset-heading">
+                    Numbers/Symbols Lists:
+                  </div>
+                  <div class="phrase-lists-subset-container numbers-symbols">
+                    <button
+                      class="phrase-list-toggle-button on"
+                      id="numbersListToggleButton"
+                      disabled
+                    >
+                      Numbers
+                    </button>
+                    <button
+                      class="phrase-list-toggle-button on"
+                      id="symbolsListToggleButton"
+                      disabled
+                    >
+                      Symbols
+                    </button>
+                  </div>
+
+                  <div class="phrase-lists-subset-heading">
+                    General Programming Lists:
+                  </div>
+                  <div class="phrase-lists-subset-container general-programming">
+                    <button
+                      class="phrase-list-toggle-button"
+                      id="commonProgrammingKeywordsListToggleButton"
+                      disabled
+                    >
+                      Keywords
+                    </button>
+                    <button
+                      class="phrase-list-toggle-button"
+                      id="commonProgrammingOperatorsListToggleButton"
+                      disabled
+                    >
+                      Operators
+                    </button>
+                  </div>
+
+                  <div class="phrase-lists-subset-heading language-specific">
+                    Language Specific Lists:
+                  </div>
+
+                  <div class="phrase-lists-subset-container">
+                    <button
+                      class="phrase-list-toggle-button"
+                      id="cProgrammingKeywordsListToggleButton"
+                      disabled
+                    >
+                      C Keywords
+                    </button>
+                    <button
+                      class="phrase-list-toggle-button"
+                      id="cProgrammingOperatorsListToggleButton"
+                      disabled
+                    >
+                      C Operators
+                    </button>
+                  </div>
+
+                  <hr class="programming-language-separator" />
+
+                  <div class="phrase-lists-subset-container">
+                    <button
+                      class="phrase-list-toggle-button"
+                      id="cppProgrammingKeywordsListToggleButton"
+                      disabled
+                    >
+                      C++ Keywords
+                    </button>
+                    <button
+                      class="phrase-list-toggle-button"
+                      id="cppProgrammingOperatorsListToggleButton"
+                      disabled
+                    >
+                      C++ Operators
+                    </button>
+                  </div>
+
+                  <hr class="programming-language-separator" />
+
+                  <div class="phrase-lists-subset-container">
+                    <button
+                      class="phrase-list-toggle-button"
+                      id="csharpProgrammingKeywordsListToggleButton"
+                      disabled
+                    >
+                      C# Keywords
+                    </button>
+                    <button
+                      class="phrase-list-toggle-button"
+                      id="csharpProgrammingOperatorsListToggleButton"
+                      disabled
+                    >
+                      C# Operators
+                    </button>
+                  </div>
+
+                  <hr class="programming-language-separator" />
+
+                  <div class="phrase-lists-subset-container">
+                    <button
+                      class="phrase-list-toggle-button"
+                      id="css3PropertiesListToggleButton"
+                      disabled
+                    >
+                      CSS3 Properties
+                    </button>
+                    <button
+                      class="phrase-list-toggle-button"
+                      id="html5TagsListToggleButton"
+                      disabled
+                    >
+                      HTML5 Tags
+                    </button>
+                  </div>
+
+                  <hr class="programming-language-separator" />
+
+                  <div class="phrase-lists-subset-container">
+                    <button
+                      class="phrase-list-toggle-button"
+                      id="javaProgrammingKeywordsListToggleButton"
+                      disabled
+                    >
+                      Java Keywords
+                    </button>
+                    <button
+                      class="phrase-list-toggle-button"
+                      id="javaProgrammingOperatorsListToggleButton"
+                      disabled
+                    >
+                      Java Operators
+                    </button>
+                  </div>
+
+                  <hr class="programming-language-separator" />
+
+                  <div class="phrase-lists-subset-container">
+                    <button
+                      class="phrase-list-toggle-button"
+                      id="javascriptProgrammingKeywordsListToggleButton"
+                      disabled
+                    >
+                      JS Keywords
+                    </button>
+                    <button
+                      class="phrase-list-toggle-button"
+                      id="javascriptProgrammingOperatorsListToggleButton"
+                      disabled
+                    >
+                      JS Operators
+                    </button>
+                  </div>
+
+                  <hr class="programming-language-separator" />
+
+                  <div class="phrase-lists-subset-container">
+                    <button
+                      class="phrase-list-toggle-button"
+                      id="pythonProgrammingKeywordsListToggleButton"
+                      disabled
+                    >
+                      Python Keywords
+                    </button>
+                    <button
+                      class="phrase-list-toggle-button"
+                      id="pythonProgrammingOperatorsListToggleButton"
+                      disabled
+                    >
+                      Python Operators
+                    </button>
+                  </div>
+
                 </div>
-                <div class="phrase-list-category-heading">
-                  Programming Lists:
-                </div>
-                <div class="programming-phrase-lists-settings">
-                  <button
-                    class="phrase-list-toggle-button"
-                    id="commonProgrammingKeywordsListToggleButton"
-                    disabled
-                  >
-                    Keywords
-                  </button>
-                  <button
-                    class="phrase-list-toggle-button"
-                    id="commonProgrammingOperatorsListToggleButton"
-                    disabled
-                  >
-                    Operators
-                  </button>
-                </div>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
+
       </section>
 
       <section class="game-statistics">
+
         <div class="container game-statistics-container">
+
           <h2 class="container-heading">
             Game Stats
             <button
-              class="toggle-visibility-button"
+              class="container-content-visibility-button"
               id="toggleViewGameStatisticsButton"
             >
               Hide
             </button>
           </h2>
+
           <table class="game-statistics-table" id="gameStatisticsTable">
             <tr class="wpm-table-row first-row">
               <th>
                 <div class="tooltip-container">
                   Words Per Minute
                   <span class="tooltip-text">
-                    Net WPM: ( Text Length ÷ 5 ) ÷ Minutes
+                    Net WPM, calculated as: ( Text Length ÷ 5 ) ÷ Minutes
                   </span>
                 </div>
               </th>
@@ -658,7 +867,7 @@
                 <div class="tooltip-container">
                   Accuracy
                   <span class="tooltip-text">
-                    ( Text Length ÷ [ Text Length + Mistakes Made ] ) × 100%
+                    Calculated as: ( Text Length ÷ [ Text Length + Mistakes Made ] ) × 100%
                   </span>
                 </div>
               </th>
@@ -673,30 +882,38 @@
               <td id="timeElapsedTableData">---</td>
             </tr>
           </table>
+
         </div>
+
       </section>
 
       <section class="mistake-analysis last">
+
         <div class="container mistake-analysis-container">
           <h2 class="container-heading">
             Mistakes
             <button
-              class="toggle-visibility-button"
+              class="container-content-visibility-button"
               id="toggleViewMistakeAnalysisButton"
             >
               Hide
             </button>
           </h2>
-          <div class="analyzed-expression" id="analyzedExpressionDiv">Complete a game to analyze mistakes.</div>
+          <div
+            class="analyzed-expression"
+            id="analyzedExpressionDiv"
+          >Complete a game to analyze mistakes.</div>
         </div>
+
       </section>
+
     </main>
 
     <footer class="footer">
       <div class="footer-elements-container">
         <div class="site-author">
           <a
-            href="https://nluka.github.io/"
+            href="https://www.linkedin.com/in/nicholas-lukasevich/"
             target="blank"
             class="footer-link portfolio-link"
           >
@@ -726,5 +943,7 @@
         </ul>
       </div>
     </footer>
+
   </body>
+
 </html>

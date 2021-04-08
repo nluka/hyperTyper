@@ -42,6 +42,7 @@ class Game {
 
   initialize() {
     //console.log("Game initializing");
+    this.input_element.removeAttribute("placeholder");
     this.resetDataMembers();
   }
 
@@ -82,10 +83,9 @@ class Game {
     let numOfCharsDeletedThisEvent = 0;
 
     if (inputCombinedLengthDiff > 1) {
-      this.state.wasCheatingAttempted = true;
       //console.log("Cheating detected");
-      endGame("disqualified");
-      alert("Cheating was detected. The game has been aborted.");
+      endGame("cheated");
+      alert("Cheating was detected. The attempt has been terminated.");
       return;
     } else if (inputCombinedLengthDiff === 1) {
       this.input.numOfCharsTyped++;
@@ -150,9 +150,8 @@ class Game {
           );
         }
         if (settings.isSuddenDeathEnabled) {
-          game.state.isDisqualified = true;
           sound.play("suddenDeathBuzzer");
-          endGame("killed");
+          endGame("disqualified");
           return;
         }
 
@@ -234,17 +233,21 @@ class Game {
     //console.log("> calculated accuracy % =", this.result.accuracy);
   }
 
-  kill() {
+  terminate() {
     //console.log(
     //  "Game killed, isSuddenDeath is set to",
     //  settings.isSuddenDeathEnabled
     //);
-    this.state.wasSuddenDeathTriggered = true;
+    this.state.wasCheatingAttempted = true;
   }
 
   disqualify() {
     //console.log("Game disqualified");
     this.state.isDisqualified = true;
+    this.input_element.setAttribute(
+      "placeholder",
+      "Disqualified (sudden death was on)"
+    );
   }
 }
 

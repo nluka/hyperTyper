@@ -1,15 +1,3 @@
-const _body = document.documentElement;
-
-// <navbar>
-const navbarItems_ul = document.getElementById("navbarItemsList");
-const expandNavbarItemsButton_div = document.getElementById(
-  "expandNavbarItemsButton"
-);
-const expandNavbarItemsButtonStrips_spans = document.getElementsByClassName(
-  "expand-navbar-items-button-strip"
-);
-// </navbar>
-
 // <form-section>
 const form_section = document.getElementById("formSection");
 const form = document.getElementsByTagName("form")[0];

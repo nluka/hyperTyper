@@ -1,14 +1,5 @@
-const _body = document.documentElement;
-
-// <navbar>
-const navbarItems_ul = document.getElementById("navbarItemsList");
-const expandNavbarItemsButton_div = document.getElementById(
-  "expandNavbarItemsButton"
-);
-const expandNavbarItemsButtonStrips_spans = document.getElementsByClassName(
-  "expand-navbar-items-button-strip"
-);
-// </navbar>
+const loader_img = document.getElementById("loaderImg");
+const loaderOverlay_div = document.getElementById("loaderOverlayDiv");
 
 // <wpm-statistics>
 const wpmStatistics_section = document.getElementById("wpmStatisticsSection");

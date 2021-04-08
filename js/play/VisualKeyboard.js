@@ -96,25 +96,27 @@ class VisualKeyboard {
 
 const visualKeyboardKeydownCallback = (event) => {
   const evtCode = event.code;
-  if (evtCode in visualKeyboardEventCodeToElementMap) {
-    if (event.getModifierState("CapsLock")) {
-      visualKeyboardEventCodeToElementMap["CapsLock"].classList.add("active");
-    } else {
-      visualKeyboardEventCodeToElementMap["CapsLock"].classList.remove(
-        "active"
-      );
-    }
-    visualKeyboardEventCodeToElementMap[evtCode].classList.add("pressed");
+
+  if (!(evtCode in visualKeyboardEventCodeToElementMap)) return;
+
+  if (event.getModifierState("CapsLock")) {
+    visualKeyboardEventCodeToElementMap["CapsLock"].classList.add("active");
+  } else {
+    visualKeyboardEventCodeToElementMap["CapsLock"].classList.remove(
+      "active"
+    );
   }
+  visualKeyboardEventCodeToElementMap[evtCode].classList.add("pressed");
 };
 
 const visualKeyboardKeyupCallback = (event) => {
   const evtCode = event.code;
-  if (evtCode in visualKeyboardEventCodeToElementMap) {
-    const correspondingKeyElement =
-      visualKeyboardEventCodeToElementMap[evtCode];
-    correspondingKeyElement.classList.remove("pressed");
-  }
+
+  if (!(evtCode in visualKeyboardEventCodeToElementMap)) return;
+
+  const correspondingKeyElement =
+    visualKeyboardEventCodeToElementMap[evtCode];
+  correspondingKeyElement.classList.remove("pressed");
 };
 
 const playerTextInputKeydownEventCallback = (event) => {

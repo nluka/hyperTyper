@@ -93,7 +93,7 @@ section.last {
   text-align: left;
 }
 
-.toggle-visibility-button {
+.container-content-visibility-button {
   background-color: transparent;
   border: none;
   -webkit-border-radius: 5px;

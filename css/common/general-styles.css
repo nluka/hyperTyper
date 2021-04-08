@@ -108,11 +108,11 @@ body {
   width: 100vw;
 }
 
-@media only screen and (max-width: 750px) {
+/* @media only screen and (max-width: 750px) {
   body {
     min-height: calc(100vh + var(--footer-height-stacked));
   }
-}
+} */
 
 main,
 section {
@@ -121,6 +121,7 @@ section {
 }
 
 a {
+  border: 1px solid transparent;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -139,6 +140,7 @@ a {
 
 a.current-page {
   background-color: var(--bg-color-tertiary);
+  border-color: var(--border-color-secondary);
 }
 
 button {

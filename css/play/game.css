@@ -90,6 +90,11 @@
   white-space: pre-wrap;
 }
 
+.expression span {
+  /* border-left: 0.1px solid var(--bg-color-content-panel); */
+  border-right: 0.1px solid var(--bg-color-content-panel);
+}
+
 .current-char {
   background-color: rgba(255, 255, 255, 0.05);
   border-bottom: 0.1px solid var(--font-color-quinary);

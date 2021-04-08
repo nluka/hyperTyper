@@ -1,13 +1,23 @@
+.visual-keyboard-container {
+  align-items: center;
+  display: flex;
+  height: fit-content;
+  justify-content: center;
+  max-width: 90%;
+  width: 800px;
+}
+
 .visual-keyboard {
-  background-color: transparent;
-  border: none;
-  height: 273px;
-  max-height: 273px;
-  max-width: 800px;
+  background-color: var(--bg-color-secondary);
+  border: 1px solid var(--border-color-secondary);
+  border-radius: 5px;
+  height: 275px;
+  max-height: 276px;
+  max-width: 100%;
   overflow: auto;
-  padding-bottom: 5px;
   resize: both;
   width: 800px;
+  z-index: 0;
 }
 
 .general-keys-container {
@@ -38,6 +48,7 @@
 .square-key, .rect-key {
   align-items: center;
   background-color: var(--bg-color-content-panel);
+  border: 1px solid var(--border-color-secondary);
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -66,8 +77,8 @@
 }
 
 .tab-key {
-  min-width: 75px;
-  width: 75px;
+  min-width: 74px;
+  width: 74px;
 }
 
 .caps-lock-key {
@@ -76,7 +87,8 @@
 }
 
 .caps-lock-key.active {
-  background-color: rgba(255, 0, 255, 0.25);
+  background-color: rgba(255, 100, 0, 0.1);
+  border: 1px solid rgba(255, 100, 0, 1);
 }
 
 .shift-left-key {
@@ -96,8 +108,8 @@
 }
 
 .space-key {
-  min-width: 357px;
-  width: 357px;
+  min-width: 348.5px;
+  width: 348.5px;
 }
 
 .alt-right-key {
@@ -111,7 +123,8 @@
 
 .square-key.pressed, .rect-key.pressed, .caps-lock-key.pressed {
   background-color: var(--bg-color-quinary);
-  border: 1px solid var(--border-color-primary);
+  border: 2px solid var(--green-medium);
+  color: var(--green-light);
 }
 
 .general-keys-container .row:not(:last-child) {
@@ -127,7 +140,7 @@
 }
 
 [data-symbol-key]:not(.backquote-key) {
-  font-size: calc(var(--base-font-size) * 1.1);
+  font-size: calc(var(--base-font-size) * 1);
   justify-content: space-between;
 }
 
@@ -142,11 +155,5 @@
 }
 
 [data-function-key] .second-label, .backspace-key {
-  font-size: calc(var(--base-font-size) * 1.3);
-}
-
-@media only screen and (max-width: 800px) {
-  .visual-keyboard {
-    max-width: 89%;
-  }
+  font-size: calc(var(--base-font-size) * 1.2);
 }

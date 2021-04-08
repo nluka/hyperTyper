@@ -36,3 +36,27 @@
 - Added some attributes to game input element to improve UX
 - Removed console logging of completed characters
 - Mistake analysis now shows what character was typed for the first 3 errors
+
+1.1:
+- Revamped tooltip descriptions
+- Changed site author link to point to my LinkedIn
+- Added some blank lines and comments as labels to make html more readable
+- Changed several identifiers to be more accurate/descriptive
+- Fixed footer for Firefox
+- Improved visual keyboard resizing robustness
+- Scrollbars in Firefox are now the right width
+- Expression spans border is now applied through stylesheet instead of inline
+- Refactored several code files to improve cleanliness and reduce nesting
+- Changed loading overlay content from text to a loader gif
+- navbar.js is now a common file instead of being specific to each page
+- combined expression-mode-and-phrase-settings-input-listeners.js and gameplay-and-audio-settings-input-listeners.js into 1 file
+- Changed countdown sound effects
+- Sudden death disqualifications are now indicated in the input area with placeholder text
+- Changed the way punctuation probability works in Expression.js
+- Removed unused code from GameStatisticsTable.js, no longer stores most recent text length or time elapsed
+- Added many new programming phrase lists
+- Changed structure of expression-resources directory to accomodate new files for the new phrase lists
+- Changed checkbox input styles to hopefully fix checkbox element in Safari
+
+1.1.1:
+- Now using minified versions of the new phrase list files

@@ -1,26 +1,12 @@
-const _body = document.documentElement;
-
-// <navbar>
-const navbarItems_ul = document.getElementById("navbarItemsList");
-const siteName_div = document.getElementById("siteNameDiv");
-const siteNameDivChildren_spans = document.querySelectorAll(
-  "#siteNameDiv span"
-);
-const siteName_elements = [siteName_div, siteNameDivChildren_spans];
-const expandNavbarItemsButton_div = document.getElementById(
-  "expandNavbarItemsButton"
-);
-const expandNavbarItemsButtonStrips_spans = document.getElementsByClassName(
-  "expand-navbar-items-button-strip"
-);
-// </navbar>
+const loader_img = document.getElementById("loaderImg");
+const loaderOverlay_div = document.getElementById("loaderOverlayDiv");
 
 // <game-area>
 const gameArea_section = document.getElementById("gameSection");
 
 const gameTimer_div = document.getElementById("gameTimer");
-const gameStartAndAbort_button = document.getElementById("gameActionButton");
 const dynamicWpmDisplay_div = document.getElementById("dynamicWpmDisplay");
+const gameStartAndAbort_button = document.getElementById("gameActionButton");
 
 const expression_div = document.getElementById("expressionDiv");
 
@@ -114,23 +100,77 @@ const phraseItemsNumber_input = document.getElementById(
   "phraseItemsNumberInput"
 );
 
+// English lists
 const commonEnglishWordsListToggle_button = document.getElementById(
   "commonEnglishWordsListToggleButton"
 );
 const randomEnglishWordsListToggle_button = document.getElementById(
   "randomEnglishWordsListToggleButton"
 );
+// Numbers/symbols lists
 const numbersListToggle_button = document.getElementById(
   "numbersListToggleButton"
 );
 const symbolsListToggle_button = document.getElementById(
   "symbolsListToggleButton"
 );
+// General programming lists
 const commonProgrammingKeywordsListToggle_button = document.getElementById(
   "commonProgrammingKeywordsListToggleButton"
 );
 const commonProgrammingOperatorsListToggle_button = document.getElementById(
   "commonProgrammingOperatorsListToggleButton"
+);
+// Language specific lists
+// C
+const cProgrammingKeywordsListToggle_button = document.getElementById(
+  "cProgrammingKeywordsListToggleButton"
+);
+const cProgrammingOperatorsListToggle_button = document.getElementById(
+  "cProgrammingOperatorsListToggleButton"
+);
+// C++
+const cppProgrammingKeywordsListToggle_button = document.getElementById(
+  "cppProgrammingKeywordsListToggleButton"
+);
+const cppProgrammingOperatorsListToggle_button = document.getElementById(
+  "cppProgrammingOperatorsListToggleButton"
+);
+// C#
+const csharpProgrammingKeywordsListToggle_button = document.getElementById(
+  "csharpProgrammingKeywordsListToggleButton"
+);
+const csharpProgrammingOperatorsListToggle_button = document.getElementById(
+  "csharpProgrammingOperatorsListToggleButton"
+);
+// CSS3
+const css3PropertiesListToggle_button = document.getElementById(
+  "css3PropertiesListToggleButton"
+);
+// HTML5
+const html5TagsListToggle_button = document.getElementById(
+  "html5TagsListToggleButton"
+);
+// Java
+const javaProgrammingKeywordsListToggle_button = document.getElementById(
+  "javaProgrammingKeywordsListToggleButton"
+);
+const javaProgrammingOperatorsListToggle_button = document.getElementById(
+  "javaProgrammingOperatorsListToggleButton"
+);
+// JavaScript
+const javascriptProgrammingKeywordsListToggle_button = document.getElementById(
+  "javascriptProgrammingKeywordsListToggleButton"
+);
+const javascriptProgrammingOperatorsListToggle_button = document.getElementById(
+  "javascriptProgrammingOperatorsListToggleButton"
+);
+// Python
+const pythonProgrammingKeywordsListToggle_button = document.getElementById(
+  "pythonProgrammingKeywordsListToggleButton"
+);
+const pythonProgrammingOperatorsListToggle_button = document.getElementById(
+  "pythonProgrammingOperatorsListToggleButton"
 );
 
 const phraseListToggle_buttons = document.querySelectorAll(

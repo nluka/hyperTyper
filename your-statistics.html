@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
   <head>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="icon" href="icons/enter-key.png" />
     <title>hyperTyper - Your Statistics</title>
 
+    <!-- Common stylesheets -->
     <link rel="stylesheet" href="css/common/general-styles.css" />
     <link rel="stylesheet" href="css/common/internet-explorer-overlay.css" />
     <link rel="stylesheet" href="css/common/loading-overlay.css" />
@@ -15,29 +18,39 @@
     <link rel="stylesheet" href="css/common/container.css" />
     <link rel="stylesheet" href="css/common/table.css" />
     <link rel="stylesheet" href="css/common/footer.css" />
-    <link
-      rel="stylesheet"
-      href="css/your-statistics/clear-statistics-button.css"
-    />
 
+    <!-- Specific stylesheets -->
+    <link rel="stylesheet" href="css/your-statistics/clear-statistics-button.css" />
+
+    <!-- Page elements -->
+    <script src="js/common/page-elements.js" defer></script>
     <script src="js/your-statistics/page-elements.js" defer></script>
-    <script src="js/common/internet-explorer.js" defer></script>
 
+    <!-- Common scripts -->
+    <script src="js/common/internet-explorer.js" defer></script>
+    <script src="js/common/navbar.js" defer></script>
     <script src="js/common/constants.js" defer></script>
     <script src="js/common/functions.js" defer></script>
     <script src="js/common/Loader.js" defer></script>
     <script src="js/common/UserStorage.js" defer></script>
 
-    <script src="js/your-statistics/navbar.js" defer></script>
-    <script
-      src="js/your-statistics/toggle-panel-view-buttons.js"
-      defer
-    ></script>
+    <!-- Specific scripts -->
+
+    <script src="js/your-statistics/toggle-panel-view-buttons.js" defer></script>
     <script src="js/your-statistics/main.js" defer></script>
+
   </head>
 
   <body>
-    <div class="loading-overlay" id="loadingOverlayDiv">Loading</div>
+
+    <div class="loading-overlay" id="loaderOverlayDiv">
+      <img
+        src="/gifs/gradient-loader-dark-bg.gif"
+        alt="Loading" id="loaderImg"
+        width="100px"
+        height="100px"
+      />
+    </div>
 
     <nav class="navbar">
       <div class="navbar-elements-container">
@@ -64,17 +77,21 @@
     </nav>
 
     <main>
+
       <section class="wpm-statistics first" id="wpmStatisticsSection">
+
         <div class="container wpm-statistics-container">
+
           <h2 class="container-heading">
             WPM
             <button
-              class="toggle-visibility-button"
+              class="container-content-visibility-button"
               id="toggleViewWpmStatisticsButton"
             >
               Hide
             </button>
           </h2>
+
           <table class="wpm-statistics-table" id="wpmStatisticsTable">
             <tr>
               <th>Last Game</th>
@@ -93,20 +110,25 @@
               <td id="wpmAllTimeBestTableData">---</td>
             </tr>
           </table>
+
         </div>
+
       </section>
 
       <section class="accuracy-statistics">
+
         <div class="container accuracy-statistics-container">
+
           <h2 class="container-heading">
             Accuracy
             <button
-              class="toggle-visibility-button"
+              class="container-content-visibility-button"
               id="toggleViewAccuracyStatisticsButton"
             >
               Hide
             </button>
           </h2>
+
           <table class="accuracy-statistics-table" id="accuracyStatisticsTable">
             <tr>
               <th>Last Game</th>
@@ -125,20 +147,25 @@
               <td id="accuracyAllTimeBestTableData">---</td>
             </tr>
           </table>
+
         </div>
+
       </section>
 
       <section class="participation-statistics">
+
         <div class="container participation-statistics-container">
+
           <h2 class="container-heading">
             Participation
             <button
-              class="toggle-visibility-button"
+              class="container-content-visibility-button"
               id="toggleViewParticipationStatisticsButton"
             >
               Hide
             </button>
           </h2>
+
           <table
             class="participation-statistics-table"
             id="participationStatisticsTable"
@@ -164,13 +191,20 @@
               <td id="gamesCheatedTableData">---</td>
             </tr>
           </table>
+
         </div>
+
       </section>
 
       <section class="clear-localstorage last">
-        <button class="clear-localstorage-button" id="clearStatisticsStorageButton">
+
+        <button
+          class="clear-localstorage-button"
+          id="clearStatisticsStorageButton"
+        >
           Clear All Statistics
         </button>
+
       </section>
     </main>
 
@@ -178,7 +212,7 @@
       <div class="footer-elements-container">
         <div class="site-author">
           <a
-            href="https://nluka.github.io/"
+            href="https://www.linkedin.com/in/nicholas-lukasevich/"
             target="blank"
             class="footer-link portfolio-link"
           >
@@ -208,5 +242,7 @@
         </ul>
       </div>
     </footer>
+
   </body>
+
 </html>

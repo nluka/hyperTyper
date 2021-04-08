@@ -1,5 +1,5 @@
 const DEFAULT_EXPRESSION_TEXT_CONTENT = expression_div.innerText;
-const pageLoader = new Loader();
+const pageLoader = new Loader(loaderOverlay_div, loader_img);
 const userStorage = new UserStorage();
 const settings = new Settings();
 const sound = new Sound(settings.soundVolume);
@@ -16,12 +16,6 @@ const gameStatisticsTable = new GameStatisticsTable({
   timeElapsedCell: timeElapsed_td,
 });
 const mistakeAnalysis = new MistakeAnalysis(analyzedExpression_div);
-
-const loadingAnimationIntervalCallback = () => {
-  pageLoader.animateInnerText();
-};
-
-pageLoader.intervalId = setInterval(loadingAnimationIntervalCallback, 400);
 
 const playerTextInputDuringIdleCallback = () => {
   playerText_input.value = "";
@@ -63,9 +57,10 @@ const runGame = async () => {
       //settings.phraseListsEnabledArr.length
       //);
       alert(
-        "'Expression mode' is set to 'Phrase' but no phrase lists are enabled.\nPlease select at least 1 phrase list from 'Settings > Phrase'"
+        "'Expression mode' is set to 'Phrase' but no phrase lists are enabled.\n" +
+        "Please select at least 1 phrase list from 'Settings > Phrase'"
       );
-      preventGameStart();
+      revertGameStart();
       return;
     }
     //console.log("> getting a random phrase from Expression");
@@ -116,6 +111,11 @@ const revertGameStart = () => {
   expression._element.innerText = DEFAULT_EXPRESSION_TEXT_CONTENT;
 };
 
+const resetGameHeaderElementsInnerText = () => {
+  gameTimer._element.innerText = "--:--";
+  gameWpmTracker._element.innerText = "— WPM";
+}
+
 const endGame = (exitCode_str) => {
   // called by game.update()
 
@@ -146,35 +146,41 @@ const endGame = (exitCode_str) => {
           decimalPlaces: 2,
         }
       );
-      gameStatisticsTable.setMostRecentTextLengthStoredValueTo(
-        game.expression.text.length
-      );
-      gameStatisticsTable.setMostRecentTimeElapsedStoredValueTo(
-        gameTimer.timeElapsedInSeconds
-      );
       mistakeAnalysis.renderAnalyzedExpression(game.input.numOfMistakesMade);
       //console.log("MistakeAnalysis map =", mistakeAnalysis.userErrorsMap);
       if (!settings.isResultTrackingEnabled) break;
       userStorage.updateWpmAndAccuracyStatisticalValues();
       userStorage.incrementValueOf("gamesCompleted");
+      if (userStorage.retrieveIntValueOf("gamesCompleted") === 1) {
+        setTimeout(() => {
+          alert(
+            "Congratulations on completing your first game!" +
+            "\n\n" +
+            "Visit the various sections below to review your results and customize your experience. " +
+            "You can track the development of your typing abilities by going to 'Your Statistics' at the top right." +
+            "\n\n" +
+            "Have fun!"
+          );
+        }, 100);
+      }
       break;
     case "aborted":
       game.abort();
-      gameTimer._element.innerText = "--:--";
-      gameWpmTracker._element.innerText = "— WPM";
+      resetGameHeaderElementsInnerText();
       expression_div.innerText = DEFAULT_EXPRESSION_TEXT_CONTENT;
-      if (!settings.isResultTrackingEnabled) break;
+      // if (!settings.isResultTrackingEnabled) break;
       userStorage.incrementValueOf("gamesAbandoned");
       break;
-    case "deathTriggered":
-      game.kill();
+    case "disqualified":
+      game.disqualify();
       gameWpmTracker._element.innerText = "— WPM";
       if (!settings.isResultTrackingEnabled) break;
       userStorage.incrementValueOf("gamesDisqualified");
       break;
-    case "disqualified":
-      game.disqualify();
-      // always track when the user cheated, even if stat tracking is off :D
+    case "cheated":
+      game.terminate();
+      resetGameHeaderElementsInnerText();
+      if (!settings.isResultTrackingEnabled) break;
       userStorage.incrementValueOf("gamesCheated");
       break;
   }

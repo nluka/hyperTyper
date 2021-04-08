@@ -41,9 +41,9 @@ class UserStorage {
     const storedArray = JSON.parse(storedArray_str);
 
     let newArray = storedArray;
-    if (storedArray.length === 10) {
-      newArray = storedArray.slice(1, 10);
-    }
+
+    if (storedArray.length === 10) newArray = storedArray.slice(1, 10);
+
     newArray.push(parseFloat(newValue.toFixed(LOCAL_STORAGE_DECIMAL_PLACES)));
 
     localStorage.setItem(key_str, JSON.stringify(newArray));
@@ -125,6 +125,12 @@ class UserStorage {
     }
   }
 
+  retrieveIntValueOf(key_str) {
+    const value_str = localStorage.getItem(key_str);
+    if (value_str == null) return 0;
+    return parseInt(value_str);
+  }
+
   retrieveAllStatisticalValues() {
     this.wpmLastGame = this.retrieveFloatValueOf("wpmLastGame", 1);
     this.wpmLastTenGames = this.retrieveArrayAverageOf("wpmLastTenGames", 1);
@@ -158,18 +164,16 @@ class UserStorage {
     const value_str = localStorage.getItem(key_str);
     if (value_str != null) {
       return roundFloat(parseFloat(value_str), decimalPlaces);
-    } else {
-      return "---";
     }
+    return "---";
   }
 
   retrieveCountValueOf(key_str) {
     const value_str = localStorage.getItem(key_str);
     if (value_str != null) {
       return parseInt(value_str);
-    } else {
-      return 0;
     }
+    return 0;
   }
 
   retrieveArrayAverageOf(key_str, decimalPlaces) {

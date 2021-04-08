@@ -1,6 +1,6 @@
 :root {
   --footer-height-unstacked: calc(var(--base-spacing) * 4);
-  --footer-height-stacked: calc(var(--base-spacing) * 10);
+  --footer-height-stacked: calc(var(--base-spacing) * 7.5);
 }
 
 .footer {
@@ -71,6 +71,7 @@ a.portfolio-link:hover {
 
 @media only screen and (max-width: 750px) {
   .footer {
+    height: var(--footer-height-stacked); /* For firefox */
     height: fit-content;
   }
 

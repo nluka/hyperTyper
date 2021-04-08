@@ -1,10 +1,12 @@
 class Settings {
   constructor() {
+    // Gameplay
     this.isPunctuationEnabled = defaultConfig.isPunctuationEnabled;
     this.isSuddenDeathEnabled = defaultConfig.isSuddenDeathEnabled;
     this.isResultTrackingEnabled = defaultConfig.isResultTrackingEnabled;
     this.isCountdownEnabled = defaultConfig.isCountdownEnabled;
 
+    // Audio
     this.isSoundEnabled = defaultConfig.isSoundEnabled;
     this.soundVolume = defaultConfig.soundVolume;
     this.soundVolumeRangeValueBeforeDisabling =
@@ -12,6 +14,7 @@ class Settings {
 
     this.expressionMode = defaultConfig.expressionMode;
 
+    // Phrase
     this.phraseItemsCount = defaultConfig.phraseItemsCount;
     this.phraseListsEnabledArr = defaultConfig.phraseListsEnabledArr;
 
@@ -41,11 +44,12 @@ class Settings {
   setPhraseListsEnabledArrTo(parentArray) {
     let newArray = [];
     parentArray.forEach((childArray) => {
-      const indexOfArray = Object.values(wordListNameToArrayMap).indexOf(
-        childArray
-      );
+      const indexOfArray = Object.values(phraseListNameToPhraseListArrayMap)
+        .indexOf(
+          childArray
+        );
       if (indexOfArray > -1) {
-        newArray.push(Object.keys(wordListNameToArrayMap)[indexOfArray]);
+        newArray.push(Object.keys(phraseListNameToPhraseListArrayMap)[indexOfArray]);
       }
     });
     localStorage.setItem("phraseListsEnabledArr", JSON.stringify(newArray));
@@ -133,9 +137,9 @@ class Settings {
       );
       storedPhraseListsEnabledArr.forEach((childArrayName) => {
         this.phraseListsEnabledArr.push(
-          wordListNameToArrayMap[childArrayName]
+          phraseListNameToPhraseListArrayMap[childArrayName]
         );
-        wordListNameToButtonElementMap[childArrayName].classList.add("on");
+        phraseListNameToButtonElementMap[childArrayName].classList.add("on");
       });
     }
   }
@@ -174,7 +178,7 @@ const defaultConfig = {
 
   isSoundEnabled: true,
   soundVolume: 0.5,
-  soundVolumeRangeValueBeforeDisabling: 0.5,
+  soundVolumeRangeValueBeforeDisabling: this.soundVolume,
 
   expressionMode: "quote",
 
@@ -187,20 +191,48 @@ const defaultConfig = {
   ],
 };
 
-const wordListNameToArrayMap = {
+const phraseListNameToPhraseListArrayMap = {
   commonEnglishWordsList: commonEnglishWordsList,
   randomEnglishWordsList: randomEnglishWordsList,
   numbersList: numbersList,
   symbolsList: symbolsList,
   commonProgrammingKeywordsList: commonProgrammingKeywordsList,
   commonProgrammingOperatorsList: commonProgrammingOperatorsList,
+  cKeywordsList: cKeywordsList,
+  cOperatorsList: cOperatorsList,
+  cppKeywordsList: cppKeywordsList,
+  cppOperatorsList: cppOperatorsList,
+  csharpKeywordsList: csharpKeywordsList,
+  csharpOperatorsList: csharpOperatorsList,
+  css3PropertiesList: css3PropertiesList,
+  html5TagsList: html5TagsList,
+  javaKeywordsList: javaKeywordsList,
+  javaOperatorsList: javaOperatorsList,
+  javascriptKeywordsList: javascriptKeywordsList,
+  javascriptOperatorsList: javascriptOperatorsList,
+  pythonKeywordsList: pythonKeywordsList,
+  pythonOperatorsList: pythonOperatorsList,
 };
 
-const wordListNameToButtonElementMap = {
+const phraseListNameToButtonElementMap = {
   commonEnglishWordsList: commonEnglishWordsListToggle_button,
   randomEnglishWordsList: randomEnglishWordsListToggle_button,
   numbersList: numbersListToggle_button,
   symbolsList: symbolsListToggle_button,
   commonProgrammingKeywordsList: commonProgrammingKeywordsListToggle_button,
   commonProgrammingOperatorsList: commonProgrammingOperatorsListToggle_button,
+  cKeywordsList: cProgrammingKeywordsListToggle_button,
+  cOperatorsList: cProgrammingOperatorsListToggle_button,
+  cppKeywordsList: cppProgrammingKeywordsListToggle_button,
+  cppOperatorsList: cppProgrammingOperatorsListToggle_button,
+  csharpKeywordsList: csharpProgrammingKeywordsListToggle_button,
+  csharpOperatorsList: csharpProgrammingOperatorsListToggle_button,
+  css3PropertiesList: css3PropertiesListToggle_button,
+  html5TagsList: html5TagsListToggle_button,
+  javaKeywordsList: javaProgrammingKeywordsListToggle_button,
+  javaOperatorsList: javaProgrammingOperatorsListToggle_button,
+  javascriptKeywordsList: javascriptProgrammingKeywordsListToggle_button,
+  javascriptOperatorsList: javascriptProgrammingOperatorsListToggle_button,
+  pythonKeywordsList: pythonProgrammingKeywordsListToggle_button,
+  pythonOperatorsList: pythonProgrammingOperatorsListToggle_button,
 };

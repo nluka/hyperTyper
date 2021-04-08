@@ -130,10 +130,15 @@ class Expression {
   }
 
   getRandomizedPhraseObject() {
+    const chanceOfInsertingPunctuationAtItem = 1 / 15;
+    const chanceToGetRandomPunctuationChar =
+      chanceOfInsertingPunctuationAtItem * 0.3;
+    const chanceToAddQuotesAroundAnItem =
+      chanceOfInsertingPunctuationAtItem * 0.7;
     let phraseText = "";
 
     for (let i = 0; i < settings.phraseItemsCount; i++) {
-      let randElement = getRandElementFromArray(
+      let randItem = getRandItemFromArray(
         settings.phraseListsEnabledArr[
           getRandIndexInArray(settings.phraseListsEnabledArr)
         ]
@@ -141,52 +146,82 @@ class Expression {
 
       if (
         settings.isPunctuationEnabled &&
-        !!randElement.charAt(0).match(/[a-zA-Z]/) &&
+        !!randItem.charAt(0).match(/[a-zA-Z]/) &&
         (!!phraseText.match(/[\.!?] $/) || phraseText.length === 0)
       ) {
-        randElement =
-          randElement.charAt(0).toUpperCase() + randElement.slice(1);
+        randItem =
+          randItem.charAt(0).toUpperCase() + randItem.slice(1);
       }
 
       if (settings.isPunctuationEnabled) {
-        if (probability(1 / 24)) randElement = `"${randElement}"`;
-        else if (probability(1 / 24)) randElement = `'${randElement}'`;
+
+        randItem = this.chanceToReturnStringWrappedWithQuotes(
+          randItem,
+          chanceToAddQuotesAroundAnItem
+        );
       }
 
-      phraseText += randElement;
+      phraseText += randItem;
 
       if (settings.isPunctuationEnabled) {
-        if (probability(1 / 40)) phraseText += ";";
-        else if (probability(1 / 35)) phraseText += ":";
-        else if (probability(1 / 30)) phraseText += "!";
-        else if (probability(1 / 25)) phraseText += "?";
-        else if (probability(1 / 15)) phraseText += ".";
-        else if (probability(1 / 10)) phraseText += ",";
+        const randPunctuationChar = this.chanceToGetRandomPunctuationChar(
+          chanceToGetRandomPunctuationChar
+        );
+
+        if (randPunctuationChar != '\0') {
+          // if a punctuation char is returned, add it
+          phraseText += randPunctuationChar;
+        }
       }
 
       phraseText += " ";
     }
 
     if (settings.isPunctuationEnabled) {
-      if (!!phraseText.match(/[,;:] $/)) {
-        phraseText = phraseText.slice(0, phraseText.length - 2) + ".";
-      } else if (
-        !!phraseText.match(/[^.!?] $/) ||
-        !!phraseText.match(/['"] $/)
-      ) {
-        phraseText = phraseText.slice(0, phraseText.length - 1) + ".";
-      }
+      phraseText = this.correctSentenceEndingPunctuation(phraseText);
     }
 
-    if (!!phraseText.match(/ $/) || !!phraseText.match(/\. $/)) {
-      // truncate last blank space
-      phraseText = phraseText.slice(0, phraseText.length - 1);
-    }
+    phraseText = this.truncateLastBlankSpace(phraseText);
 
     return {
       text: phraseText,
       author: "Randomly Generated",
     };
+  }
+
+  chanceToReturnStringWrappedWithQuotes(string, overallProbability_float) {
+    if (probability(overallProbability_float / 2)) return `"${string}"`;
+    if (probability(overallProbability_float / 2)) return `'${string}'`;
+    return string;
+  }
+
+  chanceToGetRandomPunctuationChar(overallProbability_float) {
+    if (probability(overallProbability_float * 0.05)) return ";";
+    else if (probability(overallProbability_float * 0.05)) return ":";
+    else if (probability(overallProbability_float * 0.15)) return "!";
+    else if (probability(overallProbability_float * 0.15)) return "?";
+    else if (probability(overallProbability_float * 0.25)) return ".";
+    else if (probability(overallProbability_float * 0.35)) return ",";
+    return "\0";
+  }
+
+  correctSentenceEndingPunctuation(sentence_str) {
+    if (!!sentence_str.match(/[,;:] $/)) { // second last char is not [.!?]
+      return sentence_str.slice(0, sentence_str.length - 2) + ".";
+    } else if ( //
+      !!sentence_str.match(/[^.!?] $/) ||
+      !!sentence_str.match(/['"] $/)
+    ) {
+      return sentence_str.slice(0, sentence_str.length - 1) + ".";
+    }
+  }
+
+  truncateLastBlankSpace(string) {
+    if (!!string.match(/ $/) || !!string.match(/\. $/)) {
+      // truncate last blank space
+      return string.slice(0, string.length - 1);
+    }
+    return string;
   }
 
   setInnerTextTo(string) {
@@ -212,7 +247,6 @@ class Expression {
     expressionText_str.split("").forEach((char) => {
       const char_span = document.createElement("span");
       char_span.innerText = char;
-      char_span.style.borderRight = "0.1px solid var(--bg-color-content-panel)";
       this._element.append(char_span);
     });
   }
@@ -258,7 +292,7 @@ class Expression {
   }
 }
 
-const getRandElementFromArray = (array) => {
+const getRandItemFromArray = (array) => {
   return array[Math.floor(Math.random() * array.length)];
 };
 

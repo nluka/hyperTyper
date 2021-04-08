@@ -25,7 +25,7 @@ toggleViewMistakeAnalysis_button.addEventListener("click", () => {
   );
 });
 
-function toggleInnerTextHideAndShow(element_button) {
+const toggleInnerTextHideAndShow = (element_button) => {
   if (element_button.innerText === "Hide") {
     element_button.innerText = "Show";
   } else {

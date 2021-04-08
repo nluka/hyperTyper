@@ -5,6 +5,7 @@ const parseBool = (bool_str) => {
       return true;
     case "false":
       return false;
+    default:
+      return null;
   }
-  return null;
 };

@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
   <head>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="icon" href="icons/enter-key.png" />
     <title>hyperTyper - Feedback</title>
 
+    <!-- Common stylesheets -->
     <link rel="stylesheet" href="css/common/general-styles.css" />
     <link rel="stylesheet" href="css/common/internet-explorer-overlay.css" />
     <link rel="stylesheet" href="css/common/navbar.css" />
@@ -14,16 +17,25 @@
     <link rel="stylesheet" href="css/common/container.css" />
     <link rel="stylesheet" href="css/common/footer.css" />
 
+    <!-- Specific stylesheets -->
     <link rel="stylesheet" href="css/feedback-form/feedback-form.css" />
     <link rel="stylesheet" href="css/feedback-form/disclaimer.css" />
 
+    <!-- Page elements -->
+    <script src="js/common/page-elements.js" defer></script>
     <script src="js/feedback-form/page-elements.js" defer></script>
+
+    <!-- Common scripts -->
     <script src="js/common/internet-explorer.js" defer></script>
-    <script src="js/feedback-form/navbar.js" defer></script>
+    <script src="js/common/navbar.js" defer></script>
+
+    <!-- Specific scripts -->
     <script src="js/feedback-form/form.js" defer></script>
+
   </head>
 
   <body>
+
     <nav class="navbar">
       <div class="navbar-elements-container">
         <div class="site-name">hyperTyper</div>
@@ -49,11 +61,15 @@
     </nav>
 
     <main>
+
       <section class="feedback-form-section first" id="formSection">
+
         <div class="container form-container">
+
           <h2 class="container-heading feedback-form-heading">
             Report Feedback
           </h2>
+
           <form
             enctype="text/plain"
             method="POST"
@@ -75,7 +91,7 @@
               <option value="other">Other</option>
             </select>
             <label for="nameInput">Your Name (optional)</label>
-            <input type="text" name="nameInput" id="nameInput" />
+            <input type="text" name="nameInput" id="nameInput" autocomplete="off" />
             <label for="fileUpload">File Upload (optional)</label>
             <input type="file" name="fileUpload" id="fileUpload" multiple />
             <label for="messageTextarea">Message (required)</label>
@@ -101,26 +117,31 @@
               formaction="mailto:n.luka784@gmail.com"
             />
           </form>
+
         </div>
+
       </section>
 
       <section class="feedback-form-disclaimer last">
+
         <div class="container feedback-form-disclaimer-container">
           <p>
             <strong>Note:</strong>
-            This form is not functional yet, pressing submit will not actually
-            submit anything. It will eventually be implemented, but for now it
-            remains a placeholder.
+            This form is not functional yet, pressing 'submit feedback' will
+            not submit anything. It will eventually be implemented, but for
+            now it remains a placeholder.
           </p>
         </div>
+
       </section>
+
     </main>
 
     <footer class="footer">
       <div class="footer-elements-container">
         <div class="site-author">
           <a
-            href="https://nluka.github.io/"
+            href="https://www.linkedin.com/in/nicholas-lukasevich/"
             target="blank"
             class="footer-link portfolio-link"
           >
@@ -142,7 +163,7 @@
             <a
               href="feedback-form.html"
               target="blank"
-              class="footer-link feedback-form-link"
+              class="footer-link feedback-form-link current-page"
             >
               Report Bug/Submit Feedback
             </a>
@@ -150,5 +171,7 @@
         </ul>
       </div>
     </footer>
+
   </body>
+
 </html>

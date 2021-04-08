@@ -43,20 +43,14 @@ label:not(.for-range-input) {
   cursor: pointer;
 }
 
-.phrase-list-category-heading {
-  color: var(--font-color-secondary);
-  font-size: calc(var(--base-font-size) * 1.2);
-  /* text-decoration: underline; */
-}
-
 .expression-mode-settings button {
-  margin: calc(var(--base-spacing) * 1.5) calc(var(--base-spacing) * 0.5);
+  margin: calc(var(--base-spacing) * 1.5);
   margin-left: 0;
+  margin-right: calc(var(--base-spacing) * 0.5);
 }
 
 .expression-mode-settings button,
-.english-phrase-lists-settings button,
-.programming-phrase-lists-settings button {
+.phrase-lists-subset-container button {
   background-color: var(--bg-color-quaternary);
   border-color: var(--border-color-primary);
   border-radius: 5px;
@@ -75,58 +69,81 @@ label:not(.for-range-input) {
   -o-transition: background-color 0.2s;
 }
 
-.english-phrase-lists-settings button:nth-child(odd),
-.programming-phrase-lists-settings button:nth-child(odd) {
+.phrase-lists-subset-container button:nth-child(odd) {
   margin-right: calc(var(--base-spacing) * 0.375);
 }
 
-.english-phrase-lists-settings button:nth-child(even),
-.programming-phrase-lists-settings button:nth-child(even) {
+.phrase-lists-subset-container button:nth-child(even) {
   margin-left: calc(var(--base-spacing) * 0.375);
-}
-
-.english-phrase-lists-settings button:first-child,
-.english-phrase-lists-settings button:nth-child(2) {
-  margin-bottom: calc(var(--base-spacing) * 0.75);
 }
 
 .expression-mode-settings button:not(.on):hover,
 .expression-mode-settings button:not(.on):focus,
-.english-phrase-lists-settings button:not(.on):not(:disabled):hover,
-.english-phrase-lists-settings button:not(.on):not(:disabled):focus,
-.programming-phrase-lists-settings button:not(.on):not(:disabled):hover,
-.programming-phrase-lists-settings button:not(.on):not(:disabled):focus {
+.phrase-lists-subset-container button:not(.on):not(:disabled):hover,
+.phrase-lists-subset-container button:not(.on):not(:disabled):focus {
   background-color: rgb(22, 22, 22);
 }
 
-.expression-mode-settings button.on,
-.english-phrase-lists-settings button.on:not(:disabled),
-.programming-phrase-lists-settings button.on:not(:disabled) {
+.expression-mode-settings button.on:not(:disabled),
+.phrase-lists-subset-container button.on:not(:disabled) {
   background-color: var(--green-dark);
   border-color: transparent;
 }
 
 .expression-mode-settings button.on:hover,
 .expression-mode-settings button.on:focus,
-.english-phrase-lists-settings button.on:not(:disabled):hover,
-.english-phrase-lists-settings button.on:not(:disabled):focus,
-.programming-phrase-lists-settings button.on:not(:disabled):hover,
-.programming-phrase-lists-settings button.on:not(:disabled):focus {
+.phrase-lists-subset-container button.on:not(:disabled):hover,
+.phrase-lists-subset-container button.on:not(:disabled):focus {
   background-color: var(--green-medium);
 }
 
-.english-phrase-lists-settings {
-  margin-bottom: calc(var(--base-spacing) * 1.5);
+.phrase-lists-container {
+  border: 1px solid var(--border-color-secondary);
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  height: 310px;
+  max-height: 788px;
+  min-height: 215px;
+  overflow-y: auto;
+  padding: calc(var(--base-spacing) * 1);
+  padding-bottom: 0;
+  resize: vertical;
 }
 
-.english-phrase-lists-settings,
-.programming-phrase-lists-settings {
+.phrase-lists-subset-heading {
+  color: var(--font-color-tertiary);
+  font-size: calc(var(--base-font-size) * 1.2);
+}
+
+.phrase-lists-subset-heading.language-specific {
+  color: var(--font-color-tertiary);
+  font-size: calc(var(--base-font-size) * 1.2);
+  margin-bottom: calc(var(--base-spacing) * 1);
+}
+
+.phrase-lists-subset-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  margin-top: calc(var(--base-spacing) * 1.5);
+  margin: calc(var(--base-spacing) * 0.75) 0;
 }
 
-@media only screen and (max-width: 600px) {
+.phrase-lists-subset-container:last-child { /* Final row of buttons */
+  margin-bottom: calc(var(--base-spacing) * 1);
+}
+
+.phrase-lists-subset-container.english,
+.phrase-lists-subset-container.numbers-symbols,
+.phrase-lists-subset-container.general-programming {
+  margin: calc(var(--base-spacing) * 1.5) 0;
+  margin-top: calc(var(--base-spacing) * 1);
+}
+
+hr.programming-language-separator {
+  border: 1px solid var(--border-color-secondary);
+  opacity: 0.25;
+}
+
+@media only screen and (max-width: 700px) {
   .settings-menu {
     display: flex;
     flex-direction: column;

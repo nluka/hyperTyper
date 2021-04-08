@@ -1,48 +1,42 @@
 class Loader {
-  constructor() {
-    this._element = document.getElementById("loadingOverlayDiv");
-    this.intervalId = null;
-    this.loaderStep = 0;
+  constructor(loadingOverlay_element, loader_element) {
+    this._element = loader_element;
+    this.overlay_element = loadingOverlay_element;
     //console.log("Loader object instantiated");
   }
 
-  animateInnerText() {
-    if (loaderStep >= 4) loaderStep = 0;
-    switch (loaderStep) {
-      default:
-      case 0:
-        loadingScreen_div.innerText = "Loading";
-      case 1:
-        loadingScreen_div.innerText = "Loading.";
-      case 2:
-        loadingScreen_div.innerText = "Loading..";
-      case 3:
-        loadingScreen_div.innerText = "Loading...";
-    }
-    loaderStep++;
-  }
-
   removeOverlay() {
-    clearInterval(this.intervalId);
-    // this.element.innerText = "";
-    this._element.animate(
+    const overlaySlideUpAnimationDurationMs = 750;
+
+    this.overlay_element.animate(
       [
         // keyframes
-        { transform: "translateY(0)" },
-        { transform: "translateY(-100vh)" },
+        {
+          //transform: "translateY(0)",
+          opacity: 1
+        },
+        {
+          //transform: "translateY(-100vh)",
+          opacity: 0
+        },
       ],
       {
         // timing options
-        duration: 500,
+        duration: overlaySlideUpAnimationDurationMs,
         iterations: 1,
         fill: "forwards",
+        easing: "cubic-bezier(.85, .2, .75, .95)",
       }
     );
 
-    setTimeout(clearLoadingScreenTimeoutCallback, 500);
+    setTimeout(
+      removeLoaderAndOverlayTimeoutCallback,
+      overlaySlideUpAnimationDurationMs
+    );
   }
 }
 
-const clearLoadingScreenTimeoutCallback = () => {
+const removeLoaderAndOverlayTimeoutCallback = () => {
   pageLoader._element.remove();
+  pageLoader.overlay_element.remove();
 };

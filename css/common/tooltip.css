@@ -12,9 +12,9 @@
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
+  box-shadow: 0 0 1px 1px black;
   color: var(--font-color-primary);
   left: -1%;
-  max-width: 600px;
   opacity: 0;
   padding: calc(var(--base-spacing) * 0.6);
   position: absolute;
@@ -34,6 +34,18 @@
 .tooltip-container:hover .tooltip-text {
   opacity: 1;
   visibility: visible;
+}
+
+@media only screen and (max-width: 3840px) {
+  .tooltip-text {
+    max-width: 350px;
+  }
+}
+
+@media only screen and (max-width: 1920px) {
+  .tooltip-text {
+    max-width: 355px;
+  }
 }
 
 @media only screen and (max-width: 600px) {

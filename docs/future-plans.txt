@@ -1,7 +1,16 @@
-- Improve loading overlay aesthetics
+1.2:
 - Alert the user the first time they have punctuation and any programming list enabled simultaneously
-- Add more programming lists for phrases (also make the expression settings column scrollable to avoid them making the settings menu too tall)
+- Overhaul tooltips to have a clickable icon that toggles them on/off
 - Expand your statistics page to group results based on expression mode and specific lists
-- Improve tooltip UX on mobile
+
+1.3:
+- Add ability to choose target word count or length in chars for quotes
+- Let user choose punctuation frequency for phrases
+- Improve mobile navbar animation
+
+1.4:
+- Add light mode (if it's not a huge hassle to implement)
+
+1.5:
 - Add error page for incompatible browsers (will require some code changes as well)
 - Implement feedback form
