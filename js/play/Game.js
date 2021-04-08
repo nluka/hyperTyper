@@ -1,33 +1,36 @@
 class Game {
   constructor(input_el) {
     this.input_element = input_el;
+
+    this.state = {
+      isActive: false,
+      isDisqualified: false,
+      wasSuddenDeathTriggered: false,
+      wasCheatingAttempted: false,
+      wasAborted: false,
+    };
+
+    this.expression = {
+      text: null,
+      author: null,
+    };
+
+    this.input = {
+      completedChars: [],
+      currentCombinedLength: null, // * completedChars + inputElementChars
+      previousCombinedLength: null, // *
+      numOfCharsTyped: null,
+      numOfMistakesMade: null,
+    };
+
+    this.result = {
+      wpm: null,
+      mistakes: null,
+      accuracy: null,
+    };
+
     //console.log("Game object instantiated");
   }
-
-  // DATA MEMBERS
-  state = {
-    isActive: false,
-    isDisqualified: false,
-    wasKilled: false,
-    wasCheatingAttempted: false,
-    wasAborted: false,
-  };
-  expression = {
-    text: null,
-    author: null,
-  };
-  input = {
-    completedChars: [],
-    currentCombinedLength: null, // * completedChars + inputElementChars
-    previousCombinedLength: null, // *
-    numOfCharsTyped: null,
-    numOfMistakesMade: null,
-  };
-  result = {
-    wpm: null,
-    mistakes: null,
-    accuracy: null,
-  };
 
   start() {
     if (this.state.isActive) return;
@@ -43,19 +46,25 @@ class Game {
   }
 
   resetDataMembers() {
-    //console.log("Resetting game data members");
-
+    this.state.isActive = false;
     this.state.isDisqualified = false;
     this.state.wasCheatingAttempted = false;
     this.state.wasReset = false;
-    //console.log("> state variables reset");
+
+    this.expression.text = null;
+    this.expression.author = null;
 
     this.input.completedChars = [];
     this.input.currentCombinedLength = 0;
     this.input.previousCombinedLength = 0;
     this.input.numOfCharsTyped = 0;
     this.input.numOfMistakesMade = 0;
-    //console.log("> input variables reset");
+
+    this.result.wpm = 0;
+    this.result.mistakes = 0;
+    this.result.accuracy = 0;
+
+    //console.log("Game data members reset");
   }
 
   update() {
@@ -147,30 +156,41 @@ class Game {
     //    inputCombinedLengthDiff -
     //    this.input.completedChars.length +
     //    1
-    //  } span tags`
+    //  } span tags in expression`
     //);
-
-    if (numOfMistakesInBuffer > 0) this.markInputElementAsIncorrect();
-
-    if (
-      inputElementChars[inputElementChars.length - 1] === " " &&
-      numOfMistakesInBuffer === 0
-    ) {
-      for (let i = 0; i < inputElementChars.length; i++) {
-        this.input.completedChars.push(inputElementChars[i]);
-      }
-      this.input_element.value = "";
-    }
 
     this.input.previousCombinedLength = this.input.currentCombinedLength;
 
-    if (numOfMistakesInBuffer === 0 && !hasTheFirstNullCharBeenMarked) {
-      for (let i = 0; i < inputElementChars.length; i++) {
-        this.input.completedChars.push(inputElementChars[i]);
+    if (numOfMistakesInBuffer > 0) this.markInputElementAsIncorrect();
+    else if (numOfMistakesInBuffer === 0) {
+      if (
+        inputElementChars[inputElementChars.length - 1] === " " ||
+        !hasTheFirstNullCharBeenMarked
+      ) {
+        inputElementChars.forEach((char) => {
+          this.input.completedChars.push(char);
+        });
+        this.input_element.value = "";
+        console.log(this.input.completedChars);
+        if (!hasTheFirstNullCharBeenMarked) endGame("completed");
       }
-      this.input_element.value = "";
-      endGame("completed");
     }
+
+    // if (
+    //   inputElementChars[inputElementChars.length - 1] === " " &&
+    //   numOfMistakesInBuffer === 0
+    // ) {
+    //   inputElementChars.forEach(char => {
+    //   this.input.completedChars.push(char);
+    // });
+    //   this.input_element.value = "";
+    // } else if (numOfMistakesInBuffer === 0 && !hasTheFirstNullCharBeenMarked) {
+    //   for (let i = 0; i < inputElementChars.length; i++) {
+    //     this.input.completedChars.push(inputElementChars[i]);
+    //   }
+    //   this.input_element.value = "";
+    //   endGame("completed");
+    // }
   }
 
   markInputElementAsIncorrect() {
@@ -221,7 +241,7 @@ class Game {
     //  "Game killed, isSuddenDeath is set to",
     //  settings.isSuddenDeathEnabled
     //);
-    this.state.wasKilled = true;
+    this.state.wasSuddenDeathTriggered = true;
   }
 
   disqualify() {

@@ -1,0 +1,18 @@
+1.0.1:
+- Added changelog.txt
+- JS:
+  - Minorly refactored Game.update() code, moved data members into constructor
+  - Updated GameStatisticsTable class to take in table cells elements as parameters
+  - Moved out two maps from Settings class and made them their own const objects
+  - Fixed a bug in Expression.correctSpacingErrorsForCharInString()
+  where a space would get inserted after each period in an ellipses
+  ("..." was being turned into ". . .")
+- HTML:
+  - Minor whitespace removal
+  - Improved game input element and feedback form by adding various attributes
+- CSS:
+  - Fixed horizontal overscroll on iOS devices
+  - Fixed checkbox input styles to hide underlying checkbox
+  - Fixed visual keyboard max-width to prevent it from flowing off the page
+  - Fixed tooltip widths for smaller screens, should no longer overflow the page
+  - Updated navbar box-shadows

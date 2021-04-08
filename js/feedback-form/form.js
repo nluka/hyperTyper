@@ -4,7 +4,12 @@ message_textarea.addEventListener("input", () => {
   } characters left`;
 });
 
-submitForm_input.addEventListener("click", () => {
+// const feedbackFormSubmitEventCallback = () => {
+//   alert("Thank you for feedback submission!");
+//   window.location = "index.html";
+// }
+
+submitForm_input.onsubmit = () => {
   alert("Thank you for feedback submission!");
   window.location = "index.html";
-});
+}

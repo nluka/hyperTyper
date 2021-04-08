@@ -18,24 +18,6 @@ class Settings {
     //console.log("Settings object insantiated, default settings loaded");
   }
 
-  wordListNameToArrayMap = {
-    commonEnglishWordsList: commonEnglishWordsList,
-    randomEnglishWordsList: randomEnglishWordsList,
-    numbersList: numbersList,
-    symbolsList: symbolsList,
-    commonProgrammingKeywordsList: commonProgrammingKeywordsList,
-    commonProgrammingOperatorsList: commonProgrammingOperatorsList,
-  };
-
-  wordListNameToButtonElementMap = {
-    commonEnglishWordsList: commonEnglishWordsListToggle_button,
-    randomEnglishWordsList: randomEnglishWordsListToggle_button,
-    numbersList: numbersListToggle_button,
-    symbolsList: symbolsListToggle_button,
-    commonProgrammingKeywordsList: commonProgrammingKeywordsListToggle_button,
-    commonProgrammingOperatorsList: commonProgrammingOperatorsListToggle_button,
-  };
-
   setSoundVolumeTo(float) {
     if (float <= 0) float = 0.01;
     else if (float > 1.0) float = 1.0;
@@ -151,9 +133,9 @@ class Settings {
       );
       storedPhraseListsEnabledArr.forEach((childArrayName) => {
         this.phraseListsEnabledArr.push(
-          this.wordListNameToArrayMap[childArrayName]
+          wordListNameToArrayMap[childArrayName]
         );
-        this.wordListNameToButtonElementMap[childArrayName].classList.add("on");
+        wordListNameToButtonElementMap[childArrayName].classList.add("on");
       });
     }
   }
@@ -203,4 +185,22 @@ const defaultConfig = {
     numbersList,
     symbolsList,
   ],
+};
+
+const wordListNameToArrayMap = {
+  commonEnglishWordsList: commonEnglishWordsList,
+  randomEnglishWordsList: randomEnglishWordsList,
+  numbersList: numbersList,
+  symbolsList: symbolsList,
+  commonProgrammingKeywordsList: commonProgrammingKeywordsList,
+  commonProgrammingOperatorsList: commonProgrammingOperatorsList,
+};
+
+const wordListNameToButtonElementMap = {
+  commonEnglishWordsList: commonEnglishWordsListToggle_button,
+  randomEnglishWordsList: randomEnglishWordsListToggle_button,
+  numbersList: numbersListToggle_button,
+  symbolsList: symbolsListToggle_button,
+  commonProgrammingKeywordsList: commonProgrammingKeywordsListToggle_button,
+  commonProgrammingOperatorsList: commonProgrammingOperatorsListToggle_button,
 };

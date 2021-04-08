@@ -1,16 +1,15 @@
 .switch {
-  display: inline-block;
+  align-items: center;
+  display: flex;
   height: 18px;
+  justify-content: center;
   min-width: 35px;
   position: relative;
   width: 35px;
 }
 
 .switch input {
-  align-items: center;
-  display: flex;
   height: 100%;
-  justify-content: center;
   width: 100%;
 }
 

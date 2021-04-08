@@ -146,7 +146,7 @@ const toggleViewGameStatistics_button = document.getElementById(
 const gameStatistics_table = document.getElementById("gameStatisticsTable");
 const wpm_td = document.getElementById("wpmTableData");
 const accuracy_td = document.getElementById("accuracyTableData");
-const textLengthChars_td = document.getElementById("textLengthCharsTableData");
+const textLength_td = document.getElementById("textLengthCharsTableData");
 const timeElapsed_td = document.getElementById("timeElapsedTableData");
 // </game-statistics>
 

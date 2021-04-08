@@ -27,7 +27,7 @@
         <div class="site-name">hyperTyper</div>
         <ul class="navbar-items-list collapsed" id="navbarItemsList">
           <li class="navbar-item play">
-            <a href="index.html" class="navbar-link"> Play </a>
+            <a href="index.html" class="navbar-link">Play</a>
           </li>
           <li class="navbar-item your-statistics">
             <a href="your-statistics.html" class="navbar-link">
@@ -35,7 +35,7 @@
             </a>
           </li>
           <li class="navbar-item about">
-            <a href="about.html" class="navbar-link about"> About </a>
+            <a href="about.html" class="navbar-link about">About</a>
           </li>
         </ul>
         <div class="expand-navbar-items-button" id="expandNavbarItemsButton">
@@ -55,9 +55,18 @@
           <form
             enctype="text/plain"
             method="POST"
+            onsubmit="feedbackFormSubmitEventCallback"
           >
-            <label for="feedbackTypeSelect">Feedback Type *</label>
-            <select name="feedbackTypeSelect" id="feedbackTypeSelect">
+            <label for="feedbackTypeSelect">Feedback Type (required)</label>
+            <select
+              name="feedbackTypeSelect"
+              id="feedbackTypeSelect"
+              autocomplete="off"
+              required="true"
+            >
+              <option value="" disabled selected hidden>
+                Select an option
+              </option>
               <option value="bug">Bug</option>
               <option value="suggestion">Suggestion</option>
               <option value="comment">Comment</option>
@@ -67,13 +76,15 @@
             <input type="text" name="nameInput" id="nameInput" />
             <label for="fileUpload">File Upload (optional)</label>
             <input type="file" name="fileUpload" id="fileUpload" />
-            <label for="messageTextarea">Message *</label>
+            <label for="messageTextarea">Message (required)</label>
             <textarea
               name="messageTextarea"
               id="messageTextarea"
               cols="50"
               rows="7"
               maxlength="500"
+              required="true"
+              autocomplete="off"
             ></textarea>
             <div
               class="message-chars-remaining-counter"

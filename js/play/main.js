@@ -10,7 +10,12 @@ const gameActionButton = new GameActionButton(gameStartAndAbort_button);
 const expression = new Expression(expression_div);
 const game = new Game(playerText_input);
 const visualKeyboard = new VisualKeyboard(visualKeyboard_div);
-const gameStatisticsTable = new GameStatisticsTable();
+const gameStatisticsTable = new GameStatisticsTable({
+  wpmCell: wpm_td,
+  accuracyCell: accuracy_td,
+  textLengthCell: textLength_td,
+  timeElapsedCell: timeElapsed_td,
+});
 const mistakeAnalysis = new MistakeAnalysis(analyzedExpression_div);
 
 const loadingAnimationIntervalCallback = () => {

@@ -5,14 +5,14 @@
 .navbar {
   align-items: center;
   background-color: var(--bg-color-secondary);
-  box-shadow: var(--box-shadow-primary);
+  box-shadow: 0 0 1px 1px rgb(5, 5, 5);
   display: flex;
   justify-content: center;
   left: 0;
   min-width: 280px;
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 100vw;
   z-index: 1001;
 }
 
@@ -111,7 +111,7 @@
 
   .navbar-items-list {
     background-color: var(--bg-color-tertiary);
-    box-shadow: 0 5px 5px -3px black;
+    box-shadow: 0 0 1px 1px rgb(5, 5, 5);
     flex-direction: column;
     height: var(--navbar-expandable-responsive-menu-height);
     justify-content: space-evenly;

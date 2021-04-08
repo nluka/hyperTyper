@@ -44,6 +44,7 @@ class Expression {
         quoteText = response.content;
         quoteAuthor = response.author;
         if (settings.isPunctuationEnabled) {
+          quoteText = "Hello... world.";
           quoteText = this.correctSentenceSpacingErrors(quoteText);
         } else {
           quoteText = this.getAlphaNumericAndLowerCaseEquivalentOfString(
@@ -57,9 +58,9 @@ class Expression {
         //console.log(`fetch request to ${randomQuoteApiUrl} succeeded`);
       })
       .catch((error) => {
-        //console.log(
-        //  `Error retrieving quote from ${randomQuoteApiUrl}: ${error}`
-        //);
+        console.log(
+         `Error retrieving quote from ${randomQuoteApiUrl}: ${error}`
+        );
       });
 
     if (quoteText.length !== 0) {
@@ -77,10 +78,10 @@ class Expression {
     quoteAuthor = quotes[choice]["author"];
     if (quoteAuthor == null) quoteAuthor = "Unknown";
 
-    if (!settings.isPunctuationEnabled) {
-      quoteText = this.getAlphaNumericAndLowerCaseEquivalentOfString(quoteText);
-    } else {
+    if (settings.isPunctuationEnabled) {
       quoteText = this.correctSentenceSpacingErrors(quoteText);
+    } else {
+      quoteText = this.getAlphaNumericAndLowerCaseEquivalentOfString(quoteText);
     }
     quoteText = this.truncateTrailingWhitespaceOfString(quoteText);
 
@@ -92,7 +93,6 @@ class Expression {
   }
 
   getAlphaNumericAndLowerCaseEquivalentOfString(string) {
-    //console.log(string);
     return string
       .replace(/[^a-zA-Z0-9\s]/g, "")
       .replace(/\s{2,}/g, " ")
@@ -116,10 +116,13 @@ class Expression {
   }
 
   correctSpacingErrorsForCharInString(char, string) {
-    const regex_str = `[${char}][^ ]`;
+    let regex_str = `[${char}]`;
+    if (char === ".") regex_str += "(?!\.)";
+    regex_str += "[^ ]";
     const regex = new RegExp(regex_str);
     let stringCopy = string;
     while (!!stringCopy.match(regex)) {
+      if (!!stringCopy.match(/\.\.\./)) continue;
       const matchedStringSegment = stringCopy.match(regex);
       const replacement_str = `${char} ${matchedStringSegment[0].charAt(1)}`;
       stringCopy = stringCopy.replace(regex, replacement_str);

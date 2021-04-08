@@ -42,6 +42,18 @@
   }
 }
 
+@media only screen and (max-width: 500px) {
+  .tooltip-text {
+    max-width: 250px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .tooltip-text {
+    max-width: 200px;
+  }
+}
+
 @media only screen and (max-width: 300px) {
   .tooltip-text {
     max-width: 200px;
