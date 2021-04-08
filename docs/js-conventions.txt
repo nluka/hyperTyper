@@ -1,0 +1,20 @@
+The following are the style conventions for all JS code in this project.
+///////////////////////////////////////////////////////////////////////////////
+
+1. Any variables that reference HTML elements should mention what element type
+they hold at the end of their name, separated by an underscore.
+
+  for example:
+
+  let somePanel_div;
+  let _body;
+  let phraseList_buttons (this is an example of an array of elements)
+
+2. In places where tracking the type of data a variable holds is relevant,
+variable names should indicate the type of data they will hold; at the end of
+their name, separated by an underscore.
+
+  for example:
+
+  let soundVolume_float = 0.2;
+  let expression_str = "Some text.";

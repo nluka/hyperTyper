@@ -1,0 +1,16 @@
+The following are the style conventions for all code files in this project.
+///////////////////////////////////////////////////////////////////////////////
+
+1. Line length should, when possible, be <= 80 columns. This is to allow for at
+least 2 files open side-by-side in one editor window, and for general
+readability. An exception can be made for lines where content doesn't matter
+such as a url (@import), or where a newline would break code, such as in the
+middle of a string.
+
+2. Always use 2 real-spaces for indentation. Never use tabs.
+
+3. Ensure trailing-whitespace is trimmed, editor should be configured to do so.
+
+4. Add comments sparingly. Use them to label sections of code in a large file,
+but avoid using comments to explain single lines whenever possible. Code should
+be self explanatory, if it isn't, fix it to be so.

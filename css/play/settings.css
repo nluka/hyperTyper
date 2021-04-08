@@ -1,0 +1,149 @@
+.settings-menu {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.general-settings-column,
+.expression-settings-column {
+  background-color: var(--bg-color-content-panel);
+  border-top: 1px solid var(--border-color-secondary);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 170px;
+  padding: calc(var(--base-spacing) * 1.5);
+}
+
+.general-settings-column {
+  border-bottom-left-radius: 5px;
+  border-right: 1px solid var(--border-color-secondary);
+}
+
+.expression-settings-column {
+  border-bottom-right-radius: 5px;
+}
+
+.setting-category-heading {
+  color: var(--font-color-tertiary);
+  font-size: calc(var(--base-font-size) * 1.3);
+  text-decoration: underline;
+}
+
+.setting-label-input-pair-container {
+  align-items: center;
+  color: var(--font-color-tertiary);
+  display: flex;
+  font-size: calc(var(--base-font-size) * 1.1);
+  font-weight: 300;
+  justify-content: space-between;
+  margin: calc(var(--base-spacing) * 1.5) 0;
+}
+
+label:not(.for-range-input) {
+  cursor: pointer;
+}
+
+.phrase-list-category-heading {
+  color: var(--font-color-secondary);
+  font-size: calc(var(--base-font-size) * 1.2);
+  text-decoration: underline;
+}
+
+.expression-mode-settings button {
+  margin: calc(var(--base-spacing) * 1.5) calc(var(--base-spacing) * 0.5);
+  margin-left: 0;
+}
+
+.expression-mode-settings button,
+.english-phrase-lists-settings button,
+.programming-phrase-lists-settings button {
+  background-color: var(--bg-color-quaternary);
+  border-color: var(--border-color-primary);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  color: var(--font-color-secondary);
+  font-family: var(--font-family-primary);
+  font-size: calc(var(--base-font-size) * 1);
+  text-align: left;
+  transition: background-color 0.2s;
+  -webkit-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  -ms-transition: background-color 0.2s;
+  -o-transition: background-color 0.2s;
+}
+
+.english-phrase-lists-settings button:nth-child(odd),
+.programming-phrase-lists-settings button:nth-child(odd) {
+  margin-right: calc(var(--base-spacing) * 0.375);
+}
+
+.english-phrase-lists-settings button:nth-child(even),
+.programming-phrase-lists-settings button:nth-child(even) {
+  margin-left: calc(var(--base-spacing) * 0.375);
+}
+
+.english-phrase-lists-settings button:first-child,
+.english-phrase-lists-settings button:nth-child(2) {
+  margin-bottom: calc(var(--base-spacing) * 0.75);
+}
+
+.expression-mode-settings button:not(.on):hover,
+.expression-mode-settings button:not(.on):focus,
+.english-phrase-lists-settings button:not(.on):not(:disabled):hover,
+.english-phrase-lists-settings button:not(.on):not(:disabled):focus,
+.programming-phrase-lists-settings button:not(.on):not(:disabled):hover,
+.programming-phrase-lists-settings button:not(.on):not(:disabled):focus {
+  background-color: rgb(22, 22, 22);
+}
+
+.expression-mode-settings button.on,
+.english-phrase-lists-settings button.on:not(:disabled),
+.programming-phrase-lists-settings button.on:not(:disabled) {
+  background-color: var(--green-dark);
+  border-color: transparent;
+}
+
+.expression-mode-settings button.on:hover,
+.expression-mode-settings button.on:focus,
+.english-phrase-lists-settings button.on:not(:disabled):hover,
+.english-phrase-lists-settings button.on:not(:disabled):focus,
+.programming-phrase-lists-settings button.on:not(:disabled):hover,
+.programming-phrase-lists-settings button.on:not(:disabled):focus {
+  background-color: var(--green-medium);
+}
+
+.english-phrase-lists-settings {
+  margin-bottom: calc(var(--base-spacing) * 1.5);
+}
+
+.english-phrase-lists-settings,
+.programming-phrase-lists-settings {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: calc(var(--base-spacing) * 1.5);
+}
+
+@media only screen and (max-width: 600px) {
+  .settings-menu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .general-settings-column {
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-right: none;
+    margin: 0;
+  }
+
+  .expression-settings-column {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+}
