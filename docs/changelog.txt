@@ -16,3 +16,7 @@
   - Fixed visual keyboard max-width to prevent it from flowing off the page
   - Fixed tooltip widths for smaller screens, should no longer overflow the page
   - Updated navbar box-shadows
+
+1.0.2:
+- Fixed typo in README.md and about.HTML
+- Removed left in code from testing Expression functionality in JS

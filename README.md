@@ -40,7 +40,7 @@ This project was developed with the following browsers in mind (in descending pr
 
 **Google Chrome, Safari, Mozilla Firefox, Microsoft Edge, Opera.**
 
-Functionality and compability will be optimized for Chrome, because that is by far the most popular browser at the time of writing and development, and it is the browser I use to develop in. However, this project tries to ensure compatibility for the other aforementioned browsers when possible, but this is not a guarantee. For the best experience, Chrome should be used. Internet Explorer is not supported because it lacks many CSS and JS features that this project utilizes.
+Functionality and compatibility will be optimized for Chrome, because that is by far the most popular browser at the time of writing and development, and it is the browser I use to develop in. However, this project tries to ensure compatibility for the other aforementioned browsers when possible, but this is not a guarantee. For the best experience, Chrome should be used. Internet Explorer is not supported because it lacks many CSS and JS features that this project utilizes.
 
 ## Future
 

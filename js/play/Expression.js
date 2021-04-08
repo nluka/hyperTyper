@@ -44,7 +44,6 @@ class Expression {
         quoteText = response.content;
         quoteAuthor = response.author;
         if (settings.isPunctuationEnabled) {
-          quoteText = "Hello... world.";
           quoteText = this.correctSentenceSpacingErrors(quoteText);
         } else {
           quoteText = this.getAlphaNumericAndLowerCaseEquivalentOfString(
