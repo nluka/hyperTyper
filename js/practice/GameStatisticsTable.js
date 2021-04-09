@@ -1,52 +1,43 @@
-class GameStatisticsTable {
-  static ELEMENT_ID = "gameStatisticsTable";
-  static DEFAULT_IS_VISIBLE_BOOL = true;
-
-  constructor(
-    elements = {
-      table,
-      toggleVisibilityButton,
-      wpmCell,
-      accuracyCell,
-      textLengthCell,
-      timeElapsedCell
+import { gameStatistics_table, toggleVisibilityGameStatisticsTable_button, wpm_td, accuracy_td, textLength_td, timeElapsed_td } from "./page-elements.js";
+import { throwExceededClassInstanceLimitException } from "../common/functions.js";
+var GameStatisticsTable = /** @class */ (function () {
+    function GameStatisticsTable() {
+        this.tableElement = gameStatistics_table;
+        this.toggleVisibilityButtonElement = toggleVisibilityGameStatisticsTable_button;
+        GameStatisticsTable.instanceCount++;
+        if (GameStatisticsTable.instanceCount > GameStatisticsTable.instanceCountLimit) {
+            throwExceededClassInstanceLimitException("GameStatisticsTable", GameStatisticsTable.instanceCountLimit);
+        }
     }
-  ) {
-    this.tableElement = elements.table;
-    this.toggleVisibilityButtonElement = elements.toggleVisibilityButton;
-    this.wpmCellElement = elements.wpmCell;
-    this.accuracyCellElement = elements.accuracyCell;
-    this.textLengthCellElement = elements.textLengthCell;
-    this.timeElapsedCellElement = elements.timeElapsedCell;
-  }
-
-  updateForGameCompletion(
-    results = {
-      wordsPerMinute,
-      accuracyPercentage,
-      textLength,
-      timeElapsedInSeconds
-    }
-  ) {
-    this.setWpmCellInnerText(results.wordsPerMinute, { decimalPlaces: 1 });
-    this.setAccuracyCellInnerText(results.accuracyPercentage, { decimalPlaces: 1 });
-    this.setTextLengthCharsCellInnerText(results.textLength, { decimalPlaces: 0 });
-    this.setTimeElapsedCellInnerText(results.timeElapsedInSeconds, { decimalPlaces: 2 });
-  }
-
-  setWpmCellInnerText(wpm, { decimalPlaces }) {
-    this.wpmCellElement.innerText = wpm.toFixed(decimalPlaces);
-  }
-
-  setAccuracyCellInnerText(accuracy, { decimalPlaces }) {
-    this.accuracyCellElement.innerText = accuracy.toFixed(decimalPlaces) + "%";
-  }
-
-  setTextLengthCharsCellInnerText(numOfChars, { decimalPlaces }) {
-    this.textLengthCellElement.innerText = numOfChars.toFixed(decimalPlaces);
-  }
-
-  setTimeElapsedCellInnerText(seconds, { decimalPlaces }) {
-    this.timeElapsedCellElement.innerText = seconds.toFixed(decimalPlaces);
-  }
-}
+    GameStatisticsTable.prototype.updateForGameCompletion = function (gameResult) {
+        this.setWpmCellInnerText(gameResult.netWordsPerMinute, 1);
+        this.setAccuracyCellInnerText(gameResult.accuracyPercentage, 1);
+        this.setTextLengthCharsCellInnerText(gameResult.textLength, 0);
+        this.setTimeElapsedCellInnerText(gameResult.secondsElapsed, 2);
+    };
+    GameStatisticsTable.prototype.setCellElementInnerText = function (cellElement, value, decimalPlaces) {
+        cellElement.innerText = value.toFixed(decimalPlaces);
+    };
+    GameStatisticsTable.prototype.setWpmCellInnerText = function (wpm, decimalPlaces) {
+        this.setCellElementInnerText(wpm_td, wpm, decimalPlaces);
+    };
+    GameStatisticsTable.prototype.setAccuracyCellInnerText = function (accuracy, decimalPlaces) {
+        this.setCellElementInnerText(accuracy_td, accuracy, decimalPlaces);
+    };
+    GameStatisticsTable.prototype.setTextLengthCharsCellInnerText = function (textLength, decimalPlaces) {
+        this.setCellElementInnerText(textLength_td, textLength, decimalPlaces);
+    };
+    GameStatisticsTable.prototype.setTimeElapsedCellInnerText = function (seconds, decimalPlaces) {
+        this.setCellElementInnerText(timeElapsed_td, seconds, decimalPlaces);
+    };
+    GameStatisticsTable.ELEMENT_ID = "gameStatisticsTable";
+    GameStatisticsTable.DEFAULT_IS_VISIBLE_BOOL = true;
+    GameStatisticsTable.TOOLTIP_NET_WORDS_PER_MINUTE_TEXT_TITLE = "Net Words Per Minute";
+    GameStatisticsTable.TOOLTIP_NET_WORDS_PER_MINUTE_TEXT_BODY = "Calculated as: (Text Length ÷ 5) ÷ Minutes";
+    GameStatisticsTable.TOOLTIP_ACCURACY_PERCENTAGE_TEXT_TITLE = "Accuracy Percentage";
+    GameStatisticsTable.TOOLTIP_ACCURACY_PERCENTAGE_TEXT_BODY = "Calculated as: (Text Length ÷ [Text Length + Mistakes]) × 100%";
+    GameStatisticsTable.instanceCountLimit = 1;
+    GameStatisticsTable.instanceCount = 0;
+    return GameStatisticsTable;
+}());
+export default GameStatisticsTable;

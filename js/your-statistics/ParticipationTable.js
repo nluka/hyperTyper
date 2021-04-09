@@ -1,89 +1,68 @@
-class ParticipationTable {
-  static ELEMENT_ID = "participationTable";
-  static DEFAULT_IS_VISIBLE_BOOL = true;
-
-  constructor(
-    elements = {
-      table,
-      toggleVisibilityButton,
-      playtimeCell,
-      gamesCompletedCell,
-      gamesAbandonedCell,
-      gamesDisqualifiedCell,
-      gamesCheatedCell
+import { SECONDS_PER_HOUR, SECONDS_PER_MINUTE } from "../common/constants.js";
+import { throwExceededClassInstanceLimitException } from "../common/functions.js";
+import StatisticsStorage from "../common/StatisticsStorage.js";
+import { gamesAborted_td, gamesCheated_td, gamesCompleted_td, gamesDisqualified_td, participationStatistics_table, playtime_td, toggleVisibilityParticipationStatistics_button } from "./page-elements.js";
+var ParticipationTable = /** @class */ (function () {
+    function ParticipationTable() {
+        this.tableElement = participationStatistics_table;
+        this.toggleVisibilityButtonElement = toggleVisibilityParticipationStatistics_button;
+        this.playtimeInSecondsValue = StatisticsStorage.getPlaytimeInSeconds(1);
+        this.gamesCompletedValue = StatisticsStorage.getGamesCompleted();
+        this.gamesAbortedValue = StatisticsStorage.getGamesAborted();
+        this.gamesDisqualifiedValue = StatisticsStorage.getGamesDisqualified();
+        this.gamesCheatedValue = StatisticsStorage.getGamesCheated();
+        ParticipationTable.instanceCount++;
+        if (ParticipationTable.instanceCount > ParticipationTable.instanceCountLimit) {
+            throwExceededClassInstanceLimitException("ParticipationTable", ParticipationTable.instanceCountLimit);
+        }
     }
-  ) {
-    this.tableElement = elements.table;
-    this.toggleVisibilityButtonElement = elements.toggleVisibilityButton;
-    this.playtimeCellElement = elements.playtimeCell;
-    this.gamesCompletedCellElement = elements.gamesCompletedCell;
-    this.gamesAbandonedCellElement = elements.gamesAbandonedCell;
-    this.gamesDisqualifiedCellElement = elements.gamesDisqualifiedCell;
-    this.gamesCheatedCellElement = elements.gamesCheatedCell;
-  }
-
-  refreshAllValuesFromStatisticsStorage() {
-    this.playtimeInSecondsValue = StatisticsStorage.getPlaytimeInSeconds({ decimalPlaces: 1 });
-    this.gamesCompletedValue = StatisticsStorage.getGamesCompleted({ decimalPlaces: 0 });
-    this.gamesAbandonedValue = StatisticsStorage.getGamesAborted({ decimalPlaces: 0 });
-    this.gamesDisqualifiedValue = StatisticsStorage.getGamesDisqualified({ decimalPlaces: 0 });
-    this.gamesCheatedValue = StatisticsStorage.getGamesCheated({ decimalPlaces: 0 });
-  }
-
-  renderCell(cellElement, value) {
-    if (value === null) {
-      this.renderNullSymbolForCell(cellElement);
-      return;
-    }
-    this.setCellInnerText(cellElement, value);
-  }
-
-  renderNullSymbolForCell(cellElement) {
-    this.setCellInnerText(cellElement, "···");
-  }
-
-  setCellInnerText(cellElement, text) {
-    cellElement.innerText = text;
-  }
-
-  renderAllCells() {
-    this.renderPlaytimeCell();
-    this.renderGamesCompletedCell();
-    this.renderGamesAbandonedCell();
-    this.renderGamesDisqualifiedCell();
-    this.renderGamesCheatedCell();
-  }
-
-  renderPlaytimeCell() {
-    this.renderCell(
-      this.playtimeCellElement,
-      ParticipationTable.getFormattedPlaytimeString(
-        this.playtimeInSecondsValue,
-        { decimalPlaces: 1 }
-      )
-    );
-  }
-
-  static getFormattedPlaytimeString(playtimeInSeconds, options = { decimalPlaces }) {
-    if (playtimeInSeconds === null || playtimeInSeconds <= 0) return "0 mins";
-    if (playtimeInSeconds < SECONDS_PER_HOUR)
-      return (playtimeInSeconds / SECONDS_PER_MINUTE).toFixed(options.decimalPlaces) + " mins";
-    return (playtimeInSeconds / SECONDS_PER_HOUR).toFixed(options.decimalPlaces) + " hours";
-  }
-
-  renderGamesCompletedCell() {
-    this.renderCell(this.gamesCompletedCellElement, this.gamesCompletedValue);
-  }
-
-  renderGamesAbandonedCell() {
-    this.renderCell(this.gamesAbandonedCellElement, this.gamesAbandonedValue);
-  }
-
-  renderGamesDisqualifiedCell() {
-    this.renderCell(this.gamesDisqualifiedCellElement, this.gamesDisqualifiedValue);
-  }
-
-  renderGamesCheatedCell() {
-    this.renderCell(this.gamesCheatedCellElement, this.gamesCheatedValue);
-  }
-}
+    ParticipationTable.prototype.renderAllCells = function () {
+        this.renderPlaytimeCell();
+        this.renderGamesCompletedCell();
+        this.renderGamesAbortedCell();
+        this.renderGamesDisqualifiedCell();
+        this.renderGamesCheatedCell();
+    };
+    ParticipationTable.prototype.renderPlaytimeCell = function () {
+        this.renderCell(playtime_td, ParticipationTable.getFormattedPlaytimeString(this.playtimeInSecondsValue, 1));
+    };
+    ParticipationTable.prototype.renderCell = function (cellElement, value) {
+        if (value === null) {
+            this.renderNullSymbolForCell(cellElement);
+            return;
+        }
+        this.setCellInnerText(cellElement, "" + value);
+    };
+    ParticipationTable.prototype.renderNullSymbolForCell = function (cellElement) {
+        this.setCellInnerText(cellElement, "···");
+    };
+    ParticipationTable.prototype.setCellInnerText = function (cellElement, text) {
+        cellElement.innerText = text;
+    };
+    ParticipationTable.getFormattedPlaytimeString = function (playtimeInSeconds, decimalPlaces) {
+        if (playtimeInSeconds === null || playtimeInSeconds <= 0)
+            return "0 mins";
+        if (playtimeInSeconds < SECONDS_PER_HOUR) {
+            return (playtimeInSeconds / SECONDS_PER_MINUTE).toFixed(decimalPlaces) + " mins";
+        }
+        return (playtimeInSeconds / SECONDS_PER_HOUR).toFixed(decimalPlaces) + " hours";
+    };
+    ParticipationTable.prototype.renderGamesCompletedCell = function () {
+        this.renderCell(gamesCompleted_td, this.gamesCompletedValue);
+    };
+    ParticipationTable.prototype.renderGamesAbortedCell = function () {
+        this.renderCell(gamesAborted_td, this.gamesAbortedValue);
+    };
+    ParticipationTable.prototype.renderGamesDisqualifiedCell = function () {
+        this.renderCell(gamesDisqualified_td, this.gamesDisqualifiedValue);
+    };
+    ParticipationTable.prototype.renderGamesCheatedCell = function () {
+        this.renderCell(gamesCheated_td, this.gamesCheatedValue);
+    };
+    ParticipationTable.ELEMENT_ID = "participationTable";
+    ParticipationTable.DEFAULT_IS_VISIBLE_BOOL = true;
+    ParticipationTable.instanceCountLimit = 1;
+    ParticipationTable.instanceCount = 0;
+    return ParticipationTable;
+}());
+export default ParticipationTable;

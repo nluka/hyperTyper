@@ -1,68 +1,54 @@
-class AccuracyTable {
-  static ELEMENT_ID = "accuracyTable";
-  static DEFAULT_IS_VISIBLE_BOOL = true;
-
-  constructor(
-    elements = {
-      table,
-      toggleVisibilityButton,
-      lastGameCell,
-      lastTenGamesCell,
-      averageToDateCell,
-      allTimeBestCell
+import { throwExceededClassInstanceLimitException } from "../common/functions.js";
+import StatisticsStorage from "../common/StatisticsStorage.js";
+import { accuracyAllTimeBest_td, accuracyAverageToDate_td, accuracyLastGame_td, accuracyLastTenGames_td, accuracyStatistics_table, toggleVisibilityAccuracyStatistics_button } from "./page-elements.js";
+var AccuracyTable = /** @class */ (function () {
+    function AccuracyTable() {
+        this.tableElement = accuracyStatistics_table;
+        this.toggleVisibilityButtonElement = toggleVisibilityAccuracyStatistics_button;
+        this.lastGameValue = StatisticsStorage.getAccuracyLastGameIfExists(1);
+        this.lastTenGamesValue = StatisticsStorage.getAccuracyLastTenGamesIfExists(1);
+        this.averageToDateValue = StatisticsStorage.getAccuracyAverageToDateIfExists(1);
+        this.allTimeBestValue = StatisticsStorage.getAccuracyAllTimeBestIfExists(1);
+        AccuracyTable.instanceCount++;
+        if (AccuracyTable.instanceCount > AccuracyTable.instanceCountLimit) {
+            throwExceededClassInstanceLimitException("AccuracyTable", AccuracyTable.instanceCountLimit);
+        }
     }
-  ) {
-    this.tableElement = elements.table;
-    this.toggleVisibilityButtonElement = elements.toggleVisibilityButton;
-    this.lastGameCellElement = elements.lastGameCell;
-    this.lastTenGamesCellElement = elements.lastTenGamesCell;
-    this.averageToDateCellElement = elements.averageToDateCell;
-    this.allTimeBestCellElement = elements.allTimeBestCell;
-  }
-
-  refreshAllValuesFromStatisticsStorage() {
-    this.lastGameValue = StatisticsStorage.getAccuracyLastGameIfExists({ decimalPlaces: 1 });
-    this.lastTenGamesValue = StatisticsStorage.getAccuracyLastTenGamesIfExists({ decimalPlaces: 1 });
-    this.averageToDateValue = StatisticsStorage.getAccuracyAverageToDateIfExists({ decimalPlaces: 1 });
-    this.allTimeBestValue = StatisticsStorage.getAccuracyAllTimeBestIfExists({ decimalPlaces: 1 });
-  }
-
-  renderCell(cellElement, value) {
-    if (value === null) {
-      this.renderNullSymbolForCell(cellElement);
-      return;
-    }
-    this.setCellInnerText(cellElement, value);
-  }
-
-  renderNullSymbolForCell(cellElement) {
-    this.setCellInnerText(cellElement, "···");
-  }
-
-  setCellInnerText(cellElement, text) {
-    cellElement.innerText = text;
-  }
-
-  renderAllCells() {
-    this.renderLastGameCell();
-    this.renderLastTenGamesCell();
-    this.renderAverageToDateCell();
-    this.renderAllTimeBestCell();
-  }
-
-  renderLastGameCell() {
-    this.renderCell(this.lastGameCellElement, this.lastGameValue);
-  }
-
-  renderLastTenGamesCell() {
-    this.renderCell(this.lastTenGamesCellElement, this.lastTenGamesValue);
-  }
-
-  renderAverageToDateCell() {
-    this.renderCell(this.averageToDateCellElement, this.averageToDateValue);
-  }
-
-  renderAllTimeBestCell() {
-    this.renderCell(this.allTimeBestCellElement, this.allTimeBestValue);
-  }
-}
+    AccuracyTable.prototype.renderAllCells = function () {
+        this.renderLastGameCell();
+        this.renderLastTenGamesCell();
+        this.renderAverageToDateCell();
+        this.renderAllTimeBestCell();
+    };
+    AccuracyTable.prototype.renderLastGameCell = function () {
+        this.renderCell(accuracyLastGame_td, this.lastGameValue);
+    };
+    AccuracyTable.prototype.renderCell = function (cellElement, value) {
+        if (value === null) {
+            this.renderNullSymbolForCell(cellElement);
+            return;
+        }
+        this.setCellInnerText(cellElement, "" + value);
+    };
+    AccuracyTable.prototype.renderNullSymbolForCell = function (cellElement) {
+        this.setCellInnerText(cellElement, "···");
+    };
+    AccuracyTable.prototype.setCellInnerText = function (cellElement, text) {
+        cellElement.innerText = text;
+    };
+    AccuracyTable.prototype.renderLastTenGamesCell = function () {
+        this.renderCell(accuracyLastTenGames_td, this.lastTenGamesValue);
+    };
+    AccuracyTable.prototype.renderAverageToDateCell = function () {
+        this.renderCell(accuracyAverageToDate_td, this.averageToDateValue);
+    };
+    AccuracyTable.prototype.renderAllTimeBestCell = function () {
+        this.renderCell(accuracyAllTimeBest_td, this.allTimeBestValue);
+    };
+    AccuracyTable.ELEMENT_ID = "accuracyTable";
+    AccuracyTable.DEFAULT_IS_VISIBLE_BOOL = true;
+    AccuracyTable.instanceCountLimit = 1;
+    AccuracyTable.instanceCount = 0;
+    return AccuracyTable;
+}());
+export default AccuracyTable;

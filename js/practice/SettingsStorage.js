@@ -1,81 +1,76 @@
-class SettingsStorage {
-  static set(key, value) {
-    localStorage.setItem(key, value);
-  }
-
-  static setPunctuation(bool) {
-    this.set(Settings.KEYS.PUNCTUATION, bool);
-  }
-
-  static setKeyboardVisual(bool) {
-    this.set(Settings.KEYS.KEYBOARD_VISUAL, bool);
-  }
-
-  static setInstantDeath(bool) {
-    this.set(Settings.KEYS.INSTANT_DEATH, bool);
-  }
-
-  static setTrackStatistics(bool) {
-    this.set(Settings.KEYS.TRACK_STATISTICS, bool);
-  }
-
-  static setCountdown(bool) {
-    this.set(Settings.KEYS.COUNTDOWN, bool);
-  }
-
-  static setSoundEffects(bool) {
-    this.set(Settings.KEYS.SOUND_EFFECTS, bool);
-  }
-
-  static setSoundVolume(float) {
-    this.set(Settings.KEYS.SOUND_VOLUME, float);
-  }
-
-  static setExpressionMode(mode) {
-    this.set(Settings.KEYS.EXPRESSION_MODE, mode);
-  }
-
-  static setPhraseItemCount(count) {
-    this.set(Settings.KEYS.PHRASE_ITEM_COUNT, count);
-  }
-
-  static setPhraseItemCollections(arrayOfItemCollections) {
-    this.set(Settings.KEYS.PHRASE_ITEM_COLLECTIONS, JSON.stringify(arrayOfItemCollections));
-  }
-
-  static getBoolIfExists(settingKey) {
-    const stringifiedBool = localStorage.getItem(settingKey);
-    if (stringifiedBool === null) {
-      return null;
+import { parseBool } from "../common/functions.js";
+import Settings from "./Settings.js";
+var SettingsStorage = /** @class */ (function () {
+    function SettingsStorage() {
     }
-    return parseBool(stringifiedBool);
-  }
-
-  static getFloatIfExists(settingKey) {
-    const stringifiedFloat = localStorage.getItem(settingKey);
-    if (stringifiedFloat === null) {
-      return null;
-    }
-    return parseFloat(stringifiedFloat);
-  }
-
-  static getStringIfExists(settingKey) {
-    return localStorage.getItem(settingKey);
-  }
-
-  static getCountIfExists(settingKey) {
-    const stringifiedCount = localStorage.getItem(settingKey);
-    if (stringifiedCount === null) {
-      return null;
-    }
-    return parseInt(stringifiedCount);
-  }
-
-  static getArrayIfExists(settingKey) {
-    const stringifiedArray = localStorage.getItem(settingKey);
-    if (stringifiedArray === null) {
-      return null;
-    }
-    return JSON.parse(stringifiedArray);
-  }
-}
+    SettingsStorage.set = function (key, value) {
+        localStorage.setItem(key, value);
+    };
+    SettingsStorage.setPunctuation = function (bool) {
+        this.set("punctuation", bool);
+    };
+    SettingsStorage.setKeyboardVisual = function (bool) {
+        this.set("keyboardVisual", bool);
+    };
+    SettingsStorage.setInstantDeath = function (bool) {
+        this.set("instantDeath", bool);
+    };
+    SettingsStorage.setTrackStatistics = function (bool) {
+        this.set("trackStatistics", bool);
+    };
+    SettingsStorage.setCountdown = function (bool) {
+        this.set("countdown", bool);
+    };
+    SettingsStorage.setSoundEffects = function (bool) {
+        this.set("soundEffects", bool);
+    };
+    SettingsStorage.setSoundVolume = function (float) {
+        this.set("soundVolume", float);
+    };
+    SettingsStorage.setExpressionMode = function (mode) {
+        Settings.verifyExpressionMode(mode);
+        this.set("expressionMode", mode);
+    };
+    SettingsStorage.setPhraseItemCollections = function (phraseItemCollectionNames) {
+        this.set("phraseItemCollections", JSON.stringify(phraseItemCollectionNames));
+    };
+    SettingsStorage.setPhraseItemCount = function (count) {
+        this.set("phraseItemCount", count);
+    };
+    SettingsStorage.setPhrasePunctuationFrequency = function (fractionalChancePerItem) {
+        this.set("phrasePunctuationFrequency", fractionalChancePerItem);
+    };
+    SettingsStorage.getBoolIfExists = function (settingKey) {
+        var stringifiedBool = localStorage.getItem(settingKey);
+        if (stringifiedBool === null) {
+            return null;
+        }
+        return parseBool(stringifiedBool);
+    };
+    SettingsStorage.getFloatIfExists = function (settingKey) {
+        var stringifiedFloat = localStorage.getItem(settingKey);
+        if (stringifiedFloat === null) {
+            return null;
+        }
+        return parseFloat(stringifiedFloat);
+    };
+    SettingsStorage.getStringIfExists = function (settingKey) {
+        return localStorage.getItem(settingKey);
+    };
+    SettingsStorage.getCountIfExists = function (settingKey) {
+        var stringifiedCount = localStorage.getItem(settingKey);
+        if (stringifiedCount === null) {
+            return null;
+        }
+        return parseInt(stringifiedCount);
+    };
+    SettingsStorage.getArrayIfExists = function (settingKey) {
+        var stringifiedArray = localStorage.getItem(settingKey);
+        if (stringifiedArray === null) {
+            return null;
+        }
+        return JSON.parse(stringifiedArray);
+    };
+    return SettingsStorage;
+}());
+export default SettingsStorage;

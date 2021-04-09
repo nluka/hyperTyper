@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-
   <head>
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -32,76 +30,71 @@
     <link rel="stylesheet" href="css/practice/mistake-analyzer.css" />
 
     <!-- Page elements -->
-    <script src="js/common/page-elements.js" defer></script>
-    <script src="js/practice/page-elements.js" defer></script>
-
-    <!-- Common scripts -->
-    <script src="js/common/Navbar.js" defer></script>
-    <script src="js/common/PageLoader.js" defer></script>
-    <script src="js/common/constants.js" defer></script>
-    <script src="js/common/functions.js" defer></script>
-    <script src="js/common/ElementVisibility.js" defer></script>
-    <script src="js/common/ElementVisibilityStateStorage.js" defer></script>
-    <script src="js/common/StatisticsStorage.js" defer></script>
-    <script src="js/common/Tooltip.js" defer></script>
+    <script src="js/common/page-elements.js" type="module"></script>
+    <script src="js/practice/page-elements.js" type="module"></script>
 
     <!-- Expression resources -->
-    <script src="js/practice/expression-resources/local-quotes.min.js" defer></script>
-    <script src="js/practice/expression-resources/english/english-words-common.js" defer></script>
-    <script src="js/practice/expression-resources/english/english-words-random.js" defer></script>
-    <script src="js/practice/expression-resources/numbers-symbols/numbers.js" defer></script>
-    <script src="js/practice/expression-resources/numbers-symbols/symbols.min.js" defer></script>
-    <script src="js/practice/expression-resources/general-programming/programming-common-keywords.min.js" defer></script>
-    <script src="js/practice/expression-resources/general-programming/programming-common-operators.min.js" defer></script>
-    <script src="js/practice/expression-resources/c/c-keywords.min.js" defer></script>
-    <script src="js/practice/expression-resources/c/c-operators.min.js" defer></script>
-    <script src="js/practice/expression-resources/cpp/cpp-keywords.min.js" defer></script>
-    <script src="js/practice/expression-resources/cpp/cpp-operators.min.js" defer></script>
-    <script src="js/practice/expression-resources/csharp/csharp-keywords.min.js" defer></script>
-    <script src="js/practice/expression-resources/csharp/csharp-operators.min.js" defer></script>
-    <script src="js/practice/expression-resources/css-html/css3-properties.min.js" defer></script>
-    <script src="js/practice/expression-resources/css-html/html5-tags.min.js" defer></script>
-    <script src="js/practice/expression-resources/java/java-keywords.min.js" defer></script>
-    <script src="js/practice/expression-resources/java/java-operators.min.js" defer></script>
-    <script src="js/practice/expression-resources/javascript/javascript-keywords.min.js" defer></script>
-    <script src="js/practice/expression-resources/javascript/javascript-operators.min.js" defer></script>
-    <script src="js/practice/expression-resources/python/python-keywords.min.js" defer></script>
-    <script src="js/practice/expression-resources/python/python-operators.min.js" defer></script>
+    <script src="js/expression-resources/local-quotes/local-quotes.min.js" type="module"></script>
+    <script src="js/expression-resources/english/english-words-common.js" type="module"></script>
+    <script src="js/expression-resources/english/english-words-random.js" type="module"></script>
+    <script src="js/expression-resources/numbers-symbols/numbers.js" type="module"></script>
+    <script src="js/expression-resources/numbers-symbols/symbols.min.js" type="module"></script>
+    <script src="js/expression-resources/general-programming/programming-common-keywords.min.js" type="module"></script>
+    <script src="js/expression-resources/general-programming/programming-common-operators.min.js" type="module"></script>
+    <script src="js/expression-resources/c/c-keywords.min.js" type="module"></script>
+    <script src="js/expression-resources/c/c-operators.min.js" type="module"></script>
+    <script src="js/expression-resources/cpp/cpp-keywords.min.js" type="module"></script>
+    <script src="js/expression-resources/cpp/cpp-operators.min.js" type="module"></script>
+    <script src="js/expression-resources/csharp/csharp-keywords.min.js" type="module"></script>
+    <script src="js/expression-resources/csharp/csharp-operators.min.js" type="module"></script>
+    <script src="js/expression-resources/css-html/css3-properties.min.js" type="module"></script>
+    <script src="js/expression-resources/css-html/html5-tags.min.js" type="module"></script>
+    <script src="js/expression-resources/java/java-keywords.min.js" type="module"></script>
+    <script src="js/expression-resources/java/java-operators.min.js" type="module"></script>
+    <script src="js/expression-resources/javascript/javascript-keywords.min.js" type="module"></script>
+    <script src="js/expression-resources/javascript/javascript-operators.min.js" type="module"></script>
+    <script src="js/expression-resources/python/python-keywords.min.js" type="module"></script>
+    <script src="js/expression-resources/python/python-operators.min.js" type="module"></script>
 
     <!-- Specific scripts -->
-    <script src="js/practice/SettingsStorage.js" defer></script>
-    <script src="js/practice/Settings.js" defer></script>
-    <script src="js/practice/Sound.js" defer></script>
-    <script src="js/practice/GameTimer.js" defer></script>
-    <script src="js/practice/GameWpmTracker.js" defer></script>
-    <script src="js/practice/GameActionButton.js" defer></script>
-    <script src="js/practice/StringEditor.js" defer></script>
-    <script src="js/practice/Quote.js" defer></script>
-    <script src="js/practice/QuotableApi.js" defer></script>
-    <script src="js/practice/LocalQuote.js" defer></script>
-    <script src="js/practice/Phrase.js" defer></script>
-    <script src="js/practice/Expression.js" defer></script>
-    <script src="js/practice/GameInput.js" defer></script>
-    <script src="js/practice/KeyboardVisual.js" defer></script>
-    <script src="js/practice/SettingsMenu.js" defer></script>
-    <script src="js/practice/GameStatisticsTable.js" defer></script>
-    <script src="js/practice/MistakeAnalyzer.js" defer></script>
-    <script src="js/practice/GameArithmetic.js" defer></script>
-    <script src="js/practice/GameDirector.js" defer></script>
-    <script src="js/practice/tooltip-text.js" defer></script>
-    <script src="js/practice/main.js" defer></script>
+    <script src="js/practice/main.js" type="module"></script>
+    <script src="js/practice/CharacterAnalysis.js" type="module"></script>
+    <script src="js/practice/Expression.js" type="module"></script>
+    <script src="js/practice/GameActionButton.js" type="module"></script>
+    <script src="js/practice/GameDirector.js" type="module"></script>
+    <script src="js/practice/GameInput.js" type="module"></script>
+    <script src="js/practice/GameResult.js" type="module"></script>
+    <script src="js/practice/GameStatisticsTable.js" type="module"></script>
+    <script src="js/practice/GameStopCode.js" type="module"></script>
+    <script src="js/practice/GameText.js" type="module"></script>
+    <script src="js/practice/GameTimer.js" type="module"></script>
+    <script src="js/practice/GameWpmTracker.js" type="module"></script>
+    <script src="js/practice/KeyboardVisual.js" type="module"></script>
+    <script src="js/practice/LocalQuote.js" type="module"></script>
+    <script src="js/practice/MistakeAnalyzer.js" type="module"></script>
+    <script src="js/practice/Phrase.js" type="module"></script>
+    <script src="js/practice/Settings.js" type="module"></script>
+    <script src="js/practice/SettingsMenu.js" type="module"></script>
+    <script src="js/practice/SettingsStorage.js" type="module"></script>
+    <script src="js/practice/Sound.js" type="module"></script>
+    <script src="js/practice/StringEditor.js" type="module"></script>
+    <script src="js/practice/Quote.js" type="module"></script>
+    <script src="js/practice/QuotableApi.js" type="module"></script>
 
+    <!-- Common scripts -->
+    <script src="js/common/Navbar.js" type="module"></script>
+    <script src="js/common/PageLoader.js" type="module"></script>
+    <script src="js/common/constants.js" type="module"></script>
+    <script src="js/common/functions.js" type="module"></script>
+    <script src="js/common/ElementVisibility.js" type="module"></script>
+    <script src="js/common/ElementVisibilityStateStorage.js" type="module"></script>
+    <script src="js/common/StatisticsStorage.js" type="module"></script>
+    <script src="js/common/Tooltip.js" type="module"></script>
   </head>
 
   <body>
-
     <div class="loading-overlay" id="loaderOverlayDiv">
-      <img
-        src="gifs/gradient-loader-dark-bg.gif"
-        alt="Loading..." id="loaderImg"
-        width="100px"
-        height="100px"
-      />
+      <img src="gifs/gradient-loader-dark-bg.gif" alt="Loading..." id="loaderImg" width="100px" height="100px" />
     </div>
 
     <nav class="navbar">
@@ -126,9 +119,7 @@
     </nav>
 
     <main>
-
       <section class="game-area" id="gameSection">
-
         <div class="panel game-header-panel">
           <div class="game-info-container">
             <div id="gameTimerDiv">--:--</div>
@@ -142,25 +133,14 @@
 
         <div class="panel game-panel">
           <div id="expressionDiv">Click the 'Start' button or click the input box below and press 'Enter' to start.</div>
-          <input
-            type="text"
-            id="gameInput"
-            autocomplete="off"
-            autocorrect="off"
-            autocapitalize="off"
-            spellcheck="false"
-          />
+          <input type="text" id="gameInput" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
         </div>
 
         <div class="panel keyboard-visual-panel">
           <div class="panel" id="keyboardVisualDiv" data-visible="false">
             <div class="general-keys-container">
               <div class="row">
-                <div
-                  class="square-key backquote-key"
-                  id="backquoteKeyDiv"
-                  data-symbol-key
-                >
+                <div class="square-key backquote-key" id="backquoteKeyDiv" data-symbol-key>
                   <div class="first-label">~</div>
                   <div class="second-label">`</div>
                 </div>
@@ -212,20 +192,12 @@
                   <div class="first-label">+</div>
                   <div class="second-label">=</div>
                 </div>
-                <div
-                  class="rect-key backspace-key"
-                  id="backspaceKeyDiv"
-                  data-function-key
-                >
+                <div class="rect-key backspace-key" id="backspaceKeyDiv" data-function-key>
                   <div class="first-label">⟵</div>
                 </div>
               </div>
               <div class="row">
-                <div
-                  class="rect-key tab-key blank"
-                  id="tabKeyDiv"
-                  data-function-key
-                >
+                <div class="rect-key tab-key blank" id="tabKeyDiv" data-function-key>
                   <div class="first-label">Tab</div>
                   <div class="second-label">⭾</div>
                 </div>
@@ -259,39 +231,21 @@
                 <div class="square-key" id="pKeyDiv">
                   <div class="first-label">P</div>
                 </div>
-                <div
-                  class="square-key"
-                  id="bracketLeftKeyDiv"
-                  data-symbol-key
-                  data-bracket-key
-                >
+                <div class="square-key" id="bracketLeftKeyDiv" data-symbol-key data-bracket-key>
                   <div class="first-label">{</div>
                   <div class="second-label">[</div>
                 </div>
-                <div
-                  class="square-key"
-                  id="bracketRightKeyDiv"
-                  data-symbol-key
-                  data-bracket-key
-                >
+                <div class="square-key" id="bracketRightKeyDiv" data-symbol-key data-bracket-key>
                   <div class="first-label">}</div>
                   <div class="second-label">]</div>
                 </div>
-                <div
-                  class="rect-key backslash-key"
-                  id="backslashKeyDiv"
-                  data-symbol-key
-                >
+                <div class="rect-key backslash-key" id="backslashKeyDiv" data-symbol-key>
                   <div class="first-label">|</div>
                   <div class="second-label">\</div>
                 </div>
               </div>
               <div class="row">
-                <div
-                  class="rect-key caps-lock-key"
-                  id="capsLockKeyDiv"
-                  data-function-key
-                >
+                <div class="rect-key caps-lock-key" id="capsLockKeyDiv" data-function-key>
                   <div class="first-label">Caps<br />Lock</div>
                 </div>
                 <div class="square-key" id="aKeyDiv">
@@ -329,21 +283,13 @@
                   <div class="first-label">"</div>
                   <div class="second-label">'</div>
                 </div>
-                <div
-                  class="rect-key enter-key"
-                  id="enterKeyDiv"
-                  data-function-key
-                >
+                <div class="rect-key enter-key" id="enterKeyDiv" data-function-key>
                   <div class="first-label">Enter</div>
                   <div class="second-label">↵</div>
                 </div>
               </div>
               <div class="row">
-                <div
-                  class="rect-key shift-left-key"
-                  id="shiftLeftKeyDiv"
-                  data-function-key
-                >
+                <div class="rect-key shift-left-key" id="shiftLeftKeyDiv" data-function-key>
                   <div class="first-label">Shift</div>
                   <div class="second-label">⇧</div>
                 </div>
@@ -380,45 +326,25 @@
                   <div class="first-label">?</div>
                   <div class="second-label">/</div>
                 </div>
-                <div
-                  class="rect-key rightshift-key"
-                  id="shiftRightKeyDiv"
-                  data-function-key
-                >
+                <div class="rect-key rightshift-key" id="shiftRightKeyDiv" data-function-key>
                   <div class="first-label">Shift</div>
                   <div class="second-label">⇧</div>
                 </div>
               </div>
               <div class="row">
-                <div
-                  class="rect-key control-left-key"
-                  id="controlLeftKeyDiv"
-                  data-function-key
-                >
+                <div class="rect-key control-left-key" id="controlLeftKeyDiv" data-function-key>
                   <div class="first-label">Ctrl</div>
                 </div>
                 <div class="square-key blank">
                   <div class="first-label"></div>
                 </div>
-                <div
-                  class="rect-key alt-left-key"
-                  id="altLeftKeyDiv"
-                  data-function-key
-                >
+                <div class="rect-key alt-left-key" id="altLeftKeyDiv" data-function-key>
                   <div class="first-label">Alt</div>
                 </div>
-                <div
-                  class="rect-key space-key"
-                  id="spaceKeyDiv"
-                  data-function-key
-                >
+                <div class="rect-key space-key" id="spaceKeyDiv" data-function-key>
                   <div class="first-label">Space</div>
                 </div>
-                <div
-                  class="rect-key alt-right-key"
-                  id="altRightKeyDiv"
-                  data-function-key
-                >
+                <div class="rect-key alt-right-key" id="altRightKeyDiv" data-function-key>
                   <div class="first-label">Alt</div>
                 </div>
                 <div class="square-key blank">
@@ -427,24 +353,17 @@
                 <div class="square-key blank">
                   <div class="first-label"></div>
                 </div>
-                <div
-                  class="rect-key control-right-key"
-                  id="controlRightKeyDiv"
-                  data-function-key
-                >
+                <div class="rect-key control-right-key" id="controlRightKeyDiv" data-function-key>
                   <div class="first-label">Ctrl</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
       </section>
 
       <section class="settings">
-
         <div class="panel settings-panel">
-
           <h2 class="panel-heading settings-panel-heading">
             Settings
             <button class="panel-content-visibility-button" id="toggleVisibilitySettingsMenuButton">Show</button>
@@ -452,10 +371,8 @@
 
           <div class="settings-menu" id="settingsMenuDiv">
             <div class="column-1">
-
               <div class="setting-category-heading">Gameplay</div>
               <div class="gameplay-settings">
-
                 <div class="setting-label-and-input-container">
                   <label for="countdownCheckbox">Countdown</label>
                   <label class="switch">
@@ -466,9 +383,7 @@
 
                 <div class="setting-label-and-input-container">
                   <div class="item-and-tooltip-icon-container">
-                    <label for="expressionModeSelect">
-                      Expression Mode
-                    </label>
+                    <label for="expressionModeSelect"> Expression Mode </label>
                     <div class="tooltip-icon" id="expressionModeTooltipIconDiv">i</div>
                   </div>
                   <select name="expressionMode" id="expressionModeSelect">
@@ -520,12 +435,10 @@
                     <span class="switch-slider"></span>
                   </label>
                 </div>
-
               </div>
 
               <div class="setting-category-heading">Audio</div>
               <div class="audio-settings">
-
                 <div class="setting-label-and-input-container">
                   <label for="soundEffectsCheckbox">Play Sound Effects</label>
                   <label class="switch">
@@ -537,25 +450,14 @@
                 <div class="setting-label-and-input-container">
                   <label for="soundVolumeRange" class="for-range-input">Volume</label>
                   <div class="range-input-container">
-                    <input
-                      type="range"
-                      class="range-input"
-                      id="soundVolumeRange"
-                      min="1"
-                      max="100"
-                      value="50"
-                    />
+                    <input type="range" class="range-input" id="soundVolumeRange" min="1" max="100" value="50" />
                   </div>
                 </div>
-
               </div>
-
             </div>
 
             <div class="column-2">
-
               <div id="phraseSettingsContainerDiv">
-
                 <div class="setting-category-heading phrase-settings-heading">Phrase</div>
 
                 <div class="setting-label-and-input-container phrase-item-collections">
@@ -565,22 +467,11 @@
                   </div>
 
                   <div class="phrase-item-collections-container">
-
                     <div class="phrase-item-collection-subset-container english">
-                      <button
-                        class="phrase-item-collection-button"
-                        id="englishWordsCommonCollectionButton"
-                        disabled="true"
-                        data-active="false"
-                      >
+                      <button class="phrase-item-collection-button" id="englishWordsCommonCollectionButton" disabled="true" data-active="false">
                         Common English Words
                       </button>
-                      <button
-                        class="phrase-item-collection-button"
-                        id="englishWordsRandomCollectionButton"
-                        disabled="true"
-                        data-active="false"
-                      >
+                      <button class="phrase-item-collection-button" id="englishWordsRandomCollectionButton" disabled="true" data-active="false">
                         Random English Words
                       </button>
                     </div>
@@ -588,63 +479,28 @@
                     <hr class="phrase-item-collection-subset-separator" />
 
                     <div class="phrase-item-collection-subset-container numbers-symbols">
-                      <button
-                        class="phrase-item-collection-button"
-                        id="numbersCollectionButton"
-                        disabled="true"
-                        data-active="false"
-                      >
-                        Numbers
-                      </button>
-                      <button
-                        class="phrase-item-collection-button"
-                        id="symbolsCollectionButton"
-                        disabled="true"
-                        data-active="false"
-                      >
-                        Symbols
-                      </button>
+                      <button class="phrase-item-collection-button" id="numbersCollectionButton" disabled="true" data-active="false">Numbers</button>
+                      <button class="phrase-item-collection-button" id="symbolsCollectionButton" disabled="true" data-active="false">Symbols</button>
                     </div>
 
                     <hr class="phrase-item-collection-subset-separator" />
 
                     <div class="phrase-item-collection-subset-container general-programming">
-                      <button
-                        class="phrase-item-collection-button"
-                        id="commonKeywordsCollectionButton"
-                        disabled="true"
-                        data-active="false"
-                      >
+                      <button class="phrase-item-collection-button" id="commonKeywordsCollectionButton" disabled="true" data-active="false">
                         Common Programming Keywords
                       </button>
-                      <button
-                        class="phrase-item-collection-button"
-                        id="commonOperatorsCollectionButton"
-                        disabled="true"
-                        data-active="false"
-                      >
+                      <button class="phrase-item-collection-button" id="commonOperatorsCollectionButton" disabled="true" data-active="false">
                         Common Programming Operators
                       </button>
                     </div>
 
                     <hr class="phrase-item-collection-subset-separator" />
 
-                    <!-- <div class="phrase-item-collection-subset-heading language-specific">Language Specific Lists:</div> -->
                     <div class="phrase-item-collection-subset-container">
-                      <button
-                        class="phrase-item-collection-button"
-                        id="cKeywordsCollectionButton"
-                        disabled="true"
-                        data-active="false"
-                      >
+                      <button class="phrase-item-collection-button" id="cKeywordsCollectionButton" disabled="true" data-active="false">
                         C Keywords
                       </button>
-                      <button
-                        class="phrase-item-collection-button"
-                        id="cOperatorsCollectionButton"
-                        disabled="true"
-                        data-active="false"
-                      >
+                      <button class="phrase-item-collection-button" id="cOperatorsCollectionButton" disabled="true" data-active="false">
                         C Operators
                       </button>
                     </div>
@@ -652,20 +508,10 @@
                     <hr class="phrase-item-collection-subset-separator" />
 
                     <div class="phrase-item-collection-subset-container">
-                      <button
-                        class="phrase-item-collection-button"
-                        id="cppKeywordsCollectionButton"
-                        disabled="true"
-                        data-active="false"
-                      >
+                      <button class="phrase-item-collection-button" id="cppKeywordsCollectionButton" disabled="true" data-active="false">
                         C++ Keywords
                       </button>
-                      <button
-                        class="phrase-item-collection-button"
-                        id="cppOperatorsCollectionButton"
-                        disabled="true"
-                        data-active="false"
-                      >
+                      <button class="phrase-item-collection-button" id="cppOperatorsCollectionButton" disabled="true" data-active="false">
                         C++ Operators
                       </button>
                     </div>
@@ -673,20 +519,10 @@
                     <hr class="phrase-item-collection-subset-separator" />
 
                     <div class="phrase-item-collection-subset-container">
-                      <button
-                        class="phrase-item-collection-button"
-                        id="csharpKeywordsCollectionButton"
-                        disabled="true"
-                        data-active="false"
-                      >
+                      <button class="phrase-item-collection-button" id="csharpKeywordsCollectionButton" disabled="true" data-active="false">
                         C# Keywords
                       </button>
-                      <button
-                        class="phrase-item-collection-button"
-                        id="csharpOperatorsCollectionButton"
-                        disabled="true"
-                        data-active="false"
-                      >
+                      <button class="phrase-item-collection-button" id="csharpOperatorsCollectionButton" disabled="true" data-active="false">
                         C# Operators
                       </button>
                     </div>
@@ -694,20 +530,10 @@
                     <hr class="phrase-item-collection-subset-separator" />
 
                     <div class="phrase-item-collection-subset-container">
-                      <button
-                        class="phrase-item-collection-button"
-                        id="css3PropertiesCollectionButton"
-                        disabled="true"
-                        data-active="false"
-                      >
+                      <button class="phrase-item-collection-button" id="css3PropertiesCollectionButton" disabled="true" data-active="false">
                         CSS3 Props
                       </button>
-                      <button
-                        class="phrase-item-collection-button"
-                        id="html5TagsCollectionButton"
-                        disabled="true"
-                        data-active="false"
-                      >
+                      <button class="phrase-item-collection-button" id="html5TagsCollectionButton" disabled="true" data-active="false">
                         HTML5 Tags
                       </button>
                     </div>
@@ -715,20 +541,10 @@
                     <hr class="phrase-item-collection-subset-separator" />
 
                     <div class="phrase-item-collection-subset-container">
-                      <button
-                        class="phrase-item-collection-button"
-                        id="javaKeywordsCollectionButton"
-                        disabled="true"
-                        data-active="false"
-                      >
+                      <button class="phrase-item-collection-button" id="javaKeywordsCollectionButton" disabled="true" data-active="false">
                         Java Keywords
                       </button>
-                      <button
-                        class="phrase-item-collection-button"
-                        id="javaOperatorsCollectionButton"
-                        disabled="true"
-                        data-active="false"
-                      >
+                      <button class="phrase-item-collection-button" id="javaOperatorsCollectionButton" disabled="true" data-active="false">
                         Java Operators
                       </button>
                     </div>
@@ -736,20 +552,10 @@
                     <hr class="phrase-item-collection-subset-separator" />
 
                     <div class="phrase-item-collection-subset-container">
-                      <button
-                        class="phrase-item-collection-button"
-                        id="javascriptKeywordsCollectionButton"
-                        disabled="true"
-                        data-active="false"
-                      >
+                      <button class="phrase-item-collection-button" id="javascriptKeywordsCollectionButton" disabled="true" data-active="false">
                         JS Keywords
                       </button>
-                      <button
-                        class="phrase-item-collection-button"
-                        id="javascriptOperatorsCollectionButton"
-                        disabled="true"
-                        data-active="false"
-                      >
+                      <button class="phrase-item-collection-button" id="javascriptOperatorsCollectionButton" disabled="true" data-active="false">
                         JS Operators
                       </button>
                     </div>
@@ -757,62 +563,41 @@
                     <hr class="phrase-item-collection-subset-separator" />
 
                     <div class="phrase-item-collection-subset-container">
-                      <button
-                        class="phrase-item-collection-button"
-                        id="pythonKeywordsCollectionButton"
-                        disabled="true"
-                        data-active="false"
-                      >
+                      <button class="phrase-item-collection-button" id="pythonKeywordsCollectionButton" disabled="true" data-active="false">
                         Python Keywords
                       </button>
-                      <button
-                        class="phrase-item-collection-button"
-                        id="pythonOperatorsCollectionButton"
-                        disabled="true"
-                        data-active="false"
-                      >
+                      <button class="phrase-item-collection-button" id="pythonOperatorsCollectionButton" disabled="true" data-active="false">
                         Python Operators
                       </button>
                     </div>
                   </div>
                 </div>
 
-
                 <div class="setting-label-and-input-container">
-                  <label for="phraseItemsNumberInput">Item Count</label>
-                  <input
-                    type="number"
-                    id="phraseItemsNumberInput"
-                    min="1"
-                    max="100"
-                    step="1"
-                    value="25"
-                    disabled="true"
-                  />
+                  <label for="phraseItemCountNumberInput">Item Count</label>
+                  <input type="number" id="phraseItemCountNumberInput" min="1" max="100" step="1" value="25" disabled="true" />
                 </div>
 
+                <div class="setting-label-and-input-container">
+                  <div class="item-and-tooltip-icon-container">
+                    <label for="phrasePunctuationFrequencyRange" class="for-range-input">Punctuation Frequency</label>
+                    <div class="tooltip-icon" id="phrasePunctuationFrequencyTooltipIconDiv">i</div>
+                  </div>
+                  <div class="range-input-container">
+                    <input type="range" class="range-input" id="phrasePunctuationFrequencyRange" min="1" max="100" value="10" />
+                  </div>
+                </div>
               </div>
-
             </div>
-
           </div>
-
         </div>
-
       </section>
 
       <section class="game-statistics">
-
         <div class="panel game-statistics-panel">
-
           <h2 class="panel-heading">
-            Game Stats
-            <button
-              class="panel-content-visibility-button"
-              id="toggleVisibilityGameStatisticsTableButton"
-            >
-              Hide
-            </button>
+            Statistics
+            <button class="panel-content-visibility-button" id="toggleVisibilityGameStatisticsTableButton">Hide</button>
           </h2>
 
           <table id="gameStatisticsTable">
@@ -836,7 +621,7 @@
                 <td id="accuracyTableData">···</td>
               </tr>
               <tr>
-                <th>Text Length (chars)</th>
+                <th>Text Length (characters)</th>
                 <td id="textLengthCharsTableData">···</td>
               </tr>
               <tr>
@@ -845,31 +630,21 @@
               </tr>
             </tbody>
           </table>
-
         </div>
-
       </section>
 
       <section class="mistake-analysis">
-
         <div class="panel mistake-analysis-panel">
           <h2 class="panel-heading">
             Mistakes
-            <button
-              class="panel-content-visibility-button"
-              id="toggleVisibilityMistakeAnalyzerButton"
-            >
-              Hide
-            </button>
+            <button class="panel-content-visibility-button" id="toggleVisibilityMistakeAnalyzerButton">Hide</button>
           </h2>
           <div id="mistakeAnalyzerDiv">
             <div id="analyzedExpressionDiv">Complete a game to analyze mistakes.</div>
             <div id="characterAnalysisDiv" data-visible="false">You can do detailed mistake analysis here.</div>
           </div>
         </div>
-
       </section>
-
     </main>
 
     <footer class="footer">
@@ -888,7 +663,5 @@
         </ul>
       </div>
     </footer>
-
   </body>
-
 </html>

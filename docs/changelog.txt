@@ -81,3 +81,10 @@
 - Removed unused instant-death-buzzer.mp3
 - Removed unused internet-explorer.js
 - Updated your-statistics.html scripts
+
+3.0:
+- Converted entire JS codebase to utilize TypeScript, did some more refactoring
+- JS ES6 modules are now unused
+- Changed expression-resources folder location
+- Updated README.md and "About" page contents
+- Added customizable phrase punctuation frequency

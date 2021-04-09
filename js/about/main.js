@@ -1,12 +1,6 @@
-const navbar = new Navbar(
-  elements = {
-    itemsList: navbarItems_ul,
-    expandItemsListButton: expandNavbarItemsList_button
-  }
-);
-
+import Navbar from "../common/Navbar.js";
+var navbar = new Navbar();
 function main() {
-  navbar.addToggleItemsListVisibilityButtonClickEventListener();
+    navbar.addToggleItemsListVisibilityButtonClickEventListener();
 }
-
 main();

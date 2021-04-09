@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-
   <head>
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -23,36 +21,27 @@
     <!-- Specific stylesheets -->
     <link rel="stylesheet" href="css/your-statistics/clear-statistics-button.css" />
 
-    <!-- Page elements -->
-    <script src="js/common/page-elements.js" defer></script>
-    <script src="js/your-statistics/page-elements.js" defer></script>
+    <!-- Specific scripts -->
+    <script src="js/your-statistics/page-elements.js" type="module"></script>
+    <script src="js/your-statistics/WpmTable.js" type="module"></script>
+    <script src="js/your-statistics/AccuracyTable.js" type="module"></script>
+    <script src="js/your-statistics/ParticipationTable.js" type="module"></script>
+    <script src="js/your-statistics/main.js" type="module"></script>
 
     <!-- Common scripts -->
-    <script src="js/common/Navbar.js" defer></script>
-    <script src="js/common/PageLoader.js" defer></script>
-    <script src="js/common/constants.js" defer></script>
-    <script src="js/common/functions.js" defer></script>
-    <script src="js/common/ElementVisibility.js" defer></script>
-    <script src="js/common/ElementVisibilityStateStorage.js" defer></script>
-    <script src="js/common/StatisticsStorage.js" defer></script>
-
-    <!-- Specific scripts -->
-    <script src="js/your-statistics/WpmTable.js" defer></script>
-    <script src="js/your-statistics/AccuracyTable.js" defer></script>
-    <script src="js/your-statistics/ParticipationTable.js" defer></script>
-    <script src="js/your-statistics/main.js" defer></script>
-
+    <script src="js/common/page-elements.js" type="module"></script>
+    <script src="js/common/Navbar.js" type="module"></script>
+    <script src="js/common/PageLoader.js" type="module"></script>
+    <script src="js/common/constants.js" type="module"></script>
+    <script src="js/common/functions.js" type="module"></script>
+    <script src="js/common/ElementVisibility.js" type="module"></script>
+    <script src="js/common/ElementVisibilityStateStorage.js" type="module"></script>
+    <script src="js/common/StatisticsStorage.js" type="module"></script>
   </head>
 
   <body>
-
     <div class="loading-overlay" id="loaderOverlayDiv">
-      <img
-        src="gifs/gradient-loader-dark-bg.gif"
-        alt="Loading..." id="loaderImg"
-        width="100px"
-        height="100px"
-      />
+      <img src="gifs/gradient-loader-dark-bg.gif" alt="Loading..." id="loaderImg" width="100px" height="100px" />
     </div>
 
     <nav class="navbar">
@@ -63,9 +52,7 @@
             <a href="index.html" class="navbar-link">Practice</a>
           </li>
           <li class="navbar-item your-statistics">
-            <a href="your-statistics.html" class="navbar-link current-page">
-              Your Statistics
-            </a>
+            <a href="your-statistics.html" class="navbar-link current-page">Your Statistics</a>
           </li>
           <li class="navbar-item about">
             <a href="about.html" class="navbar-link about">About</a>
@@ -79,26 +66,14 @@
     </nav>
 
     <main>
-
       <section class="wpm-statistics first" id="wpmStatisticsSection">
-
         <div class="panel wpm-statistics-panel">
-
           <h2 class="panel-heading">
-            WPM
-            <button
-              class="panel-content-visibility-button"
-              id="toggleViewWpmStatisticsButton"
-            >
-              Hide
-            </button>
+            Net WPM
+            <button class="panel-content-visibility-button" id="toggleViewWpmStatisticsButton">Hide</button>
           </h2>
 
-          <table
-            class="wpm-statistics-table"
-            id="wpmStatisticsTable"
-            data-visible="true"
-          >
+          <table class="wpm-statistics-table" id="wpmStatisticsTable" data-visible="true">
             <tbody>
               <tr>
                 <th>Last Game</th>
@@ -118,30 +93,17 @@
               </tr>
             </tbody>
           </table>
-
         </div>
-
       </section>
 
       <section class="accuracy-statistics">
-
         <div class="panel accuracy-statistics-panel">
-
           <h2 class="panel-heading">
-            Accuracy
-            <button
-              class="panel-content-visibility-button"
-              id="toggleViewAccuracyStatisticsButton"
-            >
-              Hide
-            </button>
+            Accuracy %
+            <button class="panel-content-visibility-button" id="toggleViewAccuracyStatisticsButton">Hide</button>
           </h2>
 
-          <table
-            class="accuracy-statistics-table"
-            id="accuracyStatisticsTable"
-            data-visible="true"
-          >
+          <table class="accuracy-statistics-table" id="accuracyStatisticsTable" data-visible="true">
             <tr>
               <th>Last Game</th>
               <td id="accuracyLastGameTableData">···</td>
@@ -159,30 +121,17 @@
               <td id="accuracyAllTimeBestTableData">···</td>
             </tr>
           </table>
-
         </div>
-
       </section>
 
       <section class="participation-statistics">
-
         <div class="panel participation-statistics-panel">
-
           <h2 class="panel-heading">
             Participation
-            <button
-              class="panel-content-visibility-button"
-              id="toggleViewParticipationStatisticsButton"
-            >
-              Hide
-            </button>
+            <button class="panel-content-visibility-button" id="toggleViewParticipationStatisticsButton">Hide</button>
           </h2>
 
-          <table
-            class="participation-statistics-table"
-            id="participationStatisticsTable"
-            data-visible="false"
-          >
+          <table class="participation-statistics-table" id="participationStatisticsTable" data-visible="false">
             <tr>
               <th>Playtime</th>
               <td id="playtimeTableData">···</td>
@@ -193,7 +142,7 @@
             </tr>
             <tr>
               <th>Gamed Aborted</th>
-              <td id="gamesAbandonedTableData">···</td>
+              <td id="gamesAbortedTableData">···</td>
             </tr>
             <tr>
               <th>Games Disqualified</th>
@@ -204,20 +153,11 @@
               <td id="gamesCheatedTableData">···</td>
             </tr>
           </table>
-
         </div>
-
       </section>
 
       <section class="clear-localstorage">
-
-        <button
-          class="clear-localstorage-button"
-          id="clearStatisticsStorageButton"
-        >
-          Clear All Statistics
-        </button>
-
+        <button class="clear-localstorage-button" id="clearStatisticsStorageButton">Clear All Statistics</button>
       </section>
     </main>
 
@@ -237,7 +177,5 @@
         </ul>
       </div>
     </footer>
-
   </body>
-
 </html>

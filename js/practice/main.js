@@ -1,236 +1,83 @@
-function handleInternetExplorer() {
-  if (!isBrowserInternetExplorer()) {
-    return;
-  }
-  const internetExplorerOverlay_div = document.createElement("div");
-  internetExplorerOverlay_div.classList.add("internet-explorer-overlay");
-  internetExplorerOverlay_div.innerText =
-    "This website uses features which are not supported by the Internet Explorer web browser. " +
-    "Please use a different web browser such as Google Chrome, Mozilla Firefox, Microsoft Edge, or Opera to access this page.";
-  html_body.appendChild(internetExplorerOverlay_div);
-}
-
-function isBrowserInternetExplorer() {
-  const userAgent = navigator.userAgent;
-  // MSIE used to detect old browsers and Trident used to detect newer ones
-  return (userAgent.indexOf("MSIE ") > -1) || (userAgent.indexOf("Trident/") > -1);
-}
-
+import { handleInternetExplorer } from "../common/functions.js";
+import { accuracyTooltipIcon_div, expressionModeTooltipIcon_div, gameWpmTrackerTooltipIcon_div, instantDeathTooltipIcon_div, keyboardVisualTooltipIcon_div, phraseItemCollectionsTooltipIcon_div, phrasePunctuationFrequencyTooltipIcon_div, punctuationTooltipIcon_div, trackStatisticsTooltipIcon_div, wpmTooltipIcon_div } from "./page-elements.js";
+import PageLoader from "../common/PageLoader.js";
+import Navbar from "../common/Navbar.js";
+import Settings from "./Settings.js";
+import GameTimer from "./GameTimer.js";
+import GameWpmTracker from "./GameWpmTracker.js";
+import GameActionButton from "./GameActionButton.js";
+import Expression from "./Expression.js";
+import GameInput from "./GameInput.js";
+import KeyboardVisual from "./KeyboardVisual.js";
+import SettingsMenu from "./SettingsMenu.js";
+import GameStatisticsTable from "./GameStatisticsTable.js";
+import MistakeAnalyzer from "./MistakeAnalyzer.js";
+import GameDirector from "./GameDirector.js";
+import Sound from "./Sound.js";
+import ElementVisibility from "../common/ElementVisibility.js";
+import Tooltip from "../common/Tooltip.js";
 handleInternetExplorer();
-
-const pageLoader = new PageLoader(elements = { loaderGif: loader_img, overlay: loaderOverlay_div });
-
-const navbar = new Navbar(
-  elements = {
-    itemsList: navbarItems_ul,
-    expandItemsListButton: expandNavbarItemsList_button
-  }
-);
-
-const gameTimer = new GameTimer(gameTimer_div);
-
-const gameWpmTracker = new GameWpmTracker(gameWpmTracker_div);
-
-const gameActionButton = new GameActionButton(gameAction_button);
-
-const expression = new Expression(expression_div, expression_div.getAttribute("id"));
-
-const gameInput = new GameInput(game_input);
-
-const keyboardVisual = new KeyboardVisual(keyboardVisual_div);
-
-const settingsMenu = new SettingsMenu(
-  elements = {
-    menuContainer: settingsMenu_div,
-    toggleVisibilityButton: toggleVisibilitySettingsMenu_button,
-
-    countdownCheckbox: countdown_checkbox,
-    expressionModeSelect: expressionMode_select,
-    instantDeathCheckbox: instantDeath_checkbox,
-    keyboardVisualCheckbox: keyboardVisual_checkbox,
-    punctuationCheckbox: punctuation_checkbox,
-    trackStatisticsCheckbox: trackStatistics_checkbox,
-
-    soundEffectsCheckbox: soundEffects_checkbox,
-    soundVolumeRange: soundVolume_range,
-
-    phraseContainer: phraseSettingsContainer_div,
-    phraseItemsNumberInput: phraseItemsNumber_input,
-    englishWordsCommonCollectionButton: englishWordsCommonCollection_button,
-    englishWordsRandomCollectionButton: englishWordsRandomCollection_button,
-    numbersCollectionButton: numbersCollection_button,
-    symbolsCollectionButton: symbolsCollection_button,
-    commonKeywordsCollectionButton: commonKeywordsCollection_button,
-    commonOperatorsCollectionButton: commonOperatorsCollection_button,
-    cKeywordsCollectionButton: cKeywordsCollection_button,
-    cOperatorsCollectionButton: cOperatorsCollection_button,
-    cppKeywordsCollectionButton: cppKeywordsCollection_button,
-    cppOperatorsCollectionButton: cppOperatorsCollection_button,
-    csharpKeywordsCollectionButton: csharpKeywordsCollection_button,
-    csharpOperatorsCollectionButton: csharpOperatorsCollection_button,
-    css3PropertiesCollectionButton: css3PropertiesCollection_button,
-    html5TagsCollectionButton: html5TagsCollection_button,
-    javaKeywordsCollectionButton: javaKeywordsCollection_button,
-    javaOperatorsCollectionButton: javaOperatorsCollection_button,
-    javascriptKeywordsCollectionButton: javascriptKeywordsCollection_button,
-    javascriptOperatorsCollectionButton: javascriptOperatorsCollection_button,
-    pythonKeywordsCollectionButton: pythonKeywordsCollection_button,
-    pythonOperatorsCollectionButton: pythonOperatorsCollection_button,
-    allPhraseItemCollectionButtons: phraseItemCollection_buttons
-  }
-);
-
-const gameStatisticsTable = new GameStatisticsTable(
-  elements = {
-    table: gameStatistics_table,
-    toggleVisibilityButton: toggleVisibilityGameStatisticsTable_button,
-    wpmCell: wpm_td,
-    accuracyCell: accuracy_td,
-    textLengthCell: textLength_td,
-    timeElapsedCell: timeElapsed_td,
-  }
-);
-
-const mistakeAnalyzer = new MistakeAnalyzer(
-  elements = {
-    container: mistakeAnalyzer_div,
-    toggleVisibilityButton: toggleVisibilityMistakeAnalyzer_button,
-    analyzedExpression: analyzedExpression_div,
-    characterAnalysis: characterAnalysis_div
-  }
-);
-
+export var pageLoader = new PageLoader();
+export var navbar = new Navbar();
+export var settings = new Settings();
+export var gameTimer = new GameTimer();
+export var gameWpmTracker = new GameWpmTracker();
+export var gameActionButton = new GameActionButton();
+export var expression = new Expression();
+export var gameInput = new GameInput();
+export var keyboardVisual = new KeyboardVisual();
+export var settingsMenu = new SettingsMenu();
+export var gameStatisticsTable = new GameStatisticsTable();
+export var mistakeAnalyzer = new MistakeAnalyzer();
 function main() {
-  initializePage();
-  GameDirector.awaitGameRun();
-  pageLoader.removeOverlay();
-  delete pageLoader;
+    initializePage();
+    GameDirector.awaitGameRun();
+    pageLoader.removeOverlay();
 }
-
 function initializePage() {
-  navbar.addToggleItemsListVisibilityButtonClickEventListener();
-  Settings.initializeAllValuesFromStorage();
-  settingsMenu.initializeAllElementStatesBasedOnSettingValues();
-  applyStoredVisibilitySettingsForAllCollapsibleElements();
-  addButtonClickEventListenersForAllElementVisibilityTogglers();
-  settingsMenu.addAllElementEventListeners();
-  Sound.setVolume(Settings.soundVolume);
-  keyboardVisual.initializeElementVisibilityState();
-  keyboardVisual.addAllEventListeners();
-  createTooltips();
+    navbar.addToggleItemsListVisibilityButtonClickEventListener();
+    settings.initializeAllValuesFromStorage();
+    settingsMenu.initializeAllElementStatesBasedOnSettingValues();
+    applyStoredSettingsForAllCollapsibleElements();
+    addButtonClickEventListenersForAllElementVisibilityTogglers();
+    settingsMenu.addAllElementEventListeners();
+    Sound.setVolume(settings.getSoundVolume());
+    keyboardVisual.initializeElementVisibilityState();
+    keyboardVisual.addAllEventListeners();
+    createTooltips();
 }
-
-function applyStoredVisibilitySettingsForAllCollapsibleElements() {
-  ElementVisibility.applyStoredVisibilitySettings(
-    args = {
-      collapsibleElement: settingsMenu.containerElement,
-      collapsibleElementId: SettingsMenu.ELEMENT_ID,
-      toggleVisibilityButtonElement: settingsMenu.toggleVisibilityButtonElement,
-      defaultVisibilityBool: SettingsMenu.DEFAULT_IS_VISIBLE_BOOL,
-    }
-  );
-  ElementVisibility.applyStoredVisibilitySettings(
-    args = {
-      collapsibleElement: gameStatisticsTable.tableElement,
-      collapsibleElementId: GameStatisticsTable.ELEMENT_ID,
-      toggleVisibilityButtonElement: gameStatisticsTable.toggleVisibilityButtonElement,
-      defaultVisibilityBool: GameStatisticsTable.DEFAULT_IS_VISIBLE_BOOL
-    }
-  );
-
-  ElementVisibility.applyStoredVisibilitySettings(
-    args = {
-      collapsibleElement: mistakeAnalyzer.containerElement,
-      collapsibleElementId: MistakeAnalyzer.ELEMENT_ID,
-      toggleVisibilityButtonElement: mistakeAnalyzer.toggleVisibilityButtonElement,
-      defaultVisibilityBool: MistakeAnalyzer.DEFAULT_IS_VISIBLE_BOOL
-    }
-  );
+function applyStoredSettingsForAllCollapsibleElements() {
+    ElementVisibility.applyStoredSettings(settingsMenu.containerElement, SettingsMenu.ELEMENT_ID, settingsMenu.toggleVisibilityButtonElement, SettingsMenu.DEFAULT_IS_VISIBLE_BOOL);
+    ElementVisibility.applyStoredSettings(gameStatisticsTable.tableElement, GameStatisticsTable.ELEMENT_ID, gameStatisticsTable.toggleVisibilityButtonElement, GameStatisticsTable.DEFAULT_IS_VISIBLE_BOOL);
+    ElementVisibility.applyStoredSettings(mistakeAnalyzer.containerElement, MistakeAnalyzer.ELEMENT_ID, mistakeAnalyzer.toggleVisibilityButtonElement, MistakeAnalyzer.DEFAULT_IS_VISIBLE_BOOL);
 }
-
 function addButtonClickEventListenersForAllElementVisibilityTogglers() {
-  ElementVisibility.addToggleButtonClickEventListener(
-    args = {
-      collapsibleElement: settingsMenu.containerElement,
-      collapsibleElementId: SettingsMenu.ELEMENT_ID,
-      toggleVisibilityButtonElement: toggleVisibilitySettingsMenu_button
-    }
-  );
-  ElementVisibility.addToggleButtonClickEventListener(
-    args = {
-      collapsibleElement: gameStatisticsTable.tableElement,
-      collapsibleElementId: GameStatisticsTable.ELEMENT_ID,
-      toggleVisibilityButtonElement: toggleVisibilityGameStatisticsTable_button
-    }
-  );
-  ElementVisibility.addToggleButtonClickEventListener(
-    args = {
-      collapsibleElement: mistakeAnalyzer.containerElement,
-      collapsibleElementId: MistakeAnalyzer.ELEMENT_ID,
-      toggleVisibilityButtonElement: toggleVisibilityMistakeAnalyzer_button
-    }
-  );
+    ElementVisibility.addToggleButtonClickEventListener(settingsMenu.containerElement, SettingsMenu.ELEMENT_ID, settingsMenu.toggleVisibilityButtonElement);
+    ElementVisibility.addToggleButtonClickEventListener(gameStatisticsTable.tableElement, GameStatisticsTable.ELEMENT_ID, gameStatisticsTable.toggleVisibilityButtonElement);
+    ElementVisibility.addToggleButtonClickEventListener(mistakeAnalyzer.containerElement, MistakeAnalyzer.ELEMENT_ID, mistakeAnalyzer.toggleVisibilityButtonElement);
 }
-
 function createTooltips() {
-  //const gameWpmTrackerTooltip =
-  new Tooltip(
-    gameWpmTrackerTooltipIcon_div,
-    tooltipText.gameWpmTracker.title,
-    tooltipText.gameWpmTracker.body
-  );
-
-  /* Settings menu */
-  //const expressionModeTooltip =
-  new Tooltip(
-    expressionModeTooltipIcon_div,
-    tooltipText.expressionMode.title,
-    tooltipText.expressionMode.body
-  );
-  //const instantDeathTooltip =
-  new Tooltip(
-    instantDeathTooltipIcon_div,
-    tooltipText.instantDeath.title,
-    tooltipText.instantDeath.body
-  );
-  //const keyboardVisualTooltip =
-  new Tooltip(
-    keyboardVisualTooltipIcon_div,
-    tooltipText.keyboardVisual.title,
-    tooltipText.keyboardVisual.body
-  );
-  //const punctuationTooltip =
-  new Tooltip(
-    punctuationTooltipIcon_div,
-    tooltipText.punctuation.title,
-    tooltipText.punctuation.body
-  );
-  //const trackStatisticsTooltip =
-  new Tooltip(
-    trackStatisticsTooltipIcon_div,
-    tooltipText.trackStatistics.title,
-    tooltipText.trackStatistics.body
-  );
-  //const phraseItemCollectionsTooltip =
-  new Tooltip(
-    phraseItemCollectionsTooltipIcon_div,
-    tooltipText.phraseItemCollections.title,
-    tooltipText.phraseItemCollections.body
-  );
-
-  /* Game statistics table */
-  //const wordsPerMinuteTooltip =
-  new Tooltip(
-    wpmTooltipIcon_div,
-    tooltipText.wordsPerMinute.title,
-    tooltipText.wordsPerMinute.body
-  );
-  //const accuracyTooltip =
-  new Tooltip(
-    accuracyTooltipIcon_div,
-    tooltipText.accuracyPercentage.title,
-    tooltipText.accuracyPercentage.body
-  );
+    //const gameWpmTrackerTooltip =
+    new Tooltip(gameWpmTrackerTooltipIcon_div, GameWpmTracker.TOOLTIP_TEXT_TITLE, GameWpmTracker.TOOLTIP_TEXT_BODY);
+    /* Settings menu */
+    //const expressionModeTooltip =
+    new Tooltip(expressionModeTooltipIcon_div, SettingsMenu.TOOLTIP_EXPRESSION_MODE_TEXT_TITLE, SettingsMenu.TOOLTIP_EXPRESSION_MODE_TEXT_BODY);
+    //const instantDeathTooltip =
+    new Tooltip(instantDeathTooltipIcon_div, SettingsMenu.TOOLTIP_INSTANT_DEATH_TEXT_TITLE, SettingsMenu.TOOLTIP_INSTANT_DEATH_TEXT_BODY);
+    //const keyboardVisualTooltip =
+    new Tooltip(keyboardVisualTooltipIcon_div, SettingsMenu.TOOLTIP_KEYBOARD_VISUAL_TEXT_TITLE, SettingsMenu.TOOLTIP_KEYBOARD_VISUAL_TEXT_BODY);
+    //const punctuationTooltip =
+    new Tooltip(punctuationTooltipIcon_div, SettingsMenu.TOOLTIP_PUNCUATION_TEXT_TITLE, SettingsMenu.TOOLTIP_PUNCUATION_TEXT_BODY);
+    //const trackStatisticsTooltip =
+    new Tooltip(trackStatisticsTooltipIcon_div, SettingsMenu.TOOLTIP_TRACK_STATISTICS_TEXT_TITLE, SettingsMenu.TOOLTIP_TRACK_STATISTICS_TEXT_BODY);
+    //const phraseItemCollectionsTooltip =
+    new Tooltip(phraseItemCollectionsTooltipIcon_div, SettingsMenu.TOOLTIP_PHRASE_ITEM_COLLECTIONS_TEXT_TITLE, SettingsMenu.TOOLTIP_PHRASE_ITEM_COLLECTIONS_TEXT_BODY);
+    //const phrasePunctuationFrequencyTooltip =
+    new Tooltip(phrasePunctuationFrequencyTooltipIcon_div, SettingsMenu.TOOLTIP_PHRASE_PUNCTUATION_FREQUENCY_TEXT_TITLE, SettingsMenu.TOOLTIP_PHRASE_PUNCTUATION_FREQUENCY_TEXT_BODY);
+    /* Game statistics table */
+    //const wordsPerMinuteTooltip =
+    new Tooltip(wpmTooltipIcon_div, GameStatisticsTable.TOOLTIP_NET_WORDS_PER_MINUTE_TEXT_TITLE, GameStatisticsTable.TOOLTIP_NET_WORDS_PER_MINUTE_TEXT_BODY);
+    //const accuracyTooltip =
+    new Tooltip(accuracyTooltipIcon_div, GameStatisticsTable.TOOLTIP_ACCURACY_PERCENTAGE_TEXT_TITLE, GameStatisticsTable.TOOLTIP_ACCURACY_PERCENTAGE_TEXT_BODY);
 }
-
 main();

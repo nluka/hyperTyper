@@ -1,112 +1,53 @@
-class ElementVisibility {
-  static isVisibleAttributeName = "data-visible";
-
-  static applyStoredVisibilitySettings(
-    args = {
-      collapsibleElement,
-      collapsibleElementId,
-      toggleVisibilityButtonElement,
-      defaultVisibilityBool
+import ElementVisibilityStateStorage from './ElementVisibilityStateStorage.js';
+import { parseBool } from './functions.js';
+var VISIBILITY_ATTRIBUTE_NAME = 'data-visible';
+var ElementVisibility = /** @class */ (function () {
+    function ElementVisibility() {
     }
-  ) {
-    const storedBool = ElementVisibilityStateStorage.getBoolIfExists(args.collapsibleElementId);
-    if (storedBool === null) {
-      this.applyDefaultVisibilitySettings(args);
-      return;
-    }
-    this.set(args.collapsibleElement, storedBool);
-    this.setToggleVisibilityButtonInnerTextBasedOnVisibilityBool(
-      args.toggleVisibilityButtonElement,
-      storedBool
-    );
-  }
-
-  static applyDefaultVisibilitySettings(
-    args = {
-      collapsibleElement,
-      collapsibleElementId,
-      toggleVisibilityButtonElement,
-      defaultVisibilityBool
-    }
-  ) {
-    this.set(args.collapsibleElement, args.defaultVisibilityBool);
-    this.setToggleVisibilityButtonInnerTextBasedOnVisibilityBool(
-      args.toggleVisibilityButtonElement,
-      args.defaultVisibilityBool
-    );
-  }
-
-  static setToggleVisibilityButtonInnerTextBasedOnVisibilityBool(
-    toggleVisibilityButtonElement,
-    isVisible
-  ) {
-    if (isVisible) {
-      toggleVisibilityButtonElement.innerText = "Hide";
-      return;
-    }
-    toggleVisibilityButtonElement.innerText = "Show";
-  }
-
-  static set(element, bool) {
-    element.setAttribute(this.isVisibleAttributeName, bool);
-  }
-
-  static addToggleButtonClickEventListener(
-    args = {
-      collapsibleElement,
-      collapsibleElementId,
-      toggleVisibilityButtonElement
-    }
-  ) {
-    args.toggleVisibilityButtonElement.addEventListener(
-      "click",
-      () => {
-        ElementVisibilityToggleButtonClickEventListener(
-          args = {
-            collapsibleElement: args.collapsibleElement,
-            collapsibleElementId: args.collapsibleElementId,
-            toggleVisibilityButtonElement: args.toggleVisibilityButtonElement
-          }
-        )
-      }
-    );
-  }
-
-  static toggle(
-    args = {
-      collapsibleElement,
-      collapsibleElementId,
-      toggleVisibilityButtonElement
-    }
-  ) {
-    const previousBool = this.getIsVisibleAttributeBool(args.collapsibleElement);
-    const newBool = !previousBool;
-    this.setIsVisibleAttribute(args.collapsibleElement, newBool);
-    this.setToggleVisibilityButtonInnerTextBasedOnVisibilityBool(
-      args.toggleVisibilityButtonElement,
-      newBool
-    );
-    ElementVisibilityStateStorage.setBool(
-      args.collapsibleElementId,
-      newBool
-    );
-  }
-
-  static getIsVisibleAttributeBool(element) {
-    return parseBool(element.getAttribute(this.isVisibleAttributeName));
-  }
-
-  static setIsVisibleAttribute(element, bool) {
-    element.setAttribute(this.isVisibleAttributeName, bool);
-  }
-}
-
-function ElementVisibilityToggleButtonClickEventListener(
-  args = {
-    collapsibleElement,
-    collapsibleElementId,
-    toggleVisibilityButtonElement
-  }
-) {
-  ElementVisibility.toggle(args);
+    ElementVisibility.applyStoredSettings = function (collapsibleElement, collapsibleElementId, toggleVisibilityButtonElement, defaultVisibilityBool) {
+        var storedBool = ElementVisibilityStateStorage.getBoolIfExists(collapsibleElementId);
+        if (storedBool === null) {
+            this.applyDefaultSettings(collapsibleElement, toggleVisibilityButtonElement, defaultVisibilityBool);
+            return;
+        }
+        this.set(collapsibleElement, storedBool);
+        this.setToggleVisibilityButtonInnerTextBasedOnVisibilityBool(toggleVisibilityButtonElement, storedBool);
+    };
+    ElementVisibility.applyDefaultSettings = function (collapsibleElement, toggleVisibilityButtonElement, defaultVisibilityBool) {
+        this.set(collapsibleElement, defaultVisibilityBool);
+        this.setToggleVisibilityButtonInnerTextBasedOnVisibilityBool(toggleVisibilityButtonElement, defaultVisibilityBool);
+    };
+    ElementVisibility.setToggleVisibilityButtonInnerTextBasedOnVisibilityBool = function (toggleVisibilityButtonElement, isVisible) {
+        if (isVisible) {
+            toggleVisibilityButtonElement.innerText = 'Hide';
+            return;
+        }
+        toggleVisibilityButtonElement.innerText = 'Show';
+    };
+    ElementVisibility.set = function (element, bool) {
+        element.setAttribute(VISIBILITY_ATTRIBUTE_NAME, bool.toString());
+    };
+    ElementVisibility.addToggleButtonClickEventListener = function (collapsibleElement, collapsibleElementId, toggleVisibilityButtonElement) {
+        toggleVisibilityButtonElement.addEventListener('click', function () {
+            ElementVisibilityToggleButtonClickEventListener(collapsibleElement, collapsibleElementId, toggleVisibilityButtonElement);
+        });
+    };
+    ElementVisibility.toggle = function (collapsibleElement, collapsibleElementId, toggleVisibilityButtonElement) {
+        var previousBool = this.getIsVisibleAttributeBool(collapsibleElement);
+        var newBool = !previousBool;
+        this.setIsVisibleAttribute(collapsibleElement, newBool);
+        this.setToggleVisibilityButtonInnerTextBasedOnVisibilityBool(toggleVisibilityButtonElement, newBool);
+        ElementVisibilityStateStorage.setBool(collapsibleElementId, newBool);
+    };
+    ElementVisibility.getIsVisibleAttributeBool = function (element) {
+        return parseBool(element.getAttribute('data-visible'));
+    };
+    ElementVisibility.setIsVisibleAttribute = function (element, bool) {
+        element.setAttribute(VISIBILITY_ATTRIBUTE_NAME, bool.toString());
+    };
+    return ElementVisibility;
+}());
+export default ElementVisibility;
+function ElementVisibilityToggleButtonClickEventListener(collapsibleElement, collapsibleElementId, toggleVisibilityButtonElement) {
+    ElementVisibility.toggle(collapsibleElement, collapsibleElementId, toggleVisibilityButtonElement);
 }

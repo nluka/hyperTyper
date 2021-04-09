@@ -1,271 +1,267 @@
-const phraseItemCollectionNameToArrayMap = {
-  "englishWordsCommonCollection": englishWordsCommonCollection,
-  "englishWordsRandomCollection": englishWordsRandomCollection,
-  "numbersCollection": numbersCollection,
-  "symbolsCollection": symbolsCollection,
-  "programmingCommonKeywordsCollection": programmingCommonKeywordsCollection,
-  "programmingCommonOperatorsCollection": programmingCommonOperatorsCollection,
-  "cKeywordsCollection": cKeywordsCollection,
-  "cOperatorsCollection": cOperatorsCollection,
-  "cppKeywordsCollection": cppKeywordsCollection,
-  "cppOperatorsCollection": cppOperatorsCollection,
-  "csharpKeywordsCollection": csharpKeywordsCollection,
-  "csharpOperatorsCollection": csharpOperatorsCollection,
-  "css3PropertiesCollection": css3PropertiesCollection,
-  "html5TagsCollection": html5TagsCollection,
-  "javaKeywordsCollection": javaKeywordsCollection,
-  "javaOperatorsCollection": javaOperatorsCollection,
-  "javascriptKeywordsCollection": javascriptKeywordsCollection,
-  "javascriptOperatorsCollection": javascriptOperatorsCollection,
-  "pythonKeywordsCollection": pythonKeywordsCollection,
-  "pythonOperatorsCollection": pythonOperatorsCollection
-};
-
-class Settings {
-  // Constants
-  static MIN_SOUND_VOLUME = 0.01;
-  static MAX_SOUND_VOLUME = 1.0;
-  static EXPRESSION_MODES = {
-    QUOTE: "quote",
-    PHRASE: "phrase"
-  };
-  static MIN_PHRASE_ITEM_COUNT = 1;
-  static MAX_PHRASE_ITEM_COUNT = 100;
-
-  static default = {
-    countdown: true,
-    expressionMode: this.EXPRESSION_MODES.QUOTE,
-    instantDeath: false,
-    keyboardVisual: false,
-    punctuation: true,
-    trackStatistics: true,
-
-    soundEffects: true,
-    soundVolume: 0.5,
-
-    phraseItemCount: 25,
-    phrasePunctuationChancePerItem: 1/15,
-    phraseItemCollections: [
-      englishWordsCommonCollection,
-      englishWordsRandomCollection,
-      numbersCollection,
-      symbolsCollection,
-    ],
-    phraseItemCollectionNames: [
-      "englishWordsCommonCollection",
-      "englishWordsRandomCollection",
-      "numbersCollection",
-      "symbolsCollection",
-    ]
-  };
-
-  // Keys
-  static KEYS = {
-    COUNTDOWN: "countdown",
-    EXPRESSION_MODE: "expressionMode",
-    INSTANT_DEATH: "instantDeath",
-    KEYBOARD_VISUAL: "keyboardVisual",
-    PUNCTUATION: "punctuation",
-    TRACK_STATISTICS: "trackStatistics",
-
-    SOUND_EFFECTS: "soundEffects",
-    SOUND_VOLUME: "soundVolume",
-
-    PHRASE_ITEM_COUNT: "phraseItemCount",
-    PHRASE_ITEM_COLLECTIONS: "phraseItemCollections"
-  };
-
-  // Gameplay
-  static countdown = this.default.countdown;
-  static expressionMode = this.default.expressionMode;
-  static instantDeath = this.default.instantDeath;
-  static keyboardVisual = this.default.keyboardVisual;
-  static punctuation = this.default.punctuation;
-  static trackStatistics = this.default.trackStatistics;
-
-  // Audio
-  static soundEffects = this.default.soundEffects;
-  static soundVolume = this.default.soundVolume;
-
-  // Phrase
-  static phraseItemCount = this.default.phraseItemCount;
-  static phrasePunctuationChancePerItem = this.default.phrasePunctuationChancePerItem;
-  static phraseItemCollections = this.default.phraseItemCollections;
-
-  //#region Setter methods
-
-  static verifyEntityType(entity, dataType) {
-    if (typeof entity !== dataType) {
-      throw TypeError(`'${entity}' is not of type ${dataType}`);
+import { englishWordsCommonCollection } from "../expression-resources/english/english-words-common.js";
+import { englishWordsRandomCollection } from "../expression-resources/english/english-words-random.js";
+import { numbersCollection } from "../expression-resources/numbers-symbols/numbers.js";
+import { symbolsCollection } from "../expression-resources/numbers-symbols/symbols.js";
+// import { programmingCommonKeywordsCollection } from "./expression-resources/general-programming/programming-common-keywords.js";
+// import { programmingCommonOperatorsCollection } from "./expression-resources/general-programming/programming-common-operators.js";
+// import { cKeywordsCollection } from "./expression-resources/c/c-keywords.js";
+// import { cOperatorsCollection } from "./expression-resources/c/c-operators.js";
+// import { cppKeywordsCollection } from "./expression-resources/cpp/cpp-keywords.js";
+// import { cppOperatorsCollection } from "./expression-resources/cpp/cpp-operators.js";
+// import { csharpKeywordsCollection } from "./expression-resources/csharp/csharp-keywords.js";
+// import { csharpOperatorsCollection } from "./expression-resources/csharp/csharp-operators.js";
+// import { css3PropertiesCollection } from "./expression-resources/css-html/css3-properties.js";
+// import { html5TagsCollection } from "./expression-resources/css-html/html5-tags.js";
+// import { javaKeywordsCollection } from "./expression-resources/java/java-keywords.js";
+// import { javaOperatorsCollection } from "./expression-resources/java/java-operators.js";
+// import { javascriptKeywordsCollection } from "./expression-resources/javascript/javascript-keywords.js";
+// import { javascriptOperatorsCollection } from "./expression-resources/javascript/javascript-operators.js";
+// import { pythonKeywordsCollection } from "./expression-resources/python/python-keywords.js";
+// import { pythonOperatorsCollection } from "./expression-resources/python/python-operators.js";
+import SettingsStorage from "./SettingsStorage.js";
+import Sound from "./Sound.js";
+import { convertItemCollectionNameArrayToItemCollectionArray, getKeyFromObjectByValue, throwExceededClassInstanceLimitException, verifyNumberIsInRange } from "../common/functions.js";
+import { phraseItemCollectionNameToArrayMap } from "../common/constants.js";
+import { settings } from "./main.js";
+var Settings = /** @class */ (function () {
+    function Settings() {
+        // Gameplay
+        this.countdown = Settings.DEFAULT.countdown;
+        this.expressionMode = Settings.DEFAULT.expressionMode;
+        this.instantDeath = Settings.DEFAULT.instantDeath;
+        this.keyboardVisual = Settings.DEFAULT.keyboardVisual;
+        this.punctuation = Settings.DEFAULT.punctuation;
+        this.trackStatistics = Settings.DEFAULT.trackStatistics;
+        // Audio
+        this.soundEffects = Settings.DEFAULT.soundEffects;
+        this.soundVolume = Settings.DEFAULT.soundVolume;
+        // Phrase
+        this.phraseItemCollections = Settings.DEFAULT.phraseItemCollections;
+        this.phraseItemCount = Settings.DEFAULT.phraseItemCount;
+        this.phrasePunctuationFrequency = Settings.DEFAULT.phrasePunctuationFrequency;
+        Settings.instanceCount++;
+        if (Settings.instanceCount > Settings.instanceCountLimit) {
+            throwExceededClassInstanceLimitException("Settings", Settings.instanceCountLimit);
+        }
     }
-  }
-
-  static verifyNumberIsInRange(number, range = { min, max }) {
-    if (number < range.min || number > range.max) {
-      throw `'${number}' is not in range ${range.min}-${range.max}`;
-    }
-  }
-
-  static setPunctuation(bool) {
-    this.verifyEntityType(bool, "boolean");
-    this.punctuation = bool;
-    SettingsStorage.setPunctuation(bool);
-  }
-
-  static setSoundVolume(float) {
-    this.verifyEntityType(float, "number");
-    this.verifyNumberIsInRange(
-      float,
-      {
-        min: this.MIN_SOUND_VOLUME,
-        max: this.MAX_SOUND_VOLUME
-      }
-    );
-    this.soundVolume = float;
-    Sound.setVolume(float);
-    SettingsStorage.setSoundVolume(float);
-  }
-
-  static setExpressionMode(mode) {
-    this.verifyEntityType(mode, "string");
-    this.verifyExpressionMode(mode);
-    this.expressionMode = mode;
-    SettingsStorage.setExpressionMode(mode);
-  }
-
-  static verifyExpressionMode(mode) {
-    if (mode !== this.EXPRESSION_MODES.QUOTE && mode !== this.EXPRESSION_MODES.PHRASE) {
-      throw `'${mode}' is not a valid mode for expression`;
-    }
-  }
-
-  static setPhraseItemCount(count) {
-    this.verifyNumberIsInRange(
-      count,
-      {
-        min: this.MIN_PHRASE_ITEM_COUNT,
-        max: this.MAX_PHRASE_ITEM_COUNT
-      }
-    );
-    this.phraseItemCount = count;
-    SettingsStorage.setPhraseItemCount(count);
-  }
-
-  static setPhraseItemCollections(itemCollectionArray) {
-    let newItemCollectionNamesArray = [];
-    itemCollectionArray.forEach((itemCollection) => {
-      const indexOfItemCollection = Object.values(phraseItemCollectionNameToArrayMap).indexOf(itemCollection);
-      if (indexOfItemCollection > -1) {
-        newItemCollectionNamesArray.push(Object.keys(phraseItemCollectionNameToArrayMap)[indexOfItemCollection]);
-      }
-    });
-    SettingsStorage.setPhraseItemCollections(newItemCollectionNamesArray);
-  }
-
-  //#endregion
-
-  //#region Initialize values from storage methods
-
-  static initializeAllValuesFromStorage() {
-    this.initializePunctuationStoredValue();
-    this.initializeKeyboardVisualStoredValue();
-    this.initializeInstantDeathStoredValue();
-    this.initializeTrackStatisticsStoredValue();
-    this.initializeCountdownStoredValue();
-    this.initializeSoundEffectsStoredValue();
-    this.initializeSoundVolumeStoredValue();
-    this.initializeExpressionModeStoredValue();
-    this.initializePhraseItemCountStoredValue();
-    this.initializePhraseItemCollectionsStoredValue();
-  }
-
-  //#region Initialize data type value methods
-
-  static initializeBoolValue(settingKey) {
-    const storedBool = SettingsStorage.getBoolIfExists(settingKey);
-    if (storedBool !== null) {
-      Settings[settingKey] = storedBool;
-    }
-  }
-
-  static initializeFloatValue(settingKey) {
-    const storedFloat = SettingsStorage.getFloatIfExists(settingKey);
-    if (storedFloat !== null) {
-      Settings[settingKey] = storedFloat;
-    }
-  }
-
-  static initializeStringValue(settingKey) {
-    const storedString = SettingsStorage.getStringIfExists(settingKey);
-    if (storedString !== null) {
-      Settings[settingKey] = storedString;
-    }
-  }
-
-  static initializeCountValue(settingKey) {
-    const storedCount = SettingsStorage.getCountIfExists(settingKey);
-    if (storedCount !== null) {
-      Settings[settingKey] = storedCount;
-    }
-  }
-
-  static initializeArrayValue(settingKey) {
-    const storedArray = SettingsStorage.getArrayIfExists(settingKey);
-    if (storedArray !== null) {
-      const convertedArray = this.convertItemCollectionNameArrayToItemCollectionArray(storedArray);
-      Settings[settingKey] = convertedArray;
-    }
-  }
-
-  static convertItemCollectionNameArrayToItemCollectionArray(itemCollectionNameArray) {
-    let itemCollectionArray = [];
-    itemCollectionNameArray.forEach((itemCollectionName) => {
-      itemCollectionArray.push(phraseItemCollectionNameToArrayMap[itemCollectionName]);
-    });
-    return itemCollectionArray;
-  }
-
-  //#endregion
-
-  static initializePunctuationStoredValue() {
-    this.initializeBoolValue(this.KEYS.PUNCTUATION);
-  }
-
-  static initializeKeyboardVisualStoredValue() {
-    this.initializeBoolValue(this.KEYS.KEYBOARD_VISUAL);
-  }
-
-  static initializeInstantDeathStoredValue() {
-    this.initializeBoolValue(this.KEYS.INSTANT_DEATH);
-  }
-
-  static initializeTrackStatisticsStoredValue() {
-    this.initializeBoolValue(this.KEYS.TRACK_STATISTICS);
-  }
-
-  static initializeCountdownStoredValue() {
-    this.initializeBoolValue(this.KEYS.COUNTDOWN);
-  }
-
-  static initializeSoundEffectsStoredValue() {
-    this.initializeBoolValue(this.KEYS.SOUND_EFFECTS);
-  }
-
-  static initializeSoundVolumeStoredValue() {
-    this.initializeFloatValue(this.KEYS.SOUND_VOLUME);
-  }
-
-  static initializeExpressionModeStoredValue() {
-    this.initializeStringValue(this.KEYS.EXPRESSION_MODE);
-  }
-
-  static initializePhraseItemCountStoredValue() {
-    this.initializeCountValue(this.KEYS.PHRASE_ITEM_COUNT);
-  }
-
-  static initializePhraseItemCollectionsStoredValue() {
-    this.initializeArrayValue(this.KEYS.PHRASE_ITEM_COLLECTIONS);
-  }
-
-  //#endregion
-}
+    //#region getters
+    // There is only one instance of type "Settings" allowed and it is global.
+    // This is why the following getters access "settings" instead of accessing "this".
+    Settings.prototype.getCountdown = function () {
+        return settings["countdown"];
+    };
+    Settings.prototype.getExpressionMode = function () {
+        return settings["expressionMode"];
+    };
+    Settings.prototype.getInstantDeath = function () {
+        return settings["instantDeath"];
+    };
+    Settings.prototype.getKeyboardVisual = function () {
+        return settings["keyboardVisual"];
+    };
+    Settings.prototype.getPunctuation = function () {
+        return settings["punctuation"];
+    };
+    Settings.prototype.getTrackStatistics = function () {
+        return settings["trackStatistics"];
+    };
+    Settings.prototype.getSoundEffects = function () {
+        return settings["soundEffects"];
+    };
+    Settings.prototype.getSoundVolume = function () {
+        return settings["soundVolume"];
+    };
+    Settings.prototype.getPhraseItemCollections = function () {
+        return settings["phraseItemCollections"];
+    };
+    Settings.prototype.getPhraseItemCount = function () {
+        return settings["phraseItemCount"];
+    };
+    Settings.prototype.getPhrasePunctuationFrequency = function () {
+        return settings["phrasePunctuationFrequency"];
+    };
+    //#endregion
+    //#region setters
+    // There is only one instance of type "Settings" allowed and it is global.
+    // This is why the following setters access "settings" instead of accessing "this".
+    Settings.prototype.setCountdown = function (bool) {
+        settings.countdown = bool;
+        SettingsStorage.setCountdown(bool);
+    };
+    Settings.prototype.setExpressionMode = function (mode) {
+        Settings.verifyExpressionMode(mode);
+        settings.expressionMode = mode;
+        SettingsStorage.setExpressionMode(mode);
+    };
+    Settings.verifyExpressionMode = function (mode) {
+        if (!(Object.values(Settings.EXPRESSION_MODES).includes(mode))) {
+            throw "'" + mode + "' (" + typeof mode + ") is not a valid expressionMode";
+        }
+    };
+    Settings.prototype.setInstantDeath = function (bool) {
+        settings.instantDeath = bool;
+        SettingsStorage.setInstantDeath(bool);
+    };
+    Settings.prototype.setKeyboardVisual = function (bool) {
+        settings.keyboardVisual = bool;
+        SettingsStorage.setKeyboardVisual(bool);
+    };
+    Settings.prototype.setPunctuation = function (bool) {
+        settings.punctuation = bool;
+        SettingsStorage.setPunctuation(bool);
+    };
+    Settings.prototype.setTrackStatistics = function (bool) {
+        settings.trackStatistics = bool;
+        SettingsStorage.setTrackStatistics(bool);
+    };
+    Settings.prototype.setSoundEffects = function (bool) {
+        settings.soundEffects = bool;
+        SettingsStorage.setSoundEffects(bool);
+    };
+    Settings.prototype.setSoundVolume = function (float) {
+        verifyNumberIsInRange(float, Settings.MIN_SOUND_VOLUME, Settings.MAX_SOUND_VOLUME);
+        settings.soundVolume = float;
+        Sound.setVolume(float);
+        SettingsStorage.setSoundVolume(float);
+    };
+    Settings.prototype.setPhraseItemCollections = function (itemCollections) {
+        var newItemCollectionNames = [];
+        itemCollections.forEach(function (itemCollection) {
+            var itemCollectionName = getKeyFromObjectByValue(phraseItemCollectionNameToArrayMap, itemCollection);
+            if (itemCollectionName !== null && itemCollectionName !== undefined) {
+                newItemCollectionNames.push(itemCollectionName);
+            }
+        });
+        SettingsStorage.setPhraseItemCollections(newItemCollectionNames);
+    };
+    Settings.prototype.setPhraseItemCount = function (count) {
+        verifyNumberIsInRange(count, Settings.MIN_PHRASE_ITEM_COUNT, Settings.MAX_PHRASE_ITEM_COUNT);
+        settings.phraseItemCount = count;
+        SettingsStorage.setPhraseItemCount(count);
+    };
+    Settings.prototype.setPhrasePunctuationFrequency = function (fractionalChancePerItem) {
+        verifyNumberIsInRange(fractionalChancePerItem, Settings.MIN_PHRASE_PUNCTUATION_FREQUENCY, Settings.MAX_PHRASE_PUNCTUATION_FREQUENCY);
+        settings.phrasePunctuationFrequency = fractionalChancePerItem;
+        SettingsStorage.setPhrasePunctuationFrequency(fractionalChancePerItem);
+    };
+    //#endregion
+    //#region initialization
+    Settings.prototype.initializeAllValuesFromStorage = function () {
+        this.initializeCountdown();
+        this.initializeExpressionMode();
+        this.initializeInstantDeath();
+        this.initializeKeyboardVisual();
+        this.initializePunctuation();
+        this.initializeTrackStatistics();
+        this.initializeSoundEffects();
+        this.initializeSoundVolume();
+        this.initializePhraseItemCollections();
+        this.initializePhraseItemCount();
+        this.initializePhrasePunctuationFrequency();
+    };
+    Settings.prototype.initializeCountdown = function () {
+        var storedBool = SettingsStorage.getBoolIfExists("countdown");
+        if (storedBool !== null) {
+            this["countdown"] = storedBool;
+        }
+    };
+    Settings.prototype.initializeExpressionMode = function () {
+        var storedString = SettingsStorage.getStringIfExists("expressionMode");
+        if (storedString !== null) {
+            this["expressionMode"] = storedString;
+        }
+    };
+    Settings.prototype.initializeInstantDeath = function () {
+        var storedBool = SettingsStorage.getBoolIfExists("instantDeath");
+        if (storedBool !== null) {
+            this["instantDeath"] = storedBool;
+        }
+    };
+    Settings.prototype.initializeKeyboardVisual = function () {
+        var storedBool = SettingsStorage.getBoolIfExists("keyboardVisual");
+        if (storedBool !== null) {
+            this["keyboardVisual"] = storedBool;
+        }
+    };
+    Settings.prototype.initializePunctuation = function () {
+        var storedBool = SettingsStorage.getBoolIfExists("punctuation");
+        if (storedBool !== null) {
+            this["punctuation"] = storedBool;
+        }
+    };
+    Settings.prototype.initializeTrackStatistics = function () {
+        var storedBool = SettingsStorage.getBoolIfExists("trackStatistics");
+        if (storedBool !== null) {
+            this["trackStatistics"] = storedBool;
+        }
+    };
+    Settings.prototype.initializeSoundEffects = function () {
+        var storedBool = SettingsStorage.getBoolIfExists("soundEffects");
+        if (storedBool !== null) {
+            this["soundEffects"] = storedBool;
+        }
+    };
+    Settings.prototype.initializeSoundVolume = function () {
+        var storedBool = SettingsStorage.getFloatIfExists("soundVolume");
+        if (storedBool !== null) {
+            this["soundVolume"] = storedBool;
+        }
+    };
+    Settings.prototype.initializePhraseItemCollections = function () {
+        var storedItemCollectionNames = SettingsStorage.getArrayIfExists("phraseItemCollections");
+        if (storedItemCollectionNames !== null) {
+            var itemCollections = convertItemCollectionNameArrayToItemCollectionArray(storedItemCollectionNames);
+            this["phraseItemCollections"] = itemCollections;
+        }
+    };
+    Settings.prototype.initializePhraseItemCount = function () {
+        var storedCount = SettingsStorage.getCountIfExists("phraseItemCount");
+        if (storedCount !== null) {
+            this["phraseItemCount"] = storedCount;
+        }
+    };
+    Settings.prototype.initializePhrasePunctuationFrequency = function () {
+        var storedFloat = SettingsStorage.getFloatIfExists("phrasePunctuationFrequency");
+        if (storedFloat !== null) {
+            this["phrasePunctuationFrequency"] = storedFloat;
+        }
+    };
+    Settings.MIN_SOUND_VOLUME = 0.01;
+    Settings.MAX_SOUND_VOLUME = 1.0;
+    Settings.EXPRESSION_MODES = {
+        QUOTE: "quote",
+        PHRASE: "phrase"
+    };
+    Settings.MIN_PHRASE_ITEM_COUNT = 1;
+    Settings.MAX_PHRASE_ITEM_COUNT = 100;
+    Settings.MIN_PHRASE_PUNCTUATION_FREQUENCY = 0.01;
+    Settings.MAX_PHRASE_PUNCTUATION_FREQUENCY = 1.0;
+    Settings.DEFAULT = {
+        countdown: true,
+        expressionMode: Settings.EXPRESSION_MODES.QUOTE,
+        instantDeath: false,
+        keyboardVisual: false,
+        punctuation: true,
+        trackStatistics: true,
+        soundEffects: true,
+        soundVolume: 0.5,
+        phraseItemCount: 25,
+        phrasePunctuationFrequency: 1 / 15,
+        phraseItemCollections: [
+            englishWordsCommonCollection,
+            englishWordsRandomCollection,
+            numbersCollection,
+            symbolsCollection,
+        ],
+        phraseItemCollectionNames: [
+            "englishWordsCommonCollection",
+            "englishWordsRandomCollection",
+            "numbersCollection",
+            "symbolsCollection",
+        ]
+    };
+    Settings.instanceCountLimit = 1;
+    Settings.instanceCount = 0;
+    return Settings;
+}());
+export default Settings;
