@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+
+:root {
+  /* Elevation colors */
+  --dp-00: rgb(12, 12, 12);
+  --dp-01: rgb(30, 30, 30);
+  --dp-02: rgb(35, 35, 35);
+  --dp-03: rgb(37, 37, 37);
+  --dp-04: rgb(39, 39, 39);
+  --dp-06: rgb(44, 44, 44);
+  --dp-08: rgb(46, 46, 46);
+  --dp-12: rgb(51, 51, 51);
+  --dp-16: rgb(54, 54, 54);
+  --dp-24: rgb(56, 56, 56);
+
+  /* Elevation box shadows */
+  --shadow-dp-01: 0 0 1px 1px black;
+  --shadow-dp-02: 0 0 2px 1px black;
+  --shadow-dp-03: 0 0 3px 1px black;
+  --shadow-dp-04: 0 0 4px 1px black;
+  --shadow-dp-06: 0 0 5px 1px black;
+  --shadow-dp-08: 0 0 6px 1px black;
+  --shadow-dp-12: 0 0 7px 1px black;
+  --shadow-dp-16: 0 0 8px 1px black;
+  --shadow-dp-24: 0 0 9px 1px black;
+
+  --base-unit: 8px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--dp-00);
+}
