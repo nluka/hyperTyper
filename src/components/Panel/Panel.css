@@ -1,17 +1,24 @@
 .panel {
-  background-color: var(--bg-color-secondary);
-  /* border: 1px solid var(--border-color-secondary); */
+  --width: calc(100vw - calc(var(--base-unit) * 4));
+  background-color: var(--dp-01);
+  box-shadow: var(--shadow-dp-01);
   border-radius: calc(var(--base-unit) * 1);
   height: fit-content;
-  max-width: 90%;
+  max-width: var(--width);
+  min-width: var(--width);
   position: relative;
+  width: var(--width);
+}
+
+.panel.transparent {
+  background-color: transparent;
+  box-shadow: none;
 }
 
 .panel-heading {
   align-items: center;
   background-color: transparent;
   border-radius: calc(var(--base-unit) * 1);
-  color: white;
   display: flex;
   font-size: calc(var(--base-unit) * 2);
   justify-content: space-between;
@@ -24,7 +31,6 @@
   background-color: transparent;
   border: none;
   border-radius: calc(var(--base-unit) * 1);
-  color: white;
   cursor: pointer;
   padding: calc(var(--base-unit) * 1);
 }

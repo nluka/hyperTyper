@@ -4,14 +4,19 @@ import './Panel.css';
 interface PanelProps {
   hasHeading: Boolean;
   headingText?: String;
+  classes?: String;
   children: JSX.Element[];
 }
 
 const Panel = (props: PanelProps) => {
   const [isContentVisible, setIsContentVisible] = useState(true);
 
+  const getClassName = () => {
+    return 'panel' + (props.classes !== undefined ? ' ' + props.classes : '');
+  };
+
   return (
-    <div className='panel'>
+    <div className={getClassName()}>
       {props.hasHeading && (
         <PanelHeading isPanelContentVisible={isContentVisible} setIsPanelContentVisible={setIsContentVisible} />
       )}
