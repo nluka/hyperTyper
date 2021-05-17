@@ -1,8 +1,15 @@
 import React from 'react';
 import './GameActionButton.css';
 
-const GameActionButton = () => {
-  return <button id='gameActionButton'>Start</button>;
+interface GameActionButtonProps {}
+
+const GameActionButton = (props: GameActionButtonProps) => {
+  const handleClick = () => {};
+  return (
+    <button id='gameActionButton' onClick={handleClick}>
+      Start
+    </button>
+  );
 };
 
 export default GameActionButton;

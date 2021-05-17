@@ -1,7 +1,9 @@
 import React from 'react';
 import './GameTimer.css';
 
-const GameTimer = () => {
+interface GameTimerProps {}
+
+const GameTimer = (props: GameTimerProps) => {
   return <div id='gameTimerDiv'>--:--</div>;
 };
 

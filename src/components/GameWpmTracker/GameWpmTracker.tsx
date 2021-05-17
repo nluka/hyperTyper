@@ -1,6 +1,9 @@
+import React from 'react';
 import './GameWpmTracker.css';
 
-const GameWpmTracker = () => {
+interface GameWpmTrackerProps {}
+
+const GameWpmTracker = (props: GameWpmTrackerProps) => {
   return <div id='gameWpmTrackerDiv'>— WPM</div>;
 };
 

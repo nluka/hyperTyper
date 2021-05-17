@@ -1,7 +1,11 @@
 import React from 'react';
 import './GameInput.css';
 
-const GameInput = () => {
+interface GameInputProps {}
+
+const GameInput = (props: GameInputProps) => {
+  const handleChange = () => {};
+
   return (
     <input
       type='text'
@@ -10,6 +14,7 @@ const GameInput = () => {
       autoCorrect='off'
       autoCapitalize='on'
       spellCheck='false'
+      onChange={handleChange}
     />
   );
 };
