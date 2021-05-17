@@ -1,0 +1,34 @@
+.panel {
+  background-color: var(--bg-color-secondary);
+  /* border: 1px solid var(--border-color-secondary); */
+  border-radius: calc(var(--base-unit) * 1);
+  height: fit-content;
+  max-width: 90%;
+  position: relative;
+}
+
+.panel-heading {
+  align-items: center;
+  background-color: transparent;
+  border-radius: calc(var(--base-unit) * 1);
+  color: white;
+  display: flex;
+  font-size: calc(var(--base-unit) * 2);
+  justify-content: space-between;
+  padding: calc(var(--base-unit) * 1);
+  text-align: left;
+  user-select: none;
+}
+
+.panel-content-visibility-button {
+  background-color: transparent;
+  border: none;
+  border-radius: calc(var(--base-unit) * 1);
+  color: white;
+  cursor: pointer;
+  padding: calc(var(--base-unit) * 1);
+}
+
+.panel-content[data-is-visible='false'] {
+  display: none;
+}
