@@ -1,7 +1,7 @@
-import React from 'react';
+import './GameWpmTracker.css';
 
 const GameWpmTracker = () => {
-  return <></>;
+  return <div id='gameWpmTrackerDiv'>— WPM</div>;
 };
 
 export default GameWpmTracker;

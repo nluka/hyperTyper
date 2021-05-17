@@ -1,0 +1,8 @@
+#gameTimerDiv {
+  align-items: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  font-size: calc(var(--base-unit) * 2);
+  justify-content: center;
+  padding-right: calc(var(--base-unit) * 1);
+}

@@ -1,7 +1,8 @@
 import React from 'react';
+import './GameActionButton.css';
 
 const GameActionButton = () => {
-  return <></>;
+  return <button id='gameActionButton'>Start</button>;
 };
 
 export default GameActionButton;

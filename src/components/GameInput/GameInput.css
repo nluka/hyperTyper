@@ -1,0 +1,16 @@
+#gameInput {
+  background-color: black;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: calc(var(--base-unit) * 1);
+  caret-color: transparent;
+  font-size: calc(var(--base-unit) * 2.5);
+  height: auto;
+  outline: none;
+  padding: calc(var(--base-unit) * 0.5);
+  text-align: center;
+  width: 100%;
+}
+
+#gameInput:focus {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}

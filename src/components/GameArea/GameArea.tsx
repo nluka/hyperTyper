@@ -1,16 +1,14 @@
 import React from 'react';
+import GameHeader from '../GameHeader/GameHeader';
 import GameInput from '../GameInput/GameInput';
 import GameText from '../GameText/GameText';
-import GameTimer from '../GameTimer/GameTimer';
-import GameWpmTracker from '../GameWpmTracker/GameWpmTracker';
 import Panel from '../Panel/Panel';
 
 const GameArea = () => {
   return (
     <section data-name='GameArea'>
-      <Panel hasHeading={false}>
-        <GameTimer />
-        <GameWpmTracker />
+      <Panel hasHeading={false} classes='transparent'>
+        <GameHeader />
         <GameText />
         <GameInput />
       </Panel>

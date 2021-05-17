@@ -1,0 +1,17 @@
+#gameHeaderDiv {
+  align-items: center;
+  background-color: transparent;
+  box-shadow: none;
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+  justify-content: space-between;
+  margin-bottom: calc(var(--base-unit) * 1);
+}
+
+#gameTimerAndWpmTrackerContainerDiv {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin-left: calc(var(--base-unit) * 1.5);
+}

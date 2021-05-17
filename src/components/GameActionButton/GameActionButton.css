@@ -1,0 +1,19 @@
+#gameActionButton {
+  align-items: center;
+  background-color: var(--primary-200);
+  border: 1px solid transparent;
+  border-radius: calc(var(--base-unit) * 1);
+  color: black;
+  cursor: pointer;
+  display: flex;
+  font-size: calc(var(--base-unit) * 2);
+  font-weight: 500;
+  justify-content: center;
+  padding: calc(var(--base-unit) * 0.5);
+  transition: background-color 0.1s;
+  user-select: none;
+}
+
+#gameActionButton:not(:disabled):hover {
+  background-color: var(--primary-500);
+}

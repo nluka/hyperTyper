@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400&display=swap');
 
 :root {
   /* Elevation colors */
@@ -24,6 +25,11 @@
   --shadow-dp-16: 0 0 8px 1px black;
   --shadow-dp-24: 0 0 9px 1px black;
 
+  /* Colors */
+  --primary-200: #b794f6;
+  --primary-400: #7e3ff2;
+  --primary-500: #6002ee;
+
   --base-unit: 8px;
 }
 
@@ -31,11 +37,26 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
+  color: white;
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
 }
 
 body {
   background-color: var(--dp-00);
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }

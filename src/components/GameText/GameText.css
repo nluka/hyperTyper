@@ -1,0 +1,12 @@
+#gameTextDiv {
+  background-color: black;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: calc(var(--base-unit) * 1);
+  font-family: Inconsolata, sans-serif;
+  font-size: calc(var(--base-unit) * 2.5);
+  font-weight: 300;
+  height: fit-content;
+  margin-bottom: calc(var(--base-unit) * 1);
+  padding: calc(var(--base-unit) * 1.25);
+  white-space: pre-wrap;
+}

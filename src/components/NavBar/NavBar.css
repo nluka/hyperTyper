@@ -9,11 +9,12 @@ nav {
   box-shadow: var(--shadow-dp-04);
   display: flex;
   justify-content: space-between;
+  margin-bottom: calc(var(--base-unit) * 2);
   padding: calc(var(--base-unit) * 2);
 }
 
 .site-name {
-  color: white;
+  /* font-family: 'Inconsolata', sans-serif; */
   font-size: calc(var(--base-unit) * 3);
 }
 
@@ -78,7 +79,6 @@ nav {
 }
 
 .nav-link {
-  color: white;
   border-bottom: 1px solid rgba(255, 255, 255, 0.25);
   font-size: calc(var(--base-unit) * 3);
   font-weight: 300;
