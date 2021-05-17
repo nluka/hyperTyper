@@ -1,7 +1,7 @@
 import React from 'react';
 
 const GameTimer = () => {
-  return <></>;
+  return <div id='gameTimerDiv'>--:--</div>;
 };
 
 export default GameTimer;
