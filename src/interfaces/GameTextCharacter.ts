@@ -1,5 +1,6 @@
 export default interface GameTextCharacter {
-  value: String;
-  input: String | null;
-  mistakeCount: Number;
+  value: string;
+  input: string | null;
+  mistakeCount: number;
+  isCompleted: boolean;
 }
