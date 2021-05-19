@@ -1,10 +1,12 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import gameSlice from './gameSlice';
 
-export const store = configureStore({
-  reducer: {},
+const rootReducer = combineReducers({
+  game: gameSlice.reducer,
 });
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>;
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch;
+const store = configureStore({
+  reducer: rootReducer,
+});
+
+export default store;
