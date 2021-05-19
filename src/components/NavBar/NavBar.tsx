@@ -1,13 +1,14 @@
-// import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-// import '../../index.css';
 import './NavBar.css';
 
 const NavBar = () => {
   const navItemsUl = document.getElementById('navItemsUl');
-  const expandNavbarButtonLines = document.querySelectorAll('.expand-navbar-button-line');
+  const expandNavbarButtonLines = document.querySelectorAll(
+    '.expand-navbar-button-line'
+  );
 
-  const handleExpandNavbarButtonClick = () => {
+  const handleExpandButtonClick = () => {
     navItemsUl?.toggleAttribute('data-is-visible');
     expandNavbarButtonLines.forEach((buttonLine) => {
       buttonLine.classList.toggle('rotated');
@@ -17,7 +18,7 @@ const NavBar = () => {
   return (
     <nav>
       <div className='site-name'>hyperTyper</div>
-      <button id='expandNavbarButton' onClick={handleExpandNavbarButtonClick}>
+      <button id='expandNavbarButton' onClick={handleExpandButtonClick}>
         <span className='expand-navbar-button-line'></span>
         <span className='expand-navbar-button-line'></span>
       </button>
