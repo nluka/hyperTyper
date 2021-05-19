@@ -5,7 +5,9 @@ export default interface Game {
   stopCode: null | string;
   startTime: null | number;
   stopTime: null | number;
-  gameTextCharacters: GameTextCharacter[];
+  textCharacters: GameTextCharacter[];
+  inputValue: string;
+  wordsCompletedCount: null | number;
   totalCharacterInputs: null | number;
   totalMistakeCount: null | number;
   completedCount: number;

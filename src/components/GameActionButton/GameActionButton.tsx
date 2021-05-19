@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import GAME_STOP_CODE from '../../GameStopCode';
-import {
-  gameStartActionCreator,
-  gameStopActionCreator,
-} from '../../redux/gameSlice';
+import { gameStartAction, gameStopAction } from '../../redux/gameSlice';
 import { State } from '../../redux/interfaces/State';
 import './GameActionButton.css';
 
@@ -17,10 +14,10 @@ const GameActionButton = (props: GameActionButtonProps) => {
 
   const handleClick = () => {
     if (!game.isRunning) {
-      dispatch(gameStartActionCreator([]));
+      dispatch(gameStartAction());
       setInnerText('Abort');
     } else {
-      dispatch(gameStopActionCreator(GAME_STOP_CODE.aborted));
+      dispatch(gameStopAction(GAME_STOP_CODE.aborted));
       setInnerText('Start');
     }
   };
