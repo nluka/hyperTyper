@@ -1,6 +1,6 @@
 import GameTextCharacter from './GameTextCharacter';
 
-export default interface GameUpdatePayload {
+export default interface GameUpdateActionPayload {
   inputValue: string;
-  textCharacters: GameTextCharacter[];
+  // textCharacters: GameTextCharacter[];
 }
