@@ -1,15 +1,20 @@
-import { gameWpmTracker_div } from "./page-elements.js";
-import { MILLISECONDS_PER_SECOND, CHARACTERS_PER_WORD, MILLISECONDS_PER_MINUTE } from "../common/constants.js";
-import { gameInput, gameTimer } from "./main.js";
-import { throwExceededClassInstanceLimitException } from "../common/functions.js";
+import { gameWpmTracker_div } from './page-elements.js';
+import {
+  MILLISECONDS_PER_SECOND,
+  CHARACTERS_PER_WORD,
+  MILLISECONDS_PER_MINUTE,
+} from '../common/constants.js';
+import { gameInput, gameTimer } from './main.js';
+import { throwExceededClassInstanceLimitException } from '../common/functions.js';
 
 export default class GameWpmTracker {
-  public static readonly INACTIVE_STATE_TEXT = "— WPM";
-  public static readonly TOOLTIP_TEXT_TITLE = "Game WPM Tracker";
-  public static readonly TOOLTIP_TEXT_BODY = "Displays gross words per minute, calculated as: (Total Characters Inputted ÷ 5) ÷ Minutes";
+  public static readonly INACTIVE_STATE_TEXT = '— WPM';
+  public static readonly TOOLTIP_TEXT_TITLE = 'Game WPM Tracker';
+  public static readonly TOOLTIP_TEXT_BODY =
+    'Displays gross words per minute, calculated as: (Total Characters Inputted ÷ 5) ÷ Minutes';
 
   private readonly element = gameWpmTracker_div;
-  private intervalId: number | null = null;
+  private intervalId: NodeJS.Timeout | null = null;
 
   private static readonly instanceCountLimit = 1;
   private static instanceCount = 0;
@@ -17,7 +22,10 @@ export default class GameWpmTracker {
   constructor() {
     GameWpmTracker.instanceCount++;
     if (GameWpmTracker.instanceCount > GameWpmTracker.instanceCountLimit) {
-      throwExceededClassInstanceLimitException("GameWpmTracker", GameWpmTracker.instanceCountLimit);
+      throwExceededClassInstanceLimitException(
+        'GameWpmTracker',
+        GameWpmTracker.instanceCountLimit
+      );
     }
   }
 
@@ -38,9 +46,12 @@ export default class GameWpmTracker {
 
   private update() {
     let grossWpm = 0;
-    const gameTimerStartDate = gameTimer.getStartDate()
+    const gameTimerStartDate = gameTimer.getStartDate();
     if (gameTimerStartDate !== null) {
-      grossWpm = this.calculateGrossWpm(gameInput.charactersTypedCount, gameTimerStartDate);
+      grossWpm = this.calculateGrossWpm(
+        gameInput.charactersTypedCount,
+        gameTimerStartDate
+      );
     }
     const grossWpmFormattedString = this.getFormattedGrossWpmString(grossWpm);
     this.setInnerText(grossWpmFormattedString);
@@ -48,7 +59,8 @@ export default class GameWpmTracker {
 
   private calculateGrossWpm(charactersTypedCount: number, startDate: Date) {
     const words = charactersTypedCount / CHARACTERS_PER_WORD;
-    const minutes = (new Date().getTime() - startDate.getTime()) / MILLISECONDS_PER_MINUTE;
+    const minutes =
+      (new Date().getTime() - startDate.getTime()) / MILLISECONDS_PER_MINUTE;
     const wordsPerMinute = words / minutes;
     if (wordsPerMinute < 0) {
       return 0;

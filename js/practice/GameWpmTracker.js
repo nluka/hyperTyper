@@ -1,14 +1,14 @@
-import { gameWpmTracker_div } from "./page-elements.js";
-import { MILLISECONDS_PER_SECOND, CHARACTERS_PER_WORD, MILLISECONDS_PER_MINUTE } from "../common/constants.js";
-import { gameInput, gameTimer } from "./main.js";
-import { throwExceededClassInstanceLimitException } from "../common/functions.js";
+import { gameWpmTracker_div } from './page-elements.js';
+import { MILLISECONDS_PER_SECOND, CHARACTERS_PER_WORD, MILLISECONDS_PER_MINUTE, } from '../common/constants.js';
+import { gameInput, gameTimer } from './main.js';
+import { throwExceededClassInstanceLimitException } from '../common/functions.js';
 var GameWpmTracker = /** @class */ (function () {
     function GameWpmTracker() {
         this.element = gameWpmTracker_div;
         this.intervalId = null;
         GameWpmTracker.instanceCount++;
         if (GameWpmTracker.instanceCount > GameWpmTracker.instanceCountLimit) {
-            throwExceededClassInstanceLimitException("GameWpmTracker", GameWpmTracker.instanceCountLimit);
+            throwExceededClassInstanceLimitException('GameWpmTracker', GameWpmTracker.instanceCountLimit);
         }
     }
     GameWpmTracker.prototype.clear = function () {
@@ -52,9 +52,9 @@ var GameWpmTracker = /** @class */ (function () {
         clearInterval(this.intervalId);
         this.update();
     };
-    GameWpmTracker.INACTIVE_STATE_TEXT = "— WPM";
-    GameWpmTracker.TOOLTIP_TEXT_TITLE = "Game WPM Tracker";
-    GameWpmTracker.TOOLTIP_TEXT_BODY = "Displays gross words per minute, calculated as: (Total Characters Inputted ÷ 5) ÷ Minutes";
+    GameWpmTracker.INACTIVE_STATE_TEXT = '— WPM';
+    GameWpmTracker.TOOLTIP_TEXT_TITLE = 'Game WPM Tracker';
+    GameWpmTracker.TOOLTIP_TEXT_BODY = 'Displays gross words per minute, calculated as: (Total Characters Inputted ÷ 5) ÷ Minutes';
     GameWpmTracker.instanceCountLimit = 1;
     GameWpmTracker.instanceCount = 0;
     return GameWpmTracker;
